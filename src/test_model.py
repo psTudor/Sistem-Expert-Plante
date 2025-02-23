@@ -1,0 +1,87 @@
+import spacy
+from typing import List, Tuple
+import sys
+
+class ModelTester:
+    def __init__(self, model_dir: str):
+        """
+        Initializeaza testerul cu modelul antrenat.
+        
+        Args:
+            model_dir: Directorul unde este salvat modelul
+        """
+        try:
+            self.nlp = spacy.load(model_dir)
+            print(f"Model incarcat cu succes din {model_dir}")
+        except Exception as e:
+            print(f"Eroare la incarcarea modelului: {e}")
+            sys.exit(1)
+    
+    def test_single_query(self, text: str) -> List[Tuple[str, str]]:
+        """
+        Testeaza o singura propozitie.
+        
+        Args:
+            text: Textul de testat
+            
+        Returns:
+            Lista de tupluri (text_entitate, label_entitate)
+        """
+        doc = self.nlp(text)
+        return [(ent.text, ent.label_) for ent in doc.ents]
+    
+    def run_test_suite(self, test_cases: List[str]) -> None:
+        """
+        Ruleaza o serie de teste si afiseaza rezultatele.
+        
+        Args:
+            test_cases: Lista de texte pentru testare
+        """
+        print("\nRulare teste model NER:")
+        print("-" * 50)
+        
+        for i, text in enumerate(test_cases, 1):
+            print(f"\nTest {i}/{len(test_cases)}")
+            print(f"Text: {text}")
+            entities = self.test_single_query(text)
+            
+            if entities:
+                print("Entitati gasite:")
+                for ent_text, ent_label in entities:
+                    print(f" - '{ent_text}' -> {ent_label}")
+            else:
+                print("Nu s-au gasit entitati.")
+            
+            print("-" * 30)
+
+if __name__ == "__main__":
+    # Test cases
+    test_cases = [
+        "Cum ud orhideea mea?",
+        "Ficusul are frunze galbene",
+        "Care este substratul potrivit pentru orhidee?",
+        "De ce cad frunzele la ficus?",
+        "Nu stiu ce sa fac cu planta mea",
+        "Orhideea are radacini putrede",
+        "Cat de multa lumina ii trebuie ficusului?",
+        "Cand trebuie sa schimb substratul la orhidee?",
+        "Am probleme cu caderea frunzelor la ficus",
+        "Ficusului ii cad frunzele",
+        "Orhideea are nevoie de lumina",
+        "Substratul pentru orhidee trebuie schimbat",
+        "De ce are orhideea frunze galbene?",
+        "Ficusul nu creste bine in lumina directa",
+        "Trebuie sa ud orhideea in fiecare zi?"
+    ]
+    
+    try:
+        # Initializam testerul
+        tester = ModelTester("model")
+        
+        # Rulam testele
+        tester.run_test_suite(test_cases)
+        
+    except KeyboardInterrupt:
+        print("\nTestare intrerupta de utilizator.")
+    except Exception as e:
+        print(f"\nEroare in timpul testarii: {e}")

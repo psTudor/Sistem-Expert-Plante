@@ -1,0 +1,197 @@
+{
+    "plants": {
+        "orhidee": {
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "saptamanal",
+                    "metoda": "prin imersiune timp de 15 minute",
+                    "detalii": "Udati doar cand pamantul este complet uscat"
+                },
+                "lumina": {
+                    "intensitate": "indirecta stralucitoare",
+                    "expunere": "est sau vest",
+                    "detalii": "Evitati lumina directa a soarelui"
+                },
+                "substrat": {
+                    "tip": "special pentru orhidee",
+                    "detalii": "Pamant special pentru orhidee, format din amestec de scoarta de pin si turba"
+                }
+            },
+            "probleme_comune": {
+                "frunze_galbene": {
+                    "cauze": ["udare excesiva", "lumina insuficienta"],
+                    "solutii": [
+                        "Reduceti frecventa udarii",
+                        "Verificati drenajul",
+                        "Mutati planta intr-un loc mai luminos"
+                    ],
+                    "detalii": "Îngălbenirea frunzelor la orhidee este adesea cauzată de udarea excesivă sau lumină insuficientă. Verificați mai întâi pământul - dacă este prea umed, reduceți udarea. De asemenea, asigurați-vă că planta primește suficientă lumină indirectă."
+                },
+                "radacini_putrede": {
+                    "cauze": ["udare excesiva", "drenaj slab"],
+                    "solutii": [
+                        "Taiati radacinile afectate",
+                        "Replantati in pamant proaspat",
+                        "Reduceti udarea"
+                    ],
+                    "detalii": "Rădăcinile putrede sunt un semn clar de udare excesivă sau drenaj inadecvat. Trebuie să îndepărtați toate rădăcinile afectate, să replantați în pământ proaspăt și să ajustați programul de udare."
+                }
+            }
+        },
+        "ficus": {
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 7-10 zile",
+                    "metoda": "udare moderata pana la drenare",
+                    "detalii": "Lasati pamantul sa se usuce partial intre udari"
+                },
+                "lumina": {
+                    "intensitate": "lumina indirecta puternica",
+                    "expunere": "est sau nord",
+                    "detalii": "Poate tolera lumina directa dimineata"
+                },
+                "substrat": {
+                    "tip": "universal pentru plante de interior",
+                    "detalii": "Pamant universal bine drenat, bogat in materie organica"
+                }
+            },
+            "probleme_comune": {
+                "cadere_frunze": {
+                    "cauze": [
+                        "schimbari bruste de temperatura",
+                        "schimbari de pozitie",
+                        "udare neregulata",
+                        "umiditate scazuta"
+                    ],
+                    "solutii": [
+                        "Mentineti un program regulat de udare",
+                        "Evitati mutarea frecventa a plantei",
+                        "Verificati umiditatea aerului"
+                    ],
+                    "detalii": "Căderea frunzelor la ficus poate fi cauzată de mai mulți factori, incluzând schimbări bruște de temperatură sau poziție, udare neregulată și umiditate scăzută. Este important să mențineți un mediu stabil și să urmați un program regulat de îngrijire."
+                },
+                "frunze_galbene": {
+                    "cauze": [
+                        "udare excesiva",
+                        "lumina insuficienta"
+                    ],
+                    "solutii": [
+                        "Ajustati programul de udare",
+                        "Mutati planta intr-un loc mai luminos",
+                        "Verificati drenajul pamantului"
+                    ],
+                    "detalii": "Frunzele galbene la ficus pot indica probleme cu udarea sau iluminarea. Verificați umiditatea pământului și asigurați-vă că planta primește suficientă lumină indirectă."
+                }
+            }
+        },
+        "trandafir": {
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 2-3 zile",
+                    "metoda": "la baza plantei, evitând udarea frunzelor",
+                    "detalii": "Verificați umiditatea solului înainte de udare. Solul trebuie să fie mereu ușor umed, dar nu saturat"
+                },
+                "lumina": {
+                    "intensitate": "lumină directă",
+                    "expunere": "minim 6 ore de soare pe zi",
+                    "detalii": "Trandafirii au nevoie de mult soare pentru a înflori abundent"
+                },
+                "substrat": {
+                    "tip": "pământ de grădină îmbogățit cu compost",
+                    "detalii": "Sol bogat în nutrienți și bine drenat. Adăugați compost primăvara"
+                }
+            },
+            "probleme_comune": {
+                "frunze_galbene": {
+                    "cauze": ["udare excesivă", "lipsa nutrienților"],
+                    "solutii": [
+                        "Reduceți frecvența udării",
+                        "Adăugați îngrășământ special pentru trandafiri"
+                    ],
+                    "detalii": "Frunzele galbene pot indica fie prea multă apă, fie lipsa nutrienților"
+                },
+                "pete_negre": {
+                    "cauze": ["boală fungică", "udarea frunzelor"],
+                    "solutii": [
+                        "Îndepărtați frunzele afectate",
+                        "Udați doar la baza plantei",
+                        "Folosiți un fungicid specific"
+                    ],
+                    "detalii": "Petele negre apar mai ales când frunzele sunt ude frecvent"
+                }
+            }
+        },
+        "crin": {
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 3-4 zile",
+                    "metoda": "udare la baza plantei",
+                    "detalii": "Mențineți solul umed în perioada de creștere și înflorire"
+                },
+                "lumina": {
+                    "intensitate": "lumină indirectă sau parțial umbrită",
+                    "expunere": "3-4 ore de soare dimineața",
+                    "detalii": "Preferă lumina dimineții și umbra după-amiaza"
+                },
+                "substrat": {
+                    "tip": "pământ de flori amestecat cu compost",
+                    "detalii": "Sol afânat și bogat în materie organică"
+                }
+            },
+            "probleme_comune": {
+                "ingalbenirea_frunzelor": {
+                    "cauze": ["udare excesivă", "sol compact"],
+                    "solutii": [
+                        "Reduceți cantitatea de apă",
+                        "Îmbunătățiți drenajul solului"
+                    ],
+                    "detalii": "Îngălbenirea poate fi cauzată de rădăcini care stau în apă"
+                },
+                "lipsa_inflorire": {
+                    "cauze": ["lumină insuficientă", "lipsa nutrienților"],
+                    "solutii": [
+                        "Mutați planta într-un loc mai luminos",
+                        "Fertilizați în perioada de creștere"
+                    ],
+                    "detalii": "Crinii au nevoie de lumină bună și nutrienți pentru a înflori"
+                }
+            }
+        },
+        "muscata": {
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 2-3 zile vara, la 4-5 zile iarna",
+                    "metoda": "udare moderată când suprafața solului este uscată",
+                    "detalii": "Nu lăsați planta să stea în apă, dar nici să se usuce complet"
+                },
+                "lumina": {
+                    "intensitate": "lumină directă sau indirectă puternică",
+                    "expunere": "fereastră însorită",
+                    "detalii": "Muscatele înfloresc cel mai bine când primesc multă lumină"
+                },
+                "substrat": {
+                    "tip": "pământ pentru flori de balcon",
+                    "detalii": "Sol universal de bună calitate cu drenaj bun"
+                }
+            },
+            "probleme_comune": {
+                "frunze_galbene": {
+                    "cauze": ["udare excesivă", "lumină insuficientă"],
+                    "solutii": [
+                        "Lăsați solul să se usuce între udări",
+                        "Mutați planta într-un loc mai luminos"
+                    ],
+                    "detalii": "Frunzele galbene indică de obicei probleme cu udarea"
+                },
+                "putine_flori": {
+                    "cauze": ["lumină insuficientă", "lipsa fertilizării"],
+                    "solutii": [
+                        "Asigurați mai multă lumină",
+                        "Fertilizați regulat în sezonul de creștere"
+                    ],
+                    "detalii": "Pentru înflorire abundentă, muscatele au nevoie de lumină și hrană"
+                }
+            }
+        }
+    }
+}
