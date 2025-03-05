@@ -1,6 +1,7 @@
 import spacy
 from knowledge_base import KnowledgeBase
 from expert_system import PlantExpertSystem
+from image_recognition import identify_plant
 from typing import Dict, List, Optional
 
 class PlantCareBot:
@@ -149,28 +150,36 @@ class PlantCareBot:
             return f"A apărut o eroare în procesarea cererii tale: {str(e)}"
 
     def chat(self):
+
         """Funcția principală pentru interacțiunea cu utilizatorul"""
         print("Plant Care Bot: Bună! Cum te pot ajuta cu îngrijirea plantelor tale?")
-        print("(Scrie 'exit' pentru a încheia conversația)")
-        
+        print("(Scrie 'exit' pentru a încheia conversația sau 'imagine: calea/catre/imagine.jpg' pentru a identifica o plantă)")
+
         while True:
             try:
                 user_input = input("\nTu: ").strip()
-                
+
                 if user_input.lower() == 'exit':
                     print("\nPlant Care Bot: La revedere! Sper că te-am putut ajuta!")
                     break
-                
+
+                if user_input.lower().startswith('imagine:'):
+                    image_path = user_input.split('imagine:')[1].strip()
+                    plant_name = identify_plant(image_path)
+                    print(f"\nPlant Care Bot: Planta identificată: {plant_name}")
+                    continue
+
                 if not user_input:
                     print("\nPlant Care Bot: Te rog să îmi scrii o întrebare despre plante.")
                     continue
-                
+
                 response = self.generate_response(user_input)
                 print("\nPlant Care Bot:", response)
-                
+
             except Exception as e:
                 print(f"\nPlant Care Bot: Îmi pare rău, a apărut o eroare neașteptată. Te rog să încerci din nou.")
                 print(f"Eroare: {str(e)}")
+
 
 if __name__ == "__main__":
     bot = PlantCareBot()

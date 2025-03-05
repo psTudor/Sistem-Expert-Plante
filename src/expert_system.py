@@ -41,7 +41,7 @@ class PlantExpertSystem(KnowledgeEngine):
         if care_info:
             self.response = f"Pentru {plant}, referitor la {aspect}: {care_info['detalii']}"
 
-    # Regulă pentru udare când solul este uscat
+
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),

@@ -1,6 +1,7 @@
 {
     "plants": {
         "orhidee": {
+            "keywords": ["orchid", "houseplant", "exotic flower"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "saptamanal",
@@ -39,6 +40,7 @@
             }
         },
         "ficus": {
+            "keywords": ["ficus", "fig", "rubber plant", "houseplant"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 7-10 zile",
@@ -85,6 +87,7 @@
             }
         },
         "trandafir": {
+            "keywords": ["rose","garden flower","red"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 2-3 zile",
@@ -122,6 +125,7 @@
             }
         },
         "crin": {
+            "keywords": ["ily", "bulb", "garden plant"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 3-4 zile",
@@ -158,6 +162,7 @@
             }
         },
         "muscata": {
+            "keywords": ["geranium", "pelargonium", "pot plant"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 2-3 zile vara, la 4-5 zile iarna",
