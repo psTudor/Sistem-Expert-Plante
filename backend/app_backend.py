@@ -1,8 +1,7 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from typing import Dict, List, Optional
 import tempfile
 import os
+from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from knowledge_base import KnowledgeBase
 from expert_system import PlantExpertSystem
@@ -85,7 +84,7 @@ async def upload_image(file: UploadFile = File(...)):
             "plant_info": plant_info
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Eroare la procesarea imaginii: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Eroare la procesarea imaginii: {str(e)}") from e
 
 if __name__ == "__main__":
     import uvicorn

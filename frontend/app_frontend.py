@@ -1,9 +1,8 @@
 import streamlit as st
 import requests
-import json
 from PIL import Image
-import io
-import base64
+from requests.exceptions import RequestException
+
 
 API_URL = "http://localhost:8000"
 
@@ -16,32 +15,42 @@ st.set_page_config(
 
 # Interactiune cu API
 def get_all_plants():
-    response = requests.get(f"{API_URL}/plants")
-    if response.status_code == 200:
-        return response.json()["plants"]
-    return []
+    try:
+        local_response = requests.get(f"{API_URL}/plants", timeout=10)
+        local_response.raise_for_status()
+        return local_response.json()["plants"]
+    except RequestException as e:
+        print(f"Eroare la obținerea listei de plante: {e}")
+        return []
 
-def get_plant_info(plant_name):
-    response = requests.get(f"{API_URL}/plants/{plant_name}")
-    if response.status_code == 200:
-        return response.json()
-    return None
+def get_plant_info(plant_name_param):
+    try:
+        local_response = requests.get(f"{API_URL}/plants/{plant_name_param}", timeout=10)
+        local_response.raise_for_status()
+        return local_response.json()
+    except RequestException as e:
+        print(f"Eroare la obținerea informațiilor despre plantă: {e}")
+        return None
 
 def send_query(text):
-    response = requests.post(
-        f"{API_URL}/query", 
-        json={"text": text}
-    )
-    if response.status_code == 200:
-        return response.json()["response"]
-    return "Îmi pare rău, a apărut o eroare în procesarea cererii tale."
+    try:
+        local_response = requests.post(f"{API_URL}/query", 
+                                 json={"text": text}, timeout=10)
+        local_response.raise_for_status()
+        return local_response.json()["response"]
+    except RequestException as e:
+        print(f"Eroare la trimiterea interogării: {e}")
+        return "Îmi pare rău, a apărut o eroare în procesarea cererii tale."
 
 def upload_plant_image(image_file):
-    files = {"file": (image_file.name, image_file, "image/jpeg")}
-    response = requests.post(f"{API_URL}/upload-image", files=files)
-    if response.status_code == 200:
-        return response.json()
-    return None
+    try:
+        files = {"file": (image_file.name, image_file, "image/jpeg")}
+        local_response = requests.post(f"{API_URL}/upload-image", files=files, timeout=10)
+        local_response.raise_for_status()
+        return local_response.json()
+    except RequestException as e:
+        print(f"Eroare la încărcarea imaginii: {e}")
+        return None
 
 # CSS
 st.markdown("""
