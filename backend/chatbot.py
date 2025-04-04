@@ -34,9 +34,40 @@ class PlantCareBot:
             'pete maro': 'pete_maro',
             'pete maronii': 'pete_maro'
         }
+    
+        # Inițializare bază de date cu plante
+        self.base_plants = self.kb.get_all_plants()
+        self.plant_variations = {}
+        
+        # Creează variațiile pentru fiecare plantă de bază
+        for plant in self.base_plants:
+            variations = [plant]  # Adaugă forma de bază
+            
+            # Adaugă forme flexionate comune în română
+            if plant.endswith('a'):  # pentru nume feminine (ex: muscata)
+                variations.extend([
+                    f"{plant}",
+                    f"{plant[:-1]}ei",  # muscatei
+                    f"{plant}le"  # muscatele
+                ])
+            else:  # pentru nume masculine/neutre
+                variations.extend([
+                    f"{plant}ul",  # ficusul
+                    f"{plant}ului",  # ficusului 
+                    f"{plant}ii"  # ficusii
+                ])
+            
+            plant_info = self.kb.get_plant_info(plant)
+            
+            # Adaugă și cuvinte cheie din JSON dacă există
+            if plant_info and "keywords" in plant_info:
+                variations.extend(plant_info["keywords"])
+            
+            self.plant_variations[plant] = variations
 
     def preprocess_text(self, text: str) -> str:
-        """Preprocesează textul pentru a normaliza diacriticele și spațiile"""
+
+        # Preproceseare pentru diacritice
         text = text.lower()
         diac_map = {'ă': 'a', 'â': 'a', 'î': 'i', 'ș': 's', 'ț': 't'}
         for k, v in diac_map.items():
@@ -44,26 +75,21 @@ class PlantCareBot:
         return ' '.join(text.split())
 
     def identify_intent(self, text: str, entities: Dict[str, List[str]]) -> str:
-        """Identifică intenția utilizatorului din text și entitățile extrase"""
         text = self.preprocess_text(text)
         
-        # Verifică keywords pentru probleme
         if any(keyword in text for keyword in self.intent_keywords['problem']) or entities['PROBLEM']:
             return 'problem'
         
-        # Verifică keywords pentru îngrijire
         if any(keyword in text for keyword in self.intent_keywords['care']):
             return 'care'
         
-        # Verifică dacă există aspect de îngrijire
         if entities['CARE_ASPECT']:
             return 'care'
         
-        # Default la informații generale
         return 'general'
 
     def extract_entities(self, text: str) -> Dict[str, List[str]]:
-        """Extrage entitățile relevante din text folosind modelul NLP"""
+
         doc = self.nlp(text)
         entities = {
             "PLANT": [],
@@ -71,21 +97,13 @@ class PlantCareBot:
             "PROBLEM": [],
             "CONDITION": []
         }
-        
-        # Normalizează numele plantelor
-        plant_names = {
-            'orhidee': ['orhideea', 'orhideei', 'orhideele'],
-            'ficus': ['ficusul', 'ficusului', 'ficusii']
-        }
-        
-        # Procesează textul pentru a găsi planta
+                
         text_lower = text.lower()
-        for base_name, variations in plant_names.items():
+        for base_name, variations in self.plant_variations.items():
             if base_name in text_lower or any(var in text_lower for var in variations):
                 entities["PLANT"].append(base_name)
                 break
         
-        # Procesează entitățile NER pentru alte tipuri
         for ent in doc.ents:
             if ent.label_ == "CARE_ASPECT":
                 norm_text = self.aspect_mappings.get(ent.text.lower(), ent.text.lower())
@@ -94,25 +112,23 @@ class PlantCareBot:
                 norm_text = self.problem_mappings.get(ent.text.lower(), ent.text.lower())
                 entities["PROBLEM"].append(norm_text)
         
-        # Verifică probleme comune în text
         text_lower = self.preprocess_text(text)
         for problem_text, problem_id in self.problem_mappings.items():
             if problem_text in text_lower:
                 entities["PROBLEM"].append(problem_id)
         
-        # Verifică aspecte de îngrijire în text
         for aspect_text, aspect_id in self.aspect_mappings.items():
             if aspect_text in text_lower:
                 entities["CARE_ASPECT"].append(aspect_id)
         
-        # Elimină duplicate
+        # Eliminare duplicate
         for key in entities:
             entities[key] = list(set(entities[key]))
         
         return entities
 
     def generate_response(self, text: str) -> str:
-        """Generează răspunsul folosind sistemul expert și NLP"""
+
         try:
             entities = self.extract_entities(text)
             intent = self.identify_intent(text, entities)
@@ -125,7 +141,6 @@ class PlantCareBot:
             if not self.kb.get_plant_info(plant):
                 return f"Îmi pare rău, dar nu am informații despre planta '{plant}' în baza mea de cunoștințe."
             
-            # Folosim sistemul expert pentru a genera răspunsul
             expert_response = self.expert_system.get_expert_response(
                 entities=entities,
                 intent=intent
@@ -134,7 +149,7 @@ class PlantCareBot:
             if expert_response:
                 return expert_response
             
-            # Fallback la informații generale
+            # Informatii generale
             basic_care = self.kb.get_basic_care(plant)
             if basic_care:
                 return (
@@ -151,7 +166,6 @@ class PlantCareBot:
 
     def chat(self):
 
-        """Funcția principală pentru interacțiunea cu utilizatorul"""
         print("Plant Care Bot: Bună! Cum te pot ajuta cu îngrijirea plantelor tale?")
         print("(Scrie 'exit' pentru a încheia conversația sau 'imagine: calea/catre/imagine.jpg' pentru a identifica o plantă)")
 

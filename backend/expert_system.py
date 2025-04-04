@@ -1,5 +1,5 @@
-from experta import *
 from knowledge_base import KnowledgeBase
+from experta import KnowledgeEngine, DefFacts, Rule, Fact, MATCH, AND, OR
 
 class PlantExpertSystem(KnowledgeEngine):
     def __init__(self):
@@ -11,7 +11,6 @@ class PlantExpertSystem(KnowledgeEngine):
     def _initial_facts(self):
         yield Fact(action="start")
 
-    # Regulă pentru probleme specifice ale plantelor
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
@@ -29,7 +28,6 @@ class PlantExpertSystem(KnowledgeEngine):
                 f"Soluții recomandate: {', '.join(problem_info['solutii'])}"
             )
 
-    # Regulă pentru aspecte specifice de îngrijire
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
@@ -56,7 +54,6 @@ class PlantExpertSystem(KnowledgeEngine):
                 f"Recomandarea pentru {plant}: {care_info['detalii']}"
             )
 
-    # Regulă pentru informații generale
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
@@ -88,7 +85,6 @@ class PlantExpertSystem(KnowledgeEngine):
                     f"Recomandări: {', '.join(problem_info['solutii'])}"
                 )
 
-    # Regulă pentru verificarea condițiilor de mediu
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
@@ -105,7 +101,6 @@ class PlantExpertSystem(KnowledgeEngine):
                 f"- {care_info['detalii']}"
             )
 
-    # Regulă pentru probleme multiple
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
@@ -138,38 +133,8 @@ class PlantExpertSystem(KnowledgeEngine):
         if response_parts:
             self.response = f"Pentru {plant} am detectat multiple probleme:\n" + "\n".join(response_parts)
 
-    # Regulă pentru recomandări sezoniere
-    @Rule(
-        Fact(action="start"),
-        Fact(plant=MATCH.plant),
-        Fact(season=MATCH.season)
-    )
-    def seasonal_care_advice(self, plant, season):
-        basic_care = self.kb.get_basic_care(plant)
-        if basic_care:
-            if season == "winter":
-                self.response = (
-                    f"Recomandări de iarnă pentru {plant}:\n"
-                    f"- Reduceți frecvența udării\n"
-                    f"- Asigurați mai multă lumină indirectă\n"
-                    f"- Mențineți temperatura constantă, evitând curenții de aer rece"
-                )
-            elif season == "summer":
-                self.response = (
-                    f"Recomandări de vară pentru {plant}:\n"
-                    f"- Creșteți frecvența udării\n"
-                    f"- Protejați de lumina directă puternică\n"
-                    f"- Asigurați o umiditate adecvată prin pulverizare"
-                )
 
     def get_expert_response(self, entities: dict, intent: str) -> str:
-        """
-        Procesează entitățile extrase de NLP și returnează un răspuns expert
-        
-        Args:
-            entities: Dict cu entitățile extrase (PLANT, PROBLEM, CARE_ASPECT)
-            intent: Intenția identificată ('problem', 'care', 'general')
-        """
         self.reset()
         self.declare(Fact(action="start"))
         self.declare(Fact(intent=intent))
@@ -183,7 +148,6 @@ class PlantExpertSystem(KnowledgeEngine):
         if entities.get("CARE_ASPECT"):
             self.declare(Fact(aspect=entities["CARE_ASPECT"][0]))
             
-        # Adăugăm facts adiționale bazate pe context
         if "uscat" in str(entities).lower():
             self.declare(Fact(soil_condition="dry"))
             

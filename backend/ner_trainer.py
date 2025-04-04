@@ -7,12 +7,7 @@ import os
 import shutil
 
 def train_ner(model_name: str = "ro_core_news_md", output_dir: str = "model", n_iter: int = 60):
-    """    
-    Args:
-        model_name: Numele modelului de baza
-        output_dir: Directorul unde va fi salvat modelul
-        n_iter: Numarul maxim de iteratii de antrenare
-    """
+
     print("Initializare antrenare...")
     
     if os.path.exists(output_dir):
@@ -33,13 +28,11 @@ def train_ner(model_name: str = "ro_core_news_md", output_dir: str = "model", n_
         for ent in annotations.get("entities"):
             ner.add_label(ent[2])
 
-    # Dezactivare alte pipe-uri
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != "ner"]
     
     print("\nIncepem antrenarea...")
     with nlp.disable_pipes(*other_pipes):
-        optimizer = nlp.begin_training()
-        
+      
         examples = []
         for text, annots in TRAINING_DATA:
             doc = nlp.make_doc(text)

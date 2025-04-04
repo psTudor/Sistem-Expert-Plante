@@ -1,3 +1,4 @@
-spacyenv/
+venv/
 model/
 res/
+credentials/

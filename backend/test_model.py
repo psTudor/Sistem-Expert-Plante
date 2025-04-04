@@ -4,12 +4,6 @@ import sys
 
 class ModelTester:
     def __init__(self, model_dir: str):
-        """
-        Initializeaza testerul cu modelul antrenat.
-        
-        Args:
-            model_dir: Directorul unde este salvat modelul
-        """
         try:
             self.nlp = spacy.load(model_dir)
             print(f"Model incarcat cu succes din {model_dir}")
@@ -18,25 +12,10 @@ class ModelTester:
             sys.exit(1)
     
     def test_single_query(self, text: str) -> List[Tuple[str, str]]:
-        """
-        Testeaza o singura propozitie.
-        
-        Args:
-            text: Textul de testat
-            
-        Returns:
-            Lista de tupluri (text_entitate, label_entitate)
-        """
         doc = self.nlp(text)
         return [(ent.text, ent.label_) for ent in doc.ents]
     
     def run_test_suite(self, test_cases: List[str]) -> None:
-        """
-        Ruleaza o serie de teste si afiseaza rezultatele.
-        
-        Args:
-            test_cases: Lista de texte pentru testare
-        """
         print("\nRulare teste model NER:")
         print("-" * 50)
         
@@ -75,10 +54,7 @@ if __name__ == "__main__":
     ]
     
     try:
-        # Initializam testerul
-        tester = ModelTester("model")
-        
-        # Rulam testele
+        tester = ModelTester("../model")
         tester.run_test_suite(test_cases)
         
     except KeyboardInterrupt:

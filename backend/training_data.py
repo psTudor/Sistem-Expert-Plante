@@ -1,5 +1,4 @@
 # Date de antrenare generate automat
-# NU EDITAȚI MANUAL ACEST FIȘIER!
 
 TRAINING_DATA = [
     ("Cum ud orhidee", {
@@ -862,7 +861,7 @@ TRAINING_DATA = [
     }),
 ]
 
-# Lista de entități cunoscute pentru referință
+# Lista de entitati cunoscute
 ENTITIES = {
     "PLANT": ['orhidee', 'orhideea', 'ficus', 'ficusul', 'ficusului', 'trandafir', 'trandafirul', 'trandafirului', 'crin', 'crinul', 'crinului', 'muscata', 'muscataul', 'muscataului'],
     "CARE_ASPECT": ['udare', 'lumina', 'substrat', 'lumină', 'pământ', 'sol'],
