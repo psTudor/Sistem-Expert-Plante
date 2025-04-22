@@ -1,97 +1,102 @@
-from typing import Optional, Dict, List, Any
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
-from google.cloud.exceptions import GoogleCloudError
+"""
+Modulul KnowledgeBase oferă acces la baza de cunoștințe despre plante și îngrijirea lor
+"""
+import json
+import os
 
 
 class KnowledgeBase:
-    """
-    Clasa pentru gestionarea bazei de cunostinte despre plante, stocate in Firebase Firestore.
-    """
-    def __init__(self, firebase_credentials_path="credentials/plant-expert-cccb6-firebase-adminsdk-fbsvc-69b270c0e1.json"):
-        """
-        Initializeaza conexiunea cu Firebase Firestore.
-        """
+
+    def __init__(self, data_file: str = "data/plants.json"):
         try:
-            if not firebase_admin._apps:
-                cred = credentials.Certificate(firebase_credentials_path)
-                firebase_admin.initialize_app(cred)
-            
-            self.db = firestore.client()
-            self.plants_collection = self.db.collection('plants')
-            print("Conexiune la Firebase realizată cu succes!")
-        except (firebase_admin.exceptions.FirebaseError, FileNotFoundError, ValueError) as e:
-            print(f"Eroare la initializarea Firebase: {e}")
-            self.db = None
-            self.plants_collection = None
-    
-    def get_plant_info(self, plant_name: str) -> Optional[Dict[str, Any]]:
-        """Obtine informatii despre o planta specifica."""
-        try:
-            doc_ref = self.plants_collection.document(plant_name.lower())
-            plant_doc = doc_ref.get()
-            
-            if plant_doc.exists:
-                return plant_doc.to_dict()
-            return None
-        except GoogleCloudError as e:
-            print(f"Eroare la obtinerea informatiilor despre planta: {e}")
-            return None
-    
-    def get_basic_care(self, plant_name: str) -> Optional[Dict[str, Any]]:
-        """Obtine informatii de baza despre ingrijirea unei plante."""
-        plant = self.get_plant_info(plant_name)
-        return plant.get('cerinte_baza') if plant else None
-    
-    def get_care_aspect(self, plant_name: str, aspect: str) -> Optional[Any]:
-        """Obtine un aspect specific de ingrijire pentru o planta."""
-        basic_care = self.get_basic_care(plant_name)
-        return basic_care.get(aspect) if basic_care else None
-    
-    def get_problem_details(self, plant_name: str, problem: str) -> Optional[Dict[str, Any]]:
-        """Obtine detalii despre o problema specifica a unei plante."""
-        plant = self.get_plant_info(plant_name)
-        if plant and 'probleme_comune' in plant:
-            return plant['probleme_comune'].get(problem)
+            if os.path.exists(data_file):
+                with open(data_file, 'r', encoding='utf-8') as f:
+                    self.data = json.load(f)
+            else:
+                alternative_path = "plants.json"
+                if os.path.exists(alternative_path):
+                    with open(alternative_path, 'r', encoding='utf-8') as f:
+                        self.data = json.load(f)
+                else:
+                    raise FileNotFoundError(
+                        f"Nu s-a găsit fișierul de date: {data_file} sau {alternative_path}")
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Eroare la parsarea JSON: {str(e)}")
+
+        if not self.data or not isinstance(self.data, dict) or "plants" not in self.data:
+            raise ValueError(
+                "Format incorect al fișierului de date: lipsește cheia 'plants'")
+
+    def get_all_plants(self) -> list:
+        return list(self.data["plants"].keys())
+
+    def get_plant_info(self, plant: str) -> dict:
+        plant = plant.lower().strip()
+
+        if plant in self.data["plants"]:
+            return self.data["plants"][plant]
+
+        for plant_name, plant_data in self.data["plants"].items():
+            if "keywords" in plant_data:
+                if plant in [kw.lower() for kw in plant_data["keywords"]]:
+                    return plant_data
         return None
-    
-    def get_all_plants(self) -> List[str]:
-        """Obtine lista tuturor numelor de plante din baza de date."""
-        try:
-            plants_docs = self.plants_collection.stream()
-            return [doc.id for doc in plants_docs]
-        except GoogleCloudError as e:
-            print(f"Eroare la obtinerea listei de plante: {e}")
-            return []
-    
-    def add_plant(self, plant_name: str, plant_data: Dict[str, Any]) -> bool:
-        """Adauga o planta noua in baza de date."""
-        try:
-            doc_ref = self.plants_collection.document(plant_name.lower())
-            doc_ref.set(plant_data)
-            return True
-        except GoogleCloudError as e:
-            print(f"Eroare la adăugarea plantei: {e}")
-            return False
-    
-    def update_plant(self, plant_name: str, plant_data: Dict[str, Any]) -> bool:
-        """Actualizeaza informatiile despre o planta existenta."""
-        try:
-            doc_ref = self.plants_collection.document(plant_name.lower())
-            doc_ref.update(plant_data)
-            return True
-        except GoogleCloudError as e:
-            print(f"Eroare la actualizarea plantei: {e}")
-            return False
-    
-    def delete_plant(self, plant_name: str) -> bool:
-        """sterge o planta din baza de date."""
-        try:
-            doc_ref = self.plants_collection.document(plant_name.lower())
-            doc_ref.delete()
-            return True
-        except GoogleCloudError as e:
-            print(f"Eroare la ștergerea plantei: {e}")
-            return False
-        
+
+    def get_basic_care(self, plant: str) -> dict:
+        plant_info = self.get_plant_info(plant)
+        if plant_info and "cerinte_baza" in plant_info:
+            return plant_info["cerinte_baza"]
+        return None
+
+    def get_problem_details(self, plant: str, problem: str) -> dict:
+        plant_info = self.get_plant_info(plant)
+        if not plant_info or "probleme_comune" not in plant_info:
+            return None
+
+        problem = problem.lower().strip()
+
+        if problem in plant_info["probleme_comune"]:
+            return plant_info["probleme_comune"][problem]
+
+        # potrivire cu underscore
+        problem_alt = problem.replace(" ", "_")
+        if problem_alt in plant_info["probleme_comune"]:
+            return plant_info["probleme_comune"][problem_alt]
+
+        # potrivire fara underscore
+        problem_alt2 = problem.replace("_", " ")
+        if problem_alt2 in plant_info["probleme_comune"]:
+            return plant_info["probleme_comune"][problem_alt2]
+
+        for prob_key, prob_data in plant_info["probleme_comune"].items():
+            prob_key_norm = prob_key.replace("_", " ")
+            if problem in prob_key_norm or prob_key_norm in problem:
+                return prob_data
+
+        return None
+
+    def get_care_aspect(self, plant: str, aspect: str) -> dict:
+        basic_care = self.get_basic_care(plant)
+        if not basic_care:
+            return None
+
+        aspect = aspect.lower().strip()
+
+        if aspect in basic_care:
+            return basic_care[aspect]
+
+        aspect_mapping = {
+            "apa": "udare", "irigare": "udare", "udat": "udare", "uda": "udare",
+            "soare": "lumina", "luminozitate": "lumina", "iluminare": "lumina",
+            "pamant": "substrat", "sol": "substrat", "mediu": "substrat",
+            "temperatura": "temperatura", "caldura": "temperatura", "clima": "temperatura"
+        }
+
+        if aspect in aspect_mapping and aspect_mapping[aspect] in basic_care:
+            return basic_care[aspect_mapping[aspect]]
+
+        for aspect_key in basic_care.keys():
+            if aspect in aspect_key or aspect_key in aspect:
+                return basic_care[aspect_key]
+
+        return None

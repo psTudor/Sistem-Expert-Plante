@@ -197,6 +197,293 @@
                     "detalii": "Pentru înflorire abundentă, muscatele au nevoie de lumină și hrană"
                 }
             }
+        },
+        "aloe vera": {
+            "keywords": ["aloe", "planta medicinala", "suculenta"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 2-3 saptamani",
+                    "metoda": "udare directa la baza plantei",
+                    "detalii": "Lasati solul sa se usuce complet intre udari. Plantele suculente stocheaza apa in frunze."
+                },
+                "lumina": {
+                    "intensitate": "lumina directa sau indirecta puternica",
+                    "expunere": "sud sau vest",
+                    "detalii": "Aloe vera are nevoie de cel putin 6 ore de lumina zilnic pentru a prospera."
+                },
+                "substrat": {
+                    "tip": "amestec pentru plante suculente",
+                    "detalii": "Sol bine drenat, ideal amestec de pamant universal cu nisip sau perlit."
+                }
+            },
+            "probleme_comune": {
+                "frunze_maro": {
+                    "cauze": ["expunere excesiva la soare", "arsuri solare"],
+                    "solutii": [
+                        "Mutati planta intr-un loc cu lumina mai putin intensa",
+                        "Asigurati tranzitia treptata la lumina directa"
+                    ],
+                    "detalii": "Deși Aloe vera iubește lumina, expunerea bruscă la soare intens poate cauza arsuri pe frunze, mai ales după o perioadă de lumină redusă."
+                },
+                "frunze_moi": {
+                    "cauze": ["udare insuficienta", "deshidratare"],
+                    "solutii": [
+                        "Udati planta moderat",
+                        "Verificati frecventa udarii"
+                    ],
+                    "detalii": "Frunzele moi și subțiri indică deshidratare. Deși Aloe vera este rezistentă la secetă, are nevoie de udare periodică."
+                },
+                "putrezirea_bazei": {
+                    "cauze": ["udare excesiva", "drenaj inadecvat"],
+                    "solutii": [
+                        "Reduceti frecventa udarii",
+                        "Imbunatatiti drenajul solului",
+                        "Replantati in substrat proaspat si bine drenat"
+                    ],
+                    "detalii": "Putrezirea la baza plantei este un semn clar de udare excesivă sau drenaj insuficient. Acest lucru poate duce la moartea plantei dacă nu este tratat prompt."
+                }
+            }
+        },
+        "cactus": {
+            "keywords": ["cactus", "suculenta", "desert plant", "spini"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 3-4 saptamani",
+                    "metoda": "udare completa pana la drenare, apoi lasati solul sa se usuce complet",
+                    "detalii": "Cactusii prefera perioade lungi de seceta urmate de udari complete. Udati doar cand substratul este complet uscat."
+                },
+                "lumina": {
+                    "intensitate": "lumina directa intensa",
+                    "expunere": "sud sau vest",
+                    "detalii": "Majoritatea cactusilor au nevoie de lumina soarelui directa minim 4-6 ore zilnic pentru a ramane sanatosi."
+                },
+                "substrat": {
+                    "tip": "amestec special pentru cactusi si suculente",
+                    "detalii": "Sol foarte bine drenat, cu continut ridicat de nisip grosier sau perlit. Evitati solurile care retin multa umiditate."
+                }
+            },
+            "probleme_comune": {
+                "putrezire_baza": {
+                    "cauze": ["udare excesiva", "drenaj insuficient", "sol neadecvat"],
+                    "solutii": [
+                        "Reduceti drastic frecventa udarii",
+                        "Replantati in amestec pentru cactusi cu drenaj bun",
+                        "Verificati ca ghiveciul sa aiba gauri de drenaj"
+                    ],
+                    "detalii": "Putrezirea la baza este cauza principală de deces la cactuși. Se manifestă printr-o zonă moale, adesea decolorată, la baza plantei. Odată începută, este dificil de oprit, dar puteți încerca să tăiați partea sănătoasă și să o replantați."
+                },
+                "crestere_alungita": {
+                    "cauze": ["lumina insuficienta", "etiolatie"],
+                    "solutii": [
+                        "Mutati planta intr-un loc cu lumina directa mai intensa",
+                        "Rotiti periodic ghiveciul pentru o crestere uniforma"
+                    ],
+                    "detalii": "Creșterea alungită și subțire a cactusului (etiolație) indică faptul că planta nu primește suficientă lumină și încearcă să se întindă spre sursa de lumină. Odată apărută, forma alungită nu mai poate fi corectată."
+                },
+                "pete_maronii": {
+                    "cauze": ["arsuri solare", "aclimatizare nepotrivita", "daunatori"],
+                    "solutii": [
+                        "Aclimatizati treptat cactusul la lumina directa",
+                        "Verificati prezenta daunatorilor precum paduchii de plante",
+                        "Tratati cu insecticid daca este necesar"
+                    ],
+                    "detalii": "Petele maronii pot apărea când un cactus ținut multă vreme la umbră este expus brusc la soare puternic. Introduceți treptat planta la lumină mai intensă pe parcursul a câtorva săptămâni."
+                }
+            }
+        },
+        "lavanda": {
+            "keywords": ["lavender", "planta aromatica", "flori mov", "lavandula"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 7-10 zile pentru plantele tinere, la 2-3 saptamani pentru cele mature",
+                    "metoda": "udare moderata la baza plantei",
+                    "detalii": "Lavanda este rezistenta la seceta odata stabilita. Preferati sa o tineti mai degraba uscata decat prea umeda."
+                },
+                "lumina": {
+                    "intensitate": "lumina directa intensa",
+                    "expunere": "sud",
+                    "detalii": "Lavanda are nevoie de soare deplin, minim 6-8 ore pe zi pentru o crestere si inflorire optima."
+                },
+                "substrat": {
+                    "tip": "sol calcaros, bine drenat, usor alcalin",
+                    "detalii": "Prefera soluri sarace, bine drenate, cu pH usor alcalin. Adaugati nisip sau pietris pentru a imbunatati drenajul."
+                }
+            },
+            "probleme_comune": {
+                "putrezire_radacini": {
+                    "cauze": ["udare excesiva", "drenaj insuficient", "sol argilos"],
+                    "solutii": [
+                        "Reduceti frecventa udarii",
+                        "Imbunatatiti drenajul solului adaugand nisip sau pietris",
+                        "Replantati in loc insorit cu sol bine drenat"
+                    ],
+                    "detalii": "Lavanda este foarte sensibilă la excesul de umiditate. Rădăcinile putrezite apar când solul rămâne umed pentru perioade lungi, mai ales în sezonul rece."
+                },
+                "crestere_lemnoasa": {
+                    "cauze": ["lipsa taierii", "planta imbatranita", "exces de azot"],
+                    "solutii": [
+                        "Taiati lavanda primavara pana la 1/3 din inaltime",
+                        "Evitati ingrasamintele bogate in azot",
+                        "Inlocuiti plantele foarte lemnoase (peste 4-5 ani)"
+                    ],
+                    "detalii": "Lavanda devine lemnoasă cu vârsta și florile se răresc. Tunderea anuală primăvara (dar nu până la lemn) menține planta compactă și productivă. Plantele bătrâne (peste 4-5 ani) devin foarte lemnoase și ar trebui înlocuite."
+                },
+                "frunze_galbene": {
+                    "cauze": ["udare excesiva", "sol prea acid", "nutrienti insuficienti"],
+                    "solutii": [
+                        "Verificati drenajul si reduceti udarea",
+                        "Adaugati var sau cenusa de lemn pentru a creste pH-ul solului",
+                        "Fertilizati moderat cu ingrasamant sarac in azot"
+                    ],
+                    "detalii": "Îngălbenirea frunzelor la lavandă este adesea cauzată de un sol prea umed sau prea acid. Lavanda preferă condiții uscate și sol calcaros, ușor alcalin."
+                }
+            }
+        },
+        "lalea": {
+            "keywords": ["tulip", "floare de primavara", "bulb", "floare colorata"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "saptamanal in perioada de crestere, deloc in perioada de dormanta",
+                    "metoda": "udare moderata la baza plantei",
+                    "detalii": "Udati moderat in perioada de crestere si inflorire, lasand solul sa se usuce partial intre udari. Nu udati deloc dupa ce frunzele se ingalbenesc si in timpul verii."
+                },
+                "lumina": {
+                    "intensitate": "lumina directa sau partiala",
+                    "expunere": "est sau sud",
+                    "detalii": "Lalelele prefera soare complet primavara, dar pot tolera si umbra partiala, mai ales in zonele cu veri calduroase."
+                },
+                "substrat": {
+                    "tip": "sol bogat, afanat si bine drenat",
+                    "detalii": "Prefera soluri fertile, bogate in materie organica, dar cu drenaj excelent. Evitati solurile argiloase unde apa stagneaza."
+                }
+            },
+            "probleme_comune": {
+                "lipsa_inflorire": {
+                    "cauze": ["bulbi prea mici", "plantare superficiala", "umbra excesiva"],
+                    "solutii": [
+                        "Plantati bulbi mari, de calitate",
+                        "Plantati la adancimea corecta (de 3 ori inaltimea bulbului)",
+                        "Asigurati lumina suficienta"
+                    ],
+                    "detalii": "Lipsa înfloririi poate fi cauzată de bulbi de calitate slabă, plantare la adâncime insuficientă sau prea multă umbră. Bulbii mici sau degradați nu au suficientă energie pentru a produce flori."
+                },
+                "tulpini_scurte": {
+                    "cauze": ["temperaturi ridicate", "lumina insuficienta", "soi cu tulpina scurta"],
+                    "solutii": [
+                        "Plantati toamna tarziu pentru o perioada adecvata de racire",
+                        "Alegeti soiuri adaptate zonei dvs. climatice",
+                        "Verificati caracteristicile soiului - unele au tulpini natural scurte"
+                    ],
+                    "detalii": "Tulpinile scurte pot fi cauzate de lipsa perioadei de răcire sau de temperaturi prea ridicate în perioada de creștere. Unele soiuri au natural tulpini mai scurte."
+                },
+                "putrezirea_bulbilor": {
+                    "cauze": ["drenaj inadecvat", "plantare prea adanca", "exces de umiditate"],
+                    "solutii": [
+                        "Imbunatatiti drenajul solului adaugand nisip sau compost",
+                        "Plantati la adancimea corecta",
+                        "Evitati udarea excesiva, mai ales dupa inflorire"
+                    ],
+                    "detalii": "Putrezirea bulbilor este adesea cauzată de exces de umiditate, mai ales în sol cu drenaj slab. Bulbii de lalele nu tolerează solurile umede pentru perioade lungi."
+                }
+            }
+        },
+        "bujor": {
+            "keywords": ["peony", "floare decorativa", "planta perena", "floare parfumata"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "saptamanal in perioada de crestere, rareori in restul anului",
+                    "metoda": "udare abundenta la baza plantei",
+                    "detalii": "Udati bine in perioada de crestere si inflorire, mentinand solul usor umed. Reduceti udarea dupa inflorire si in timpul iernii."
+                },
+                "lumina": {
+                    "intensitate": "soare direct dimineata, umbra partiala dupa-amiaza",
+                    "expunere": "est sau sud-est",
+                    "detalii": "Bujorii prefera 6 ore de soare dimineata si protectie de soarele puternic de dupa-amiaza, mai ales in zonele cu veri calduroase."
+                },
+                "substrat": {
+                    "tip": "sol bogat, profund si bine drenat",
+                    "detalii": "Prefera soluri fertile, bogate in materie organica, cu drenaj bun. Adaugati compost inainte de plantare pentru rezultate optime."
+                }
+            },
+            "probleme_comune": {
+                "lipsa_inflorire": {
+                    "cauze": ["plantare prea adanca", "transplantare recenta", "umbra excesiva"],
+                    "solutii": [
+                        "Verificati adancimea de plantare - mugurii trebuie sa fie la max 5 cm sub suprafata",
+                        "Aveti rabdare - bujorii pot dura 2-3 ani pana infloresc dupa plantare",
+                        "Mutati in loc mai insorit daca este necesar"
+                    ],
+                    "detalii": "Bujorii au nevoie de timp pentru a se stabili, uneori 2-3 ani după plantare. Plantarea prea adâncă este o cauză frecventă a lipsei de înflorire - ochii (mugurii) trebuie să fie la maximum 5 cm sub suprafața solului."
+                },
+                "frunze_patate": {
+                    "cauze": ["botrytis (putregai cenusiu)", "alternaria", "conditii umede"],
+                    "solutii": [
+                        "Indepartati si distrugeti frunzele afectate",
+                        "Evitati udarea frunzelor",
+                        "Imbunatatiti circulatia aerului in jurul plantei",
+                        "Aplicati fungicid daca este necesar"
+                    ],
+                    "detalii": "Petele de frunze sunt de obicei cauzate de boli fungice care prosperă în condiții umede. Pentru prevenire, asigurați o bună circulație a aerului, evitați udarea frunzelor și îndepărtați frunzele căzute din jurul plantei."
+                },
+                "boboci_care_nu_se_deschid": {
+                    "cauze": ["botrytis", "vreme rece si umeda", "boboci prea numerosi"],
+                    "solutii": [
+                        "Protejati plantele de ploile abundente in timpul infloririi",
+                        "Reduceti numarul de boboci laterali pentru flori mai mari",
+                        "Indepartati bobocii afectati pentru a preveni raspandirea bolii"
+                    ],
+                    "detalii": "Bobocii de bujor pot eșua să se deschidă în condiții meteorologice nefavorabile, mai ales când este umed și rece. De asemenea, botrytis (putregaiul cenușiu) poate afecta bobocii, făcându-i să rămână închiși și să putrezească."
+                }
+            }
+        },
+        "magnolie": {
+            "keywords": ["magnolia", "arbust ornamental", "arbore cu flori", "planta decorativa"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "saptamanal in primul an, apoi doar in perioade de seceta",
+                    "metoda": "udare profunda la baza plantei",
+                    "detalii": "Udati abundent si regulat in primul an dupa plantare. Ulterior, magnoliile mature sunt destul de rezistente la seceta, necesitand udare doar in perioadele foarte uscate."
+                },
+                "lumina": {
+                    "intensitate": "soare complet pana la umbra partiala",
+                    "expunere": "est, sud-est sau vest",
+                    "detalii": "Majoritatea magnoliilor prefera soare complet sau umbra partiala. Protejeaza florilelede inghet si de vanturile puternice."
+                },
+                "substrat": {
+                    "tip": "sol bogat, usor acid, bine drenat",
+                    "detalii": "Prefera soluri fertile, bogate in humus, usor acide (pH 5.5-6.5) si bine drenate. Evitati solurile calcaroase care pot cauza cloroza."
+                }
+            },
+            "probleme_comune": {
+                "inghet_flori": {
+                    "cauze": ["inghet tarziu de primavara", "plantare in locatie expusa"],
+                    "solutii": [
+                        "Plantati soiuri cu inflorire mai tarzie",
+                        "Alegeti o locatie protejata de vant si inghet",
+                        "Protejati copacii tineri cu materiale speciale in noptile geroase"
+                    ],
+                    "detalii": "Florile de magnolie sunt foarte sensibile la înghețurile târzii de primăvară. Odată afectate de îngheț, florile devin maro și nu își mai revin. Alegeți o locație ferită sau soiuri cu înflorire mai târzie pentru zonele predispuse la îngheț primăvara."
+                },
+                "frunze_galbene": {
+                    "cauze": ["sol prea alcalin (cloroza)", "drenaj inadecvat", "stres hidric"],
+                    "solutii": [
+                        "Adaugati ingrasamant pentru plante acidofile",
+                        "Aplicati sulfat de fier pentru a corecta cloroza",
+                        "Imbunatatiti drenajul solului",
+                        "Verificati programul de udare"
+                    ],
+                    "detalii": "Îngălbenirea frunzelor (cloroza) este adesea cauzată de un sol prea alcalin, care împiedică absorbția fierului. Magnoliile preferă soluri ușor acide. Îngrășămintele pentru plante acidofile și aplicarea de sulfat de fier pot ajuta la corectarea acestei probleme."
+                },
+                "scoarta_deteriorata": {
+                    "cauze": ["arsuri solare", "inghet", "daune mecanice"],
+                    "solutii": [
+                        "Protejati trunchiul tinerilor copaci cu plasa de protectie sau vopsea speciala",
+                        "Evitati taierea ramurilor groase",
+                        "Mentineti mulci la baza arborelui fara a atinge direct scoarta"
+                    ],
+                    "detalii": "Scoarța de magnolie este subțire și sensibilă la deteriorări. Arsurile solare pot apărea pe partea sudică a trunchiului, în special la arborii tineri. Daunele din îngheț și cele mecanice pot deschide calea pentru infecții și boli."
+                }
+            }
         }
     }
 }

@@ -3,22 +3,82 @@ import json
 from typing import List, Dict, Tuple
 from itertools import product
 
+
 def load_plant_data():
     with open('data/plants.json', 'r', encoding='utf-8') as f:
         return json.load(f)
 
+
 def generate_forms_for_word(base_word: str) -> List[str]:
     forms = [base_word]
-    if base_word.endswith(('e', 'ă')):
-        forms.append(f"{base_word}a")
+    if " " in base_word:
+        # tratam ultimul cuvant
+        parts = base_word.split()
+        last_word = parts[-1]
+        prefix = " ".join(parts[:-1]) + " "
+
+        word_forms = generate_forms_for_single_word(last_word)
+
+        for form in word_forms[1:]:
+            forms.append(prefix + form)
+
     else:
-        forms.append(f"{base_word}ul")
-        forms.append(f"{base_word}ului")
+        word_forms = generate_forms_for_single_word(base_word)
+        forms.extend(word_forms[1:])
+
     return forms
+
+
+def generate_forms_for_single_word(word: str) -> List[str]:
+    forms = [word]
+
+    feminine_endings = ('ă', 'e', 'a', 'ie', 'oare', 'ea')
+
+    neuter_endings = ('u', 'i', 'o')
+
+    exceptions = {
+        'cactus': ['cactus', 'cactusul', 'cactusului'],
+        'ficus': ['ficus', 'ficusul', 'ficusului'],
+        'aloe': ['aloe', 'aloe', 'aloe']
+    }
+
+    if word in exceptions:
+        return exceptions[word]
+
+    if word.endswith(feminine_endings):
+        if word.endswith('e'):
+            # floare -> floarea, floarei
+            if word.endswith('ie'):
+                # magnolia -> magnoliei
+                forms.append(word[:-2] + 'ia')
+                forms.append(word[:-2] + 'iei')
+            else:
+                forms.append(word[:-1] + 'a')
+                forms.append(word[:-1] + 'ei')
+        elif word.endswith('a'):
+            # lavanda -> lavanda, lavandei
+            forms.append(word)
+            forms.append(word[:-1] + 'ei')
+        elif word.endswith('ea'):
+            # lalea -> laleaua, lalelei
+            forms.append(word + 'ua')
+            forms.append(word[:-2] + 'elei')
+    else:
+        if word.endswith(('r', 's', 'n', 't', 'l', 'c')) or word.endswith(neuter_endings):
+            # trandafir -> trandafirul, trandafirului
+            forms.append(word + 'ul')
+            forms.append(word + 'ului')
+        else:
+            forms.append(word + 'ul')
+            forms.append(word + 'ului')
+
+    return forms
+
 
 def get_token_offsets(nlp, text: str) -> List[Tuple[str, int, int]]:
     doc = nlp(text)
     return [(token.text, token.idx, token.idx + len(token.text)) for token in doc]
+
 
 def find_entity_offsets(text: str, entity: str) -> List[Tuple[int, int]]:
     offsets = []
@@ -31,10 +91,10 @@ def find_entity_offsets(text: str, entity: str) -> List[Tuple[int, int]]:
         start += 1
     return offsets
 
+
 def generate_examples(plant_data: Dict) -> List[str]:
     examples = []
-    
-    # Pattern-uri pentru aspecte de ingrijire
+
     care_patterns = {
         "udare": [
             "Cum ud {plant}",
@@ -55,8 +115,7 @@ def generate_examples(plant_data: Dict) -> List[str]:
             "Ce tip de pământ folosesc la {plant}"
         ]
     }
-    
-    # Pattern-uri pentru probleme
+
     problem_patterns = [
         "{plant} are {problem}",
         "De ce are {plant} {problem}",
@@ -66,12 +125,12 @@ def generate_examples(plant_data: Dict) -> List[str]:
 
     for plant_name in plant_data["plants"].keys():
         plant_forms = generate_forms_for_word(plant_name)
-        
+
         for aspect, patterns in care_patterns.items():
             for pattern in patterns:
                 for plant_form in plant_forms:
                     examples.append(pattern.format(plant=plant_form))
-        
+
         plant_info = plant_data["plants"][plant_name]
         for problem in plant_info["probleme_comune"].keys():
             problem_text = problem.replace("_", " ")
@@ -81,7 +140,7 @@ def generate_examples(plant_data: Dict) -> List[str]:
                         plant=plant_form,
                         problem=problem_text
                     ))
-    
+
     negative_examples = [
         "Nu știu ce să fac",
         "Care sunt pașii de îngrijire",
@@ -91,15 +150,16 @@ def generate_examples(plant_data: Dict) -> List[str]:
         "Cum procedez"
     ]
     examples.extend(negative_examples)
-    
+
     return examples
+
 
 def generate_training_example(nlp, text: str, plant_data: Dict) -> Dict:
     doc = nlp(text)
     found_entities = []
-    
+
     tokens = [(t.text, t.idx, t.idx + len(t.text)) for t in doc]
-    
+
     for plant_name in plant_data["plants"].keys():
         for form in generate_forms_for_word(plant_name):
             for i, token in enumerate(doc):
@@ -107,7 +167,7 @@ def generate_training_example(nlp, text: str, plant_data: Dict) -> Dict:
                     start = token.idx
                     end = token.idx + len(token.text)
                     found_entities.append((start, end, "PLANT"))
-    
+
     care_aspects = ["udare", "lumina", "substrat", "lumină", "pământ", "sol"]
     for aspect in care_aspects:
         for i, token in enumerate(doc):
@@ -115,7 +175,7 @@ def generate_training_example(nlp, text: str, plant_data: Dict) -> Dict:
                 start = token.idx
                 end = token.idx + len(token.text)
                 found_entities.append((start, end, "CARE_ASPECT"))
-    
+
     for plant_info in plant_data["plants"].values():
         for problem in plant_info["probleme_comune"].keys():
             problem_text = problem.replace("_", " ")
@@ -127,7 +187,7 @@ def generate_training_example(nlp, text: str, plant_data: Dict) -> Dict:
                         start = span.start_char
                         end = span.end_char
                         found_entities.append((start, end, "PROBLEM"))
-    
+
     found_entities.sort(key=lambda x: x[0])
     filtered_entities = []
     last_end = -1
@@ -135,57 +195,54 @@ def generate_training_example(nlp, text: str, plant_data: Dict) -> Dict:
         if start >= last_end:  # Evităm suprapunerile
             filtered_entities.append((start, end, label))
             last_end = end
-    
+
     return {"entities": filtered_entities}
+
 
 def save_training_data(training_data: List[Tuple[str, Dict]], plant_data: Dict):
     output = """# Date de antrenare generate automat
 
 TRAINING_DATA = [\n"""
-    
+
     for text, annotations in training_data:
         output += f'    ("{text}", {{\n'
         output += f'        "entities": {annotations["entities"]}\n'
         output += "    }),\n"
-    
+
     output += "]\n\n"
-    
+
     plants = []
     care_aspects = ["udare", "lumina", "substrat", "lumină", "pământ", "sol"]
     problems = []
-    
+
     for plant_name in plant_data["plants"].keys():
         plants.extend(generate_forms_for_word(plant_name))
-    
+
     for plant_info in plant_data["plants"].values():
         for problem in plant_info["probleme_comune"].keys():
             problems.append(problem.replace("_", " "))
-    
-    output += "# Lista de entități cunoscute pentru referință\n"
+
+    output += "# Lista de entitati cunoscute\n"
     output += "ENTITIES = {\n"
     output += f'    "PLANT": {plants},\n'
     output += f'    "CARE_ASPECT": {care_aspects},\n'
     output += f'    "PROBLEM": {problems}\n'
     output += "}"
-    
-    with open("src/training_data.py", "w", encoding="utf-8") as f:
+
+    with open("backend/training_data.py", "w", encoding="utf-8") as f:
         f.write(output)
+
 
 if __name__ == "__main__":
     print("Generare date de antrenare...")
-    
+
     nlp = spacy.load("ro_core_news_md")
     plant_data = load_plant_data()
-    
+
     examples = generate_examples(plant_data)
-    
+
     training_data = []
     for text in examples:
         annotations = generate_training_example(nlp, text, plant_data)
         training_data.append((text, annotations))
-        #print(f"\nText: {text}")
-        #print("Entități găsite:", annotations["entities"])
-    
     save_training_data(training_data, plant_data)
-    
-    print("\nDate de antrenare generate și salvate în src/training_data.py")

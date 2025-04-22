@@ -1,6 +1,7 @@
-from google.cloud import vision
 import os
 import json
+from google.cloud import vision
+
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials/plants-452112-8502b77c9773.json"
 
@@ -13,8 +14,8 @@ def identify_plant(image_path):
             client = vision.ImageAnnotatorClient()
             with open(image_path, 'rb') as image_file:
                 content = image_file.read()
-            image = vision.Image(content=content)
-            response = client.label_detection(image=image)
+            image_path = vision.Image(content=content)
+            response = client.label_detection(image=image_path)
             labels = response.label_annotations
             print("Etichete detectate:")
             for label in labels:
@@ -26,11 +27,11 @@ def identify_plant(image_path):
                 if any(keyword in plant_data['keywords'] for keyword in english_keywords):
                     return plant_name  # Returneaza cheia
             return "Nu am putut identifica planta."
-        except Exception as e:
-            print(f"A apărut o eroare: {e}")
-            return "A apărut o eroare la procesarea imaginii."
+        except FileNotFoundError:
+            print(f"Eroare: Fișierul imagine '{image_path}' nu a fost găsit.")
+            return []
 
 if __name__ == '__main__':
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        image_path = os.path.join(current_dir, 'trandafir.jpg')
-        plant_name = identify_plant(image_path)
+        image = os.path.join(current_dir, 'trandafir.jpg')
+        plant = identify_plant(image)
