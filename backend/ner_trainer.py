@@ -1,13 +1,20 @@
 import spacy
 from spacy.tokens import Doc
 from spacy.training import Example
+from spacy.util import minibatch, compounding
 from training_data import TRAINING_DATA
 import random
 import os
 import shutil
 
 
-def train_ner(model_name: str = "ro_core_news_md", output_dir: str = "model", n_iter: int = 60):
+def train_ner(model_name: str = "ro_core_news_md",
+              output_dir: str = "model_batch",
+              n_iter: int = 60,
+              dropout: float = 0.2,
+              patience: int = 10,
+              min_loss_threshold: float = 1.0,
+              improvement_threshold: float = 0.01):
 
     print("Initializare antrenare...")
 
@@ -26,7 +33,7 @@ def train_ner(model_name: str = "ro_core_news_md", output_dir: str = "model", n_
         ner = nlp.get_pipe("ner")
 
     for _, annotations in TRAINING_DATA:
-        for ent in annotations.get("entities"):
+        for ent in annotations.get("ENTITIES"):
             ner.add_label(ent[2])
 
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != "ner"]
@@ -42,17 +49,17 @@ def train_ner(model_name: str = "ro_core_news_md", output_dir: str = "model", n_
             examples.append(example)
 
         best_loss = float('inf')
-        patience = 10
         no_improvement = 0
-        min_loss_threshold = 1.0  # loss minim pentru early stopping
-        improvement_threshold = 0.01  # minimul pentru imbunatatire
-
+        batch_sizes = compounding(4.0, 32.0, 1.001)
         # Antrenare
         for itn in range(n_iter):
             random.shuffle(examples)
+            batches = minibatch(examples, size=batch_sizes)
             losses = {}
-            nlp.update(examples, drop=0.2, sgd=optimizer, losses=losses)
-            current_loss = losses['ner']
+
+            for batch in batches:
+                nlp.update(batch, drop=dropout, sgd=optimizer, losses=losses)
+                current_loss = losses['ner']
 
             print(f"Iteration {itn + 1}, Loss: {current_loss:.6f}")
 

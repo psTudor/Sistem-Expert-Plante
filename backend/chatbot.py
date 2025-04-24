@@ -3,6 +3,7 @@ from knowledge_base import KnowledgeBase
 from expert_system import PlantExpertSystem
 from image_recognition import identify_plant
 from typing import Dict, List, Optional
+from training_data import ENTITIES
 
 
 class PlantCareBot:
@@ -40,31 +41,21 @@ class PlantCareBot:
         self.base_plants = self.kb.get_all_plants()
         self.plant_variations = {}
 
-        # Creează variațiile pentru fiecare planta de baza
+        # Creează variatiile pentru fiecare planta de baza
         for plant in self.base_plants:
-            variations = [plant]  # Adaugă forma de baza
+            self.plant_variations[plant] = []
 
-            # Adaugă forme flexionate comune în română
-            if plant.endswith('a'):  # pentru nume feminine (ex: muscata)
-                variations.extend([
-                    f"{plant}",
-                    f"{plant[:-1]}ei",  # muscatei
-                    f"{plant}le"  # muscatele
-                ])
-            else:  # pentru nume masculine/neutre
-                variations.extend([
-                    f"{plant}ul",  # ficusul
-                    f"{plant}ului",  # ficusului
-                    f"{plant}ii"  # ficusii
-                ])
+            for form in ENTITIES["PLANT"]:
+                if form == plant or form.startswith(plant):
+                    self.plant_variations[plant].append(form)
 
             plant_info = self.kb.get_plant_info(plant)
-
-            # Adaugă și cuvinte cheie din JSON dacă există
             if plant_info and "keywords" in plant_info:
-                variations.extend(plant_info["keywords"])
+                self.plant_variations[plant].extend(plant_info["keywords"])
 
-            self.plant_variations[plant] = variations
+            # Eliminare duplicate
+            self.plant_variations[plant] = list(
+                set(self.plant_variations[plant]))
 
     def preprocess_text(self, text: str) -> str:
 
@@ -76,35 +67,20 @@ class PlantCareBot:
         return ' '.join(text.split())
 
     def identify_intent(self, text: str, entities: Dict[str, List[str]]) -> str:
-        """
-        Identifica intentia utilizatorului pe baza textului si a entitatilor extrase
-        Imbunatatita pentru a detecta mai precis intențiile
-
-        Args:
-            text (str): Textul introdus de utilizator.
-            entities (Dict[str, List[str]]): Entitatile extrase din text
-
-        Returns:
-            str: Intentia identificata
-        """
         text = self.preprocess_text(text)
 
-        # Intentia de a rezolva o problema
         problem_indicators = self.intent_keywords['problem']
         if any(keyword in text for keyword in problem_indicators) or entities['PROBLEM']:
             return 'problem'
 
-        # Intentia de a afla despre ingrijire
         care_indicators = self.intent_keywords['care']
         if any(keyword in text for keyword in care_indicators) or entities['CARE_ASPECT']:
             return 'care'
 
-        # Intentia de a obtine informatii generale
         info_indicators = self.intent_keywords['info']
         if any(keyword in text for keyword in info_indicators):
             return 'info'
 
-        # Detectie bazata pe structura intrebarii
         if text.startswith('cum'):
             return 'care'
         if text.startswith('ce') or text.startswith('care'):
@@ -112,20 +88,9 @@ class PlantCareBot:
                 return 'problem'
             return 'info'
 
-        # Intentia implicita daca nu am putut determina altceva
         return 'general'
 
     def extract_entities(self, text: str) -> Dict[str, List[str]]:
-        """
-        Extrage entitatile relevante din textul introdus de utilizator
-        Imbunatatita pentru a asigura potriviri corecte
-
-        Args:
-            text (str): Textul de analizat
-
-        Returns:
-            Dict[str, List[str]]: Un dictionar cu entitatile extrase
-        """
         doc = self.nlp(text)
         entities = {
             "PLANT": [],
@@ -134,19 +99,14 @@ class PlantCareBot:
             "CONDITION": []
         }
 
-        # Preprocesam textul pentru o potrivire mai buna
         text_lower = self.preprocess_text(text.lower())
 
         # Cautam plante in text
-        plant_found = False
         for base_name, variations in self.plant_variations.items():
-            # Verificam daca baza sau vreo variatie este continuta in text
             if base_name in text_lower or any(var in text_lower for var in variations):
                 entities["PLANT"].append(base_name)
-                plant_found = True
                 break
 
-        # Folosim entitățile NER pentru a completa rezultatele
         for ent in doc.ents:
             if ent.label_ == "CARE_ASPECT":
                 # Normalizam aspectul de ingrijire folosind maparea
@@ -161,78 +121,53 @@ class PlantCareBot:
                 if norm_text not in entities["PROBLEM"]:
                     entities["PROBLEM"].append(norm_text)
 
-        # Cautam explicit problemele comune in text
         for problem_text, problem_id in self.problem_mappings.items():
             if problem_text in text_lower:
                 if problem_id not in entities["PROBLEM"]:
                     entities["PROBLEM"].append(problem_id)
 
-        # Cautam aspecte de ingrijire in text
         for aspect_text, aspect_id in self.aspect_mappings.items():
             if aspect_text in text_lower:
                 if aspect_id not in entities["CARE_ASPECT"]:
                     entities["CARE_ASPECT"].append(aspect_id)
 
-        # Detectam conditii specifice in text
         if any(word in text_lower for word in ["uscat", "sec", "uscata", "uscare"]):
             entities["CONDITION"].append("dry")
         if any(word in text_lower for word in ["umed", "umeda", "ud", "uda", "umiditate"]):
             entities["CONDITION"].append("wet")
 
-        # Eliminare duplicate
         for key in entities:
             entities[key] = list(set(entities[key]))
 
-        # Verificare finala și eroare dacă nu am găsit nicio plantă
         if not entities["PLANT"] and "planta" in text_lower:
-            # Verificam daca utilizatorul se refera la o planta generica
             entities["PLANT"].append("generica")
 
         return entities
 
     def generate_response(self, text: str) -> str:
-        """
-        Genereaza un raspuns pe baza textului introdus de utilizator
-        Imbunatatita pentru consistenta si tratarea erorilor
-
-        Args:
-            text (str): Textul introdus de utilizator
-
-        Returns:
-            str: Raspunsul generat
-        """
         try:
-            # Extragem entitatile si determinam intentia
             entities = self.extract_entities(text)
             intent = self.identify_intent(text, entities)
 
-            # Verificam daca am detectat o planta
             if not entities["PLANT"]:
                 return "Îmi pare rău, dar nu am înțeles despre ce plantă vorbești. Poți să specifici numele plantei?"
 
-            # Extragem numele plantei
             plant = entities["PLANT"][0]
 
-            # Verificam daca planta exista in baza de cunostinte
             plant_info = self.kb.get_plant_info(plant)
             if not plant_info:
                 return f"Îmi pare rău, dar nu am informații despre planta '{plant}' în baza mea de cunoștințe."
 
-            # Trimitem cererea catre sistemul expert cu planta detectata
             expert_response = self.expert_system.get_expert_response(
                 entities=entities,
                 intent=intent
             )
 
-            # Verificam daca avem un raspuns de la sistemul expert
             if expert_response:
-                # Verificam daca raspunsul contine numele plantei detectate
                 if plant.lower() not in expert_response.lower():
-                    # Adaugam explicit numele plantei in raspuns pentru claritate
                     return f"Pentru {plant}: {expert_response}"
                 return expert_response
 
-            # Raspuns implicit cu informatii de baza despre ingrijire
             basic_care = self.kb.get_basic_care(plant)
             if basic_care:
                 return (
@@ -242,7 +177,6 @@ class PlantCareBot:
                     f"- Substrat: {basic_care['substrat']['detalii']}"
                 )
 
-            # Raspuns final daca nu am putut genera alt raspuns
             return f"Am înțeles că te interesează {plant}, dar nu sunt sigur ce anume vrei să știi despre această plantă. Poți să reformulezi întrebarea?"
 
         except ValueError as e:

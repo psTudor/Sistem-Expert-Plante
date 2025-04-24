@@ -1,8 +1,11 @@
 venv/
 model/
+model_batch/
 res/
 credentials/
 test_chatbot.py
+test_firebase.py
+test_model.py
 test_firebase.py
 check_aligments.py
 model_backup.rar

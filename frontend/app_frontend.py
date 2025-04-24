@@ -95,14 +95,31 @@ st.markdown("""
         background-color: #f1f8e9;
         border-left: 5px solid #4caf50;
     }
+    .result-box {
+        background-color: #e8f5e9;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        border: 2px solid #4caf50;
+    }
+    .stDeployButton {
+        display: none !important;
+    }
+    button[kind="headerNoPadding"] {
+        display: none !important;
+    }
+    header[data-testid="stHeader"] {
+        display: none !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Navigare
 st.sidebar.markdown(
     "<h1 class='main-header'>🪴 Plant Expert</h1>", unsafe_allow_html=True)
 page = st.sidebar.radio(
-    "Navigare", ["Acasă", "Chatbot", "Catalog Plante", "Identificare Plantă"])
+    "Navigare", ["Acasă", "Chatbot", "Identificare Plantă"])
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
@@ -125,7 +142,6 @@ if page == "Acasă":
             "<h3 class='sub-header'>Ce poți face cu acest sistem?</h3>", unsafe_allow_html=True)
         st.markdown("""
             * 💬 **Chatbot** - Pune întrebări despre îngrijirea plantelor
-            * 📚 **Catalog Plante** - Explorează informații despre diferite plante
             * 📷 **Identificare Plantă** - Încarcă o imagine pentru a identifica o plantă
         """)
 
@@ -167,82 +183,13 @@ elif page == "Chatbot":
                 {"role": "bot", "content": response})
             st.rerun()
 
-elif page == "Catalog Plante":
-    st.markdown("<h1 class='main-header'>📚 Catalog Plante</h1>",
-                unsafe_allow_html=True)
-    plants = get_all_plants()
-
-    if not plants:
-        st.error("Nu s-au putut încărca plantele din baza de date.")
-    else:
-        selected_plant = st.selectbox("Alege o plantă:", plants)
-
-        if selected_plant:
-            plant_info = get_plant_info(selected_plant)
-
-            if plant_info:
-                st.markdown(
-                    f"<h2 class='sub-header'>{selected_plant.capitalize()}</h2>", unsafe_allow_html=True)
-
-                tabs = st.tabs(["Cerințe de Bază", "Probleme Comune"])
-                with tabs[0]:
-                    if "cerinte_baza" in plant_info:
-                        cerinte = plant_info["cerinte_baza"]
-
-                        col1, col2 = st.columns(2)
-
-                        with col1:
-                            st.markdown("<h3>Udare</h3>",
-                                        unsafe_allow_html=True)
-                            st.markdown(
-                                f"<div class='info-box'><p><strong>Frecvență:</strong> {cerinte['udare']['frecventa']}</p><p><strong>Metodă:</strong> {cerinte['udare']['metoda']}</p><p>{cerinte['udare']['detalii']}</p></div>", unsafe_allow_html=True)
-
-                            st.markdown("<h3>Substrat</h3>",
-                                        unsafe_allow_html=True)
-                            st.markdown(
-                                f"<div class='info-box'><p><strong>Tip:</strong> {cerinte['substrat']['tip']}</p><p>{cerinte['substrat']['detalii']}</p></div>", unsafe_allow_html=True)
-
-                        with col2:
-                            st.markdown("<h3>Lumină</h3>",
-                                        unsafe_allow_html=True)
-                            st.markdown(
-                                f"<div class='info-box'><p><strong>Intensitate:</strong> {cerinte['lumina']['intensitate']}</p><p><strong>Expunere:</strong> {cerinte['lumina']['expunere']}</p><p>{cerinte['lumina']['detalii']}</p></div>", unsafe_allow_html=True)
-                    else:
-                        st.warning(
-                            "Nu există informații despre cerințele de bază pentru această plantă.")
-
-                with tabs[1]:
-                    if "probleme_comune" in plant_info:
-                        probleme = plant_info["probleme_comune"]
-
-                        for problem_name, problem_info in probleme.items():
-                            with st.expander(f"{problem_name.replace('_', ' ').capitalize()}"):
-                                st.markdown("<h4>Cauze:</h4>",
-                                            unsafe_allow_html=True)
-                                for cauza in problem_info["cauze"]:
-                                    st.markdown(f"- {cauza}")
-
-                                st.markdown("<h4>Soluții:</h4>",
-                                            unsafe_allow_html=True)
-                                for solutie in problem_info["solutii"]:
-                                    st.markdown(f"- {solutie}")
-
-                                st.markdown(
-                                    f"<div class='info-box'>{problem_info['detalii']}</div>", unsafe_allow_html=True)
-                    else:
-                        st.warning(
-                            "Nu există informații despre probleme comune pentru această plantă.")
-            else:
-                st.error(
-                    f"Nu s-au putut încărca informațiile despre {selected_plant}.")
-
 elif page == "Identificare Plantă":
     st.markdown("<h1 class='main-header'>📷 Identificare Plantă</h1>",
                 unsafe_allow_html=True)
 
     st.markdown("""
         <div class='info-box'>
-        <p>Încarcă o imagine cu o plantă pentru a o identifica și a primi informații despre îngrijirea ei.</p>
+        <p>Încarcă o imagine cu o plantă pentru a o identifica.</p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -255,45 +202,16 @@ elif page == "Identificare Plantă":
 
         if st.button("Identifică Planta"):
             with st.spinner("Se procesează imaginea..."):
-                # Resetare upload file pentru refolosire
                 uploaded_file.seek(0)
                 result = upload_plant_image(uploaded_file)
 
                 if result and "plant_name" in result:
                     plant_name = result["plant_name"]
-                    plant_info = result.get("plant_info", {})
 
-                    st.success(
-                        f"Plantă identificată: {plant_name.capitalize()}")
-
-                    if plant_info:
-                        st.markdown(
-                            "<h3 class='sub-header'>Informații despre îngrijire:</h3>", unsafe_allow_html=True)
-
-                        if "cerinte_baza" in plant_info:
-                            cerinte = plant_info["cerinte_baza"]
-
-                            col1, col2 = st.columns(2)
-
-                            with col1:
-                                st.markdown("<h4>Udare</h4>",
-                                            unsafe_allow_html=True)
-                                st.markdown(
-                                    f"<div class='info-box'>{cerinte['udare']['detalii']}</div>", unsafe_allow_html=True)
-
-                            with col2:
-                                st.markdown("<h4>Lumină</h4>",
-                                            unsafe_allow_html=True)
-                                st.markdown(
-                                    f"<div class='info-box'>{cerinte['lumina']['detalii']}</div>", unsafe_allow_html=True)
-
-                        st.markdown(
-                            f"Pentru mai multe informații, consultă [pagina detaliată a plantei](?page=Catalog Plante&plant={plant_name}).")
-                    else:
-                        st.warning(
-                            "Nu s-au găsit informații detaliate despre această plantă.")
+                    st.markdown(
+                        f"<div class='result-box'>Plantă identificată: <strong>{plant_name.capitalize()}</strong></div>",
+                        unsafe_allow_html=True
+                    )
                 else:
                     st.error(
                         "Nu am putut identifica planta din imagine. Te rog să încerci cu o altă imagine.")
-st.markdown("---")
-st.markdown("© 2025 Plant Care Expert System | Dezvoltat de Tudor Pascaru")
