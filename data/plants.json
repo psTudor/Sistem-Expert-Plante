@@ -87,7 +87,7 @@
             }
         },
         "trandafir": {
-            "keywords": ["rose","garden flower","red"],
+            "keywords": ["rose","rosa"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 2-3 zile",
@@ -125,7 +125,7 @@
             }
         },
         "crin": {
-            "keywords": ["ily", "bulb", "garden plant"],
+            "keywords": ["ily"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 3-4 zile",
@@ -162,7 +162,7 @@
             }
         },
         "muscata": {
-            "keywords": ["geranium", "pelargonium", "pot plant"],
+            "keywords": ["geranium"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 2-3 zile vara, la 4-5 zile iarna",
@@ -199,7 +199,7 @@
             }
         },
         "aloe vera": {
-            "keywords": ["aloe", "planta medicinala", "suculenta"],
+            "keywords": ["aloe"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 2-3 saptamani",
@@ -245,7 +245,7 @@
             }
         },
         "cactus": {
-            "keywords": ["cactus", "suculenta", "desert plant", "spini"],
+            "keywords": ["cactus", "desert plant"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 3-4 saptamani",
@@ -292,7 +292,7 @@
             }
         },
         "lavanda": {
-            "keywords": ["lavender", "planta aromatica", "flori mov", "lavandula"],
+            "keywords": ["lavender"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 7-10 zile pentru plantele tinere, la 2-3 saptamani pentru cele mature",
@@ -340,7 +340,7 @@
             }
         },
         "lalea": {
-            "keywords": ["tulip", "floare de primavara", "bulb", "floare colorata"],
+            "keywords": ["tulip"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "saptamanal in perioada de crestere, deloc in perioada de dormanta",
@@ -388,7 +388,7 @@
             }
         },
         "bujor": {
-            "keywords": ["peony", "floare decorativa", "planta perena", "floare parfumata"],
+            "keywords": ["peony"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "saptamanal in perioada de crestere, rareori in restul anului",
@@ -437,7 +437,7 @@
             }
         },
         "magnolie": {
-            "keywords": ["magnolia", "arbust ornamental", "arbore cu flori", "planta decorativa"],
+            "keywords": ["magnolia"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "saptamanal in primul an, apoi doar in perioade de seceta",

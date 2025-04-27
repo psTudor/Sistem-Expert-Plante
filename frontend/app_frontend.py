@@ -206,12 +206,20 @@ elif page == "Identificare Plantă":
                 result = upload_plant_image(uploaded_file)
 
                 if result and "plant_name" in result:
-                    plant_name = result["plant_name"]
+                    display_name = result.get("plant_name", "")
+                    scientific_name = result.get("scientific_name", "")
+                    message = result.get("message")
 
-                    st.markdown(
-                        f"<div class='result-box'>Plantă identificată: <strong>{plant_name.capitalize()}</strong></div>",
-                        unsafe_allow_html=True
-                    )
+                    if "message" in result:
+                        st.markdown(
+                            f"<div class='result-box'>Plantă identificată: <strong>{scientific_name.capitalize()}</strong><br/><em>{message}</em></div>",
+                            unsafe_allow_html=True
+                        )
+                    else:
+                        st.markdown(
+                            f"<div class='result-box'>Plantă identificată: <strong>{display_name.capitalize()}</strong> ({scientific_name})</div>",
+                            unsafe_allow_html=True
+                        )
                 else:
                     st.error(
                         "Nu am putut identifica planta din imagine. Te rog să încerci cu o altă imagine.")

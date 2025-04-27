@@ -83,18 +83,23 @@ async def upload_image(file: UploadFile = File(...)):
             temp_file.write(content)
             temp_file_path = temp_file.name
 
-        plant_name = identify_plant(temp_file_path)
+        identification_result = identify_plant(temp_file_path)
         os.unlink(temp_file_path)
 
-        if not plant_name:
-            return {"message": "Nu am putut identifica planta din imagine."}
+        plant_name = identification_result.get("plant_name")
+        scientific_name = identification_result.get("scientific_name")
 
-        # Afisare informatii despre planta identificata
-        plant_info = kb.get_plant_info(plant_name)
-        return {
+        # Planta exista in baza de cunostinte
+        plant_info_from_db = kb.get_plant_info(plant_name)
+
+        response_data = {
             "plant_name": plant_name,
-            "plant_info": plant_info
+            "scientific_name": scientific_name
         }
+
+        if not plant_info_from_db:
+            response_data["message"] = "Fară informații adiționale"
+        return response_data
     except Exception as e:
         raise HTTPException(
             status_code=500, detail=f"Eroare la procesarea imaginii: {str(e)}")
