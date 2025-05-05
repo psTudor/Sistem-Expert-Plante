@@ -136,7 +136,7 @@ class KnowledgeBase:
         aspect_mapping = {
             "apa": "udare", "irigare": "udare", "udat": "udare", "uda": "udare",
             "soare": "lumina", "luminozitate": "lumina", "iluminare": "lumina",
-            "pamant": "substrat", "sol": "substrat", "mediu": "substrat",
+            "sol": "pamant", "mediu": "pamant",
             "temperatura": "temperatura", "caldura": "temperatura", "clima": "temperatura"
         }
 

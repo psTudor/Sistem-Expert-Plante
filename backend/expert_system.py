@@ -71,7 +71,7 @@ class PlantExpertSystem(KnowledgeEngine):
                 f"Pentru {plant}, iată informațiile de bază:\n"
                 f"- Udare: {basic_care['udare']['detalii']}\n"
                 f"- Lumină: {basic_care['lumina']['detalii']}\n"
-                f"- Substrat: {basic_care['substrat']['detalii']}"
+                f"- Pământ: {basic_care['pamant']['detalii']}"
             )
         else:
             self.response = f"Nu am informații de bază pentru planta {plant}."
@@ -156,8 +156,10 @@ class PlantExpertSystem(KnowledgeEngine):
         if entities.get("CARE_ASPECT"):
             self.declare(Fact(aspect=entities["CARE_ASPECT"][0]))
 
-        if "uscat" in str(entities).lower():
+        if "dry" in entities.get("CONDITION", []):
             self.declare(Fact(soil_condition="dry"))
+        elif "wet" in entities.get("CONDITION", []):
+            self.declare(Fact(soil_condition="wet"))
 
         self.run()
 
@@ -170,7 +172,7 @@ class PlantExpertSystem(KnowledgeEngine):
                         f"Pentru {self.current_plant}, iată informațiile de bază:\n"
                         f"- Udare: {basic_care['udare']['detalii']}\n"
                         f"- Lumină: {basic_care['lumina']['detalii']}\n"
-                        f"- Substrat: {basic_care['substrat']['detalii']}"
+                        f"- Pământ: {basic_care['pamant']['detalii']}"
                     )
 
                     if entities.get("PROBLEM"):

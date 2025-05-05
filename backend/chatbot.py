@@ -15,13 +15,13 @@ class PlantCareBot:
         self.intent_keywords = {
             'problem': ['problema', 'probleme', 'cad', 'cazut', 'galben', 'putred', 'bolnav', 'pete', 'deteriorare'],
             'care': ['cum', 'cand', 'cat', 'trebuie', 'necesita', 'nevoie', 'ingrijire', 'ingrijesc'],
-            'info': ['ce', 'care', 'spune', 'explica', 'despre', 'detalii']
+            'info': ['ce', 'care', 'spune', 'explica', 'despre', 'detalii', 'spune-mi', 'cum ingrijesc', 'ce ingrijire']
         }
 
         self.aspect_mappings = {
-            'ud': 'udare', 'uda': 'udare', 'udat': 'udare', 'apa': 'udare',
+            'ud': 'udare', 'uda': 'udare', 'udat': 'udare', 'apa': 'udare', 'apă': 'udare',
             'lumina': 'lumina', 'luminozitate': 'lumina', 'soare': 'lumina',
-            'substrat': 'substrat', 'pamant': 'substrat', 'sol': 'substrat',
+            'sol': 'pamant', 'plantez': 'pamant', 'plantare': 'pamant', 'mediu': 'pamant',
             'temperatura': 'temperatura', 'cald': 'temperatura', 'rece': 'temperatura'
         }
 
@@ -122,17 +122,23 @@ class PlantCareBot:
                     entities["PROBLEM"].append(norm_text)
 
         for problem_text, problem_id in self.problem_mappings.items():
-            if problem_text in text_lower:
+            if f" {problem_text} " in f" {text_lower} ":  # match complet
                 if problem_id not in entities["PROBLEM"]:
                     entities["PROBLEM"].append(problem_id)
+
+        if any(word in text_lower for word in ["plantez", "plantat", "planta"]):
+            entities["PROBLEM"] = []
 
         for aspect_text, aspect_id in self.aspect_mappings.items():
             if aspect_text in text_lower:
                 if aspect_id not in entities["CARE_ASPECT"]:
                     entities["CARE_ASPECT"].append(aspect_id)
 
-        if any(word in text_lower for word in ["uscat", "sec", "uscata", "uscare"]):
-            entities["CONDITION"].append("dry")
+        if "uscat" in text_lower and "sol" not in text_lower and "pamant" not in text_lower:
+            pass
+        else:
+            if any(word in text_lower for word in ["uscat", "sec", "uscata", "uscare"]):
+                entities["CONDITION"].append("dry")
         if any(word in text_lower for word in ["umed", "umeda", "ud", "uda", "umiditate"]):
             entities["CONDITION"].append("wet")
 
@@ -174,7 +180,7 @@ class PlantCareBot:
                     f"Pentru {plant}, iată informațiile de bază de îngrijire:\n"
                     f"- Udare: {basic_care['udare']['detalii']}\n"
                     f"- Lumină: {basic_care['lumina']['detalii']}\n"
-                    f"- Substrat: {basic_care['substrat']['detalii']}"
+                    f"- Pământ: {basic_care['pamant']['detalii']}"
                 )
 
             return f"Am înțeles că te interesează {plant}, dar nu sunt sigur ce anume vrei să știi despre această plantă. Poți să reformulezi întrebarea?"

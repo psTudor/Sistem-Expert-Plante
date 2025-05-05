@@ -13,7 +13,7 @@
                     "expunere": "est sau vest",
                     "detalii": "Evitati lumina directa a soarelui"
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "special pentru orhidee",
                     "detalii": "Pamant special pentru orhidee, format din amestec de scoarta de pin si turba"
                 }
@@ -52,7 +52,7 @@
                     "expunere": "est sau nord",
                     "detalii": "Poate tolera lumina directa dimineata"
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "universal pentru plante de interior",
                     "detalii": "Pamant universal bine drenat, bogat in materie organica"
                 }
@@ -99,7 +99,7 @@
                     "expunere": "minim 6 ore de soare pe zi",
                     "detalii": "Trandafirii au nevoie de mult soare pentru a înflori abundent"
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "pământ de grădină îmbogățit cu compost",
                     "detalii": "Sol bogat în nutrienți și bine drenat. Adăugați compost primăvara"
                 }
@@ -137,7 +137,7 @@
                     "expunere": "3-4 ore de soare dimineața",
                     "detalii": "Preferă lumina dimineții și umbra după-amiaza"
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "pământ de flori amestecat cu compost",
                     "detalii": "Sol afânat și bogat în materie organică"
                 }
@@ -174,7 +174,7 @@
                     "expunere": "fereastră însorită",
                     "detalii": "Muscatele înfloresc cel mai bine când primesc multă lumină"
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "pământ pentru flori de balcon",
                     "detalii": "Sol universal de bună calitate cu drenaj bun"
                 }
@@ -211,7 +211,7 @@
                     "expunere": "sud sau vest",
                     "detalii": "Aloe vera are nevoie de cel putin 6 ore de lumina zilnic pentru a prospera."
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "amestec pentru plante suculente",
                     "detalii": "Sol bine drenat, ideal amestec de pamant universal cu nisip sau perlit."
                 }
@@ -238,7 +238,7 @@
                     "solutii": [
                         "Reduceti frecventa udarii",
                         "Imbunatatiti drenajul solului",
-                        "Replantati in substrat proaspat si bine drenat"
+                        "Replantati in pamant proaspat si bine drenat"
                     ],
                     "detalii": "Putrezirea la baza plantei este un semn clar de udare excesivă sau drenaj insuficient. Acest lucru poate duce la moartea plantei dacă nu este tratat prompt."
                 }
@@ -250,14 +250,14 @@
                 "udare": {
                     "frecventa": "la 3-4 saptamani",
                     "metoda": "udare completa pana la drenare, apoi lasati solul sa se usuce complet",
-                    "detalii": "Cactusii prefera perioade lungi de seceta urmate de udari complete. Udati doar cand substratul este complet uscat."
+                    "detalii": "Cactusii prefera perioade lungi de seceta urmate de udari complete. Udati doar cand pamantul este complet uscat."
                 },
                 "lumina": {
                     "intensitate": "lumina directa intensa",
                     "expunere": "sud sau vest",
                     "detalii": "Majoritatea cactusilor au nevoie de lumina soarelui directa minim 4-6 ore zilnic pentru a ramane sanatosi."
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "amestec special pentru cactusi si suculente",
                     "detalii": "Sol foarte bine drenat, cu continut ridicat de nisip grosier sau perlit. Evitati solurile care retin multa umiditate."
                 }
@@ -304,7 +304,7 @@
                     "expunere": "sud",
                     "detalii": "Lavanda are nevoie de soare deplin, minim 6-8 ore pe zi pentru o crestere si inflorire optima."
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "sol calcaros, bine drenat, usor alcalin",
                     "detalii": "Prefera soluri sarace, bine drenate, cu pH usor alcalin. Adaugati nisip sau pietris pentru a imbunatati drenajul."
                 }
@@ -352,7 +352,7 @@
                     "expunere": "est sau sud",
                     "detalii": "Lalelele prefera soare complet primavara, dar pot tolera si umbra partiala, mai ales in zonele cu veri calduroase."
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "sol bogat, afanat si bine drenat",
                     "detalii": "Prefera soluri fertile, bogate in materie organica, dar cu drenaj excelent. Evitati solurile argiloase unde apa stagneaza."
                 }
@@ -400,7 +400,7 @@
                     "expunere": "est sau sud-est",
                     "detalii": "Bujorii prefera 6 ore de soare dimineata si protectie de soarele puternic de dupa-amiaza, mai ales in zonele cu veri calduroase."
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "sol bogat, profund si bine drenat",
                     "detalii": "Prefera soluri fertile, bogate in materie organica, cu drenaj bun. Adaugati compost inainte de plantare pentru rezultate optime."
                 }
@@ -449,9 +449,9 @@
                     "expunere": "est, sud-est sau vest",
                     "detalii": "Majoritatea magnoliilor prefera soare complet sau umbra partiala. Protejeaza florilelede inghet si de vanturile puternice."
                 },
-                "substrat": {
+                "pamant": {
                     "tip": "sol bogat, usor acid, bine drenat",
-                    "detalii": "Prefera soluri fertile, bogate in humus, usor acide (pH 5.5-6.5) si bine drenate. Evitati solurile calcaroase care pot cauza cloroza."
+                    "detalii": "Prefera soluri fertile, usor acide (pH 5.5-6.5) si bine drenate. Evitati solurile calcaroase care pot cauza cloroza."
                 }
             },
             "probleme_comune": {

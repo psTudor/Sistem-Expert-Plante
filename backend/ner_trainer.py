@@ -1,5 +1,4 @@
 import spacy
-from spacy.tokens import Doc
 from spacy.training import Example
 from spacy.util import minibatch, compounding
 from training_data import TRAINING_DATA
@@ -33,7 +32,7 @@ def train_ner(model_name: str = "ro_core_news_md",
         ner = nlp.get_pipe("ner")
 
     for _, annotations in TRAINING_DATA:
-        for ent in annotations.get("ENTITIES"):
+        for ent in annotations.get("entities", []):
             ner.add_label(ent[2])
 
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != "ner"]
