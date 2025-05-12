@@ -1,8 +1,12 @@
+
 import streamlit as st
 import requests
 from PIL import Image
 from requests.exceptions import RequestException
-
+import logging
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 API_URL = "http://localhost:8000"
 
@@ -16,38 +20,42 @@ st.set_page_config(
 
 # Interactiune cu API
 def get_all_plants():
+    from constants import API_ERROR_PLANTS_LIST
     try:
         local_response = requests.get(f"{API_URL}/plants", timeout=10)
         local_response.raise_for_status()
         return local_response.json()["plants"]
     except RequestException as e:
-        print(f"Eroare la obținerea listei de plante: {e}")
+        logging.error(API_ERROR_PLANTS_LIST.format(error=str(e)))
         return []
 
 
 def get_plant_info(plant_name_param):
+    from constants import API_ERROR_PLANT_INFO
     try:
         local_response = requests.get(
             f"{API_URL}/plants/{plant_name_param}", timeout=10)
         local_response.raise_for_status()
         return local_response.json()
     except RequestException as e:
-        print(f"Eroare la obținerea informațiilor despre plantă: {e}")
+        logging.error(API_ERROR_PLANT_INFO.format(error=str(e)))
         return None
 
 
 def send_query(text):
+    from constants import (API_ERROR_QUERY, API_GENERIC_RESPONSE_FAIL)
     try:
         local_response = requests.post(f"{API_URL}/query",
                                        json={"text": text}, timeout=10)
         local_response.raise_for_status()
         return local_response.json()["response"]
     except RequestException as e:
-        print(f"Eroare la trimiterea interogării: {e}")
-        return "Îmi pare rău, a apărut o eroare în procesarea cererii tale."
+        logging.error(API_ERROR_QUERY.format(error=str(e)))
+        return API_GENERIC_RESPONSE_FAIL
 
 
 def upload_plant_image(image_file):
+    from constants import API_ERROR_UPLOAD
     try:
         files = {"file": (image_file.name, image_file, "image/jpeg")}
         local_response = requests.post(
@@ -55,7 +63,7 @@ def upload_plant_image(image_file):
         local_response.raise_for_status()
         return local_response.json()
     except RequestException as e:
-        print(f"Eroare la încărcarea imaginii: {e}")
+        logging.error(API_ERROR_UPLOAD.format(error=str(e)))
         return None
 
 
@@ -147,7 +155,7 @@ if page == "Acasă":
 
     with col2:
         st.image("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735",
-                 caption="Plante sănătoase", use_container_width=True)
+                 use_container_width=True)
 
 elif page == "Chatbot":
     st.markdown("<h1 class='main-header'>💬 Chatbot pentru Îngrijirea Plantelor</h1>",
@@ -169,8 +177,10 @@ elif page == "Chatbot":
             st.markdown(
                 f"<div class='chat-message user-message'><strong>Tu:</strong> {message['content']}</div>", unsafe_allow_html=True)
         else:
+            bot_msg = message["content"].replace("\n", "<br>")
             st.markdown(
-                f"<div class='chat-message bot-message'><strong>🪴 Plant Expert:</strong> {message['content']}</div>", unsafe_allow_html=True)
+                f"<div class='chat-message bot-message'><strong>🪴 Plant Expert:</strong> {bot_msg}</div>",
+                unsafe_allow_html=True)
 
     user_query = st.text_input("Întreabă-mă despre plante:", key="user_query")
 

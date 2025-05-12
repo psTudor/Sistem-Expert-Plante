@@ -1,4 +1,5 @@
 import json
+import random
 
 
 def generate_training_data(plant_data):
@@ -7,45 +8,61 @@ def generate_training_data(plant_data):
     care_aspect_templates = {
         "udare": [
             "Cum ud {plant}?",
-            "Ce metoda de udare folosesc la {plant}?",
-            "Care e frecventa udarii la {plant}?"
+            "Ce metodă de udare se folosește pentru {plant}?",
+            "Cât de des trebuie udată {plant}?",
+            "La ce interval se udă {plant}?",
+            "Care este frecvența de udare potrivită pentru {plant}?"
         ],
         "lumina": [
-            "Ce fel de lumina prefera {plant}?",
-            "Cata lumina are nevoie {plant}?",
-            "Unde pun {plant} pentru o lumina buna?"
+            "Ce fel de lumină preferă {plant}?",
+            "Câtă lumină are nevoie {plant} pe zi?",
+            "Unde ar trebui să așez {plant} pentru lumină optimă?",
+            "Ce tip de lumină e ideal pentru {plant}?",
+            "{plant} preferă lumină directă sau difuză?",
+            "Care e expunerea solară ideală pentru {plant}?"
         ],
         "pamant": [
-            "In ce mediu palntez {plant}?",
-            "Ce sol e potrivit pentru {plant}?",
-            "Ce fel de pamant ii trebuie lui {plant}?"
+            "În ce tip de sol se plantează {plant}?",
+            "Ce fel de pământ este recomandat pentru {plant}?",
+            "Ce compoziție de sol preferă {plant}?",
+            "Cu ce fel de pământ merge cel mai bine {plant}?",
+            "Care e mediul potrivit pentru plantarea lui {plant}?"
         ]
     }
 
     problem_templates = [
-        "{plant} are problema: {problem}.",
-        "Cum rezolv {problem} la {plant}?",
-        "Am observat {problem} la {plant}. Ce fac?"
+        "{plant} are o problemă: {problem}.",
+        "Cum pot rezolva {problem} la {plant}?",
+        "Am observat {problem} la {plant}. Ce mă sfătuiți?",
+        "Ce se poate face dacă {plant} suferă de {problem}?",
+        "{problem} apare des la {plant}? Cum tratez?",
+        "Este {problem} periculoasă pentru {plant}?"
     ]
 
     general_templates = [
-        "Ce trebuie sa stiu despre {plant}?",
-        "Cum se ingrijeste {plant}?",
-        "Informatii generale despre {plant}.",
-        "Cum cresc {plant}?",
-        "Ce recomandari aveti pentru {plant}?"
+        "Ce trebuie să știu despre {plant}?",
+        "Cum se îngrijește corect {plant}?",
+        "Informații generale despre {plant}, vă rog.",
+        "Cum se cultivă {plant}?",
+        "Aveți sfaturi pentru creșterea lui {plant}?",
+        "Care sunt cerințele de bază ale plantei {plant}?",
+        "Cum pot avea grijă eficient de {plant}?",
+        "Ce condiții sunt ideale pentru {plant}?",
+        "Cum mențin sănătoasă planta {plant}?"
     ]
 
     plants = []
     care_aspects = list(care_aspect_templates.keys())
     problems = []
 
+    random.seed(42)
+
     for plant_name, info in plant_data["plants"].items():
         plants.append(plant_name)
 
         # --- CERINTE BAZA ---
         for aspect, templates in care_aspect_templates.items():
-            for phrase in templates:
+            for phrase in random.sample(templates, k=min(2, len(templates))):
                 text = phrase.format(plant=plant_name)
                 start = text.lower().find(plant_name.lower())
                 end = start + len(plant_name)
@@ -58,7 +75,7 @@ def generate_training_data(plant_data):
                 training_data.append((text, {"entities": entities}))
 
         # --- ÎNTREBĂRI GENERALE ---
-        for phrase in general_templates:
+        for phrase in random.sample(general_templates, k=min(2, len(general_templates))):
             text = phrase.format(plant=plant_name)
             start = text.lower().find(plant_name.lower())
             end = start + len(plant_name)
@@ -110,4 +127,4 @@ if __name__ == "__main__":
     training_data, plants, care_aspects, problems = generate_training_data(
         plant_data)
     save_to_py_file(training_data, plants, care_aspects, problems)
-    print(f"✅ Am generat {len(training_data)} exemple în training_data.py")
+    print(f"Am generat {len(training_data)} exemple în training_data.py")

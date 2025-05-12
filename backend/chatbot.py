@@ -4,10 +4,18 @@ from expert_system import PlantExpertSystem
 from image_recognition import identify_plant
 from typing import Dict, List, Optional
 from training_data import ENTITIES
+import sys
+import os
+import logging
+from constants import (
+    PLANT_NOT_SPECIFIED, PLANT_NOT_FOUND,
+    NEEDS_REPHRASE, GENERIC_ERROR, EXPERT_ERROR
+)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 class PlantCareBot:
-    def __init__(self, model_path: str = "model"):
+    def __init__(self, model_path: str = "output/model-best"):
         self.nlp = spacy.load(model_path)
         self.kb = KnowledgeBase()
         self.expert_system = PlantExpertSystem()
@@ -156,13 +164,13 @@ class PlantCareBot:
             intent = self.identify_intent(text, entities)
 
             if not entities["PLANT"]:
-                return "Îmi pare rău, dar nu am înțeles despre ce plantă vorbești. Poți să specifici numele plantei?"
+                return PLANT_NOT_SPECIFIED
 
             plant = entities["PLANT"][0]
 
             plant_info = self.kb.get_plant_info(plant)
             if not plant_info:
-                return f"Îmi pare rău, dar nu am informații despre planta '{plant}' în baza mea de cunoștințe."
+                return PLANT_NOT_FOUND.format(plant=plant)
 
             expert_response = self.expert_system.get_expert_response(
                 entities=entities,
@@ -183,21 +191,24 @@ class PlantCareBot:
                     f"- Pământ: {basic_care['pamant']['detalii']}"
                 )
 
-            return f"Am înțeles că te interesează {plant}, dar nu sunt sigur ce anume vrei să știi despre această plantă. Poți să reformulezi întrebarea?"
+            return NEEDS_REPHRASE.format(plant=plant)
 
         except ValueError as e:
-            return f"Eroare la procesarea textului: {str(e)}"
+            logging.error("ValueError: %s", e)
+            return GENERIC_ERROR.format(error=str(e))
         except TypeError as e:
-            return f"Eroare la accesarea bazei de cunostinte: {str(e)}"
+            logging.error("TypeError: %s", e)
+            return GENERIC_ERROR.format(error=str(e))
         except AttributeError as e:
-            return f"A aparut o eroare la apelarea expert system: {str(e)}"
+            logging.error("AttributeError (expert system): %s", e)
+            return EXPERT_ERROR.format(error=str(e))
         except Exception as e:
-            return f"A apărut o eroare neașteptată: {str(e)}"
+            logging.exception("Unexpected error")
+            return GENERIC_ERROR.format(error=str(e))
 
     def chat(self):
 
         print("Plant Care Bot: Bună! Cum te pot ajuta cu îngrijirea plantelor tale?")
-        print("(Scrie 'exit' pentru a încheia conversația sau 'imagine: calea/catre/imagine.jpg' pentru a identifica o plantă)")
 
         while True:
             try:
@@ -223,9 +234,8 @@ class PlantCareBot:
                 print("\nPlant Care Bot:", response)
 
             except Exception as e:
-                print(
-                    f"\nPlant Care Bot: Îmi pare rău, a apărut o eroare neașteptată. Te rog să încerci din nou.")
-                print(f"Eroare: {str(e)}")
+                logging.exception("Unexpected error")
+                return GENERIC_ERROR.format(error=str(e))
 
 
 if __name__ == "__main__":

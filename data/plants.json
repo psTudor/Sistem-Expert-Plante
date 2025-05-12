@@ -1,60 +1,60 @@
 {
     "plants": {
         "orhidee": {
-            "keywords": ["orchid", "houseplant", "exotic flower"],
+            "keywords": ["orchid"],
             "cerinte_baza": {
                 "udare": {
-                    "frecventa": "saptamanal",
+                    "frecventa": "săptamanal",
                     "metoda": "prin imersiune timp de 15 minute",
-                    "detalii": "Udati doar cand pamantul este complet uscat"
+                    "detalii": "Udați doar când pământul este complet uscat"
                 },
                 "lumina": {
-                    "intensitate": "indirecta stralucitoare",
+                    "intensitate": "indirectă strălucitoare",
                     "expunere": "est sau vest",
-                    "detalii": "Evitati lumina directa a soarelui"
+                    "detalii": "Evitați lumina directă a soarelui"
                 },
                 "pamant": {
                     "tip": "special pentru orhidee",
-                    "detalii": "Pamant special pentru orhidee, format din amestec de scoarta de pin si turba"
+                    "detalii": "Pământ special pentru orhidee, format din amestec de scoarță de pin."
                 }
             },
             "probleme_comune": {
                 "frunze_galbene": {
                     "cauze": ["udare excesiva", "lumina insuficienta"],
                     "solutii": [
-                        "Reduceti frecventa udarii",
-                        "Verificati drenajul",
-                        "Mutati planta intr-un loc mai luminos"
+                        "Reduceți frecvența udarii",
+                        "Verificați drenajul",
+                        "Mutați planta într-un loc mai luminos"
                     ],
-                    "detalii": "Îngălbenirea frunzelor la orhidee este adesea cauzată de udarea excesivă sau lumină insuficientă. Verificați mai întâi pământul - dacă este prea umed, reduceți udarea. De asemenea, asigurați-vă că planta primește suficientă lumină indirectă."
+                    "detalii": "Îngălbenirea frunzelor la orhidee este adesea cauzată de udarea excesivă sau lumină insuficientă. Reduceți udarea și asigurați-vă că planta primește suficientă lumină indirectă."
                 },
                 "radacini_putrede": {
                     "cauze": ["udare excesiva", "drenaj slab"],
                     "solutii": [
-                        "Taiati radacinile afectate",
-                        "Replantati in pamant proaspat",
-                        "Reduceti udarea"
+                        "Tăiați rădacinile afectate",
+                        "Replantați în pământ proaspăt",
+                        "Reduceți udarea"
                     ],
                     "detalii": "Rădăcinile putrede sunt un semn clar de udare excesivă sau drenaj inadecvat. Trebuie să îndepărtați toate rădăcinile afectate, să replantați în pământ proaspăt și să ajustați programul de udare."
                 }
             }
         },
         "ficus": {
-            "keywords": ["ficus", "fig", "rubber plant", "houseplant"],
+            "keywords": ["ficus"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 7-10 zile",
-                    "metoda": "udare moderata pana la drenare",
-                    "detalii": "Lasati pamantul sa se usuce partial intre udari"
+                    "metoda": "udare moderată până la drenare",
+                    "detalii": "Lăsați pamantul să se usuce parțial între udări"
                 },
                 "lumina": {
-                    "intensitate": "lumina indirecta puternica",
+                    "intensitate": "lumină indirectă puternica",
                     "expunere": "est sau nord",
-                    "detalii": "Poate tolera lumina directa dimineata"
+                    "detalii": "Poate tolera lumina directă dimineața"
                 },
                 "pamant": {
                     "tip": "universal pentru plante de interior",
-                    "detalii": "Pamant universal bine drenat, bogat in materie organica"
+                    "detalii": "Pământ universal bine drenat, bogat în materie organică"
                 }
             },
             "probleme_comune": {
@@ -245,7 +245,7 @@
             }
         },
         "cactus": {
-            "keywords": ["cactus", "desert plant"],
+            "keywords": ["cactus"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 3-4 saptamani",
@@ -413,7 +413,7 @@
                         "Aveti rabdare - bujorii pot dura 2-3 ani pana infloresc dupa plantare",
                         "Mutati in loc mai insorit daca este necesar"
                     ],
-                    "detalii": "Bujorii au nevoie de timp pentru a se stabili, uneori 2-3 ani după plantare. Plantarea prea adâncă este o cauză frecventă a lipsei de înflorire - ochii (mugurii) trebuie să fie la maximum 5 cm sub suprafața solului."
+                    "detalii": "Bujorii au nevoie de timp pentru a se stabili, uneori 2-3 ani după plantare. Plantarea prea adâncă este o cauză frecventă a lipsei de înflorire, ochii (mugurii) trebuie să fie la maximum 5 cm sub suprafața solului."
                 },
                 "frunze_patate": {
                     "cauze": ["botrytis (putregai cenusiu)", "alternaria", "conditii umede"],
@@ -484,6 +484,224 @@
                     "detalii": "Scoarța de magnolie este subțire și sensibilă la deteriorări. Arsurile solare pot apărea pe partea sudică a trunchiului, în special la arborii tineri. Daunele din îngheț și cele mecanice pot deschide calea pentru infecții și boli."
                 }
             }
-        }
+        },
+        "liliac": {
+            "keywords": ["syringa"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "ocazionala",
+                    "metoda": "udare abundenta cand solul este uscat",
+                    "detalii": "Liliacul are nevoie de udare doar in perioadele secetoase, mai ales in primii ani dupa plantare."
+                },
+                "lumina": {
+                    "intensitate": "plina",
+                    "expunere": "sud sau est",
+                    "detalii": "Se dezvolta cel mai bine in plin soare, inflorirea este redusa in zonele umbrite."
+                },
+                "pamant": {
+                    "tip": "fertil, bine drenat",
+                    "detalii": "Preferă soluri ușor alcaline, bogate în humus."
+                }
+            },
+            "probleme_comune": {
+                "lipsa_florilor": {
+                    "cauze": ["taiere incorecta", "lumina insuficienta", "sol sarac"],
+                    "solutii": [
+                    "Tundeti corect dupa inflorire",
+                    "Mutati planta intr-o zona mai insorita",
+                    "Adaugati compost sau ingrasamant organic"
+                    ],
+                    "detalii": "Lipsa infloririi este adesea legata de tunderea la moment nepotrivit sau lipsa de lumina."
+                },
+                "pete_pe_frunze": {
+                    "cauze": ["fainare", "umiditate ridicata"],
+                    "solutii": [
+                    "Indepartati frunzele afectate",
+                    "Aplicati un fungicid",
+                    "Asigurati ventilatie buna intre plante"
+                    ],
+                    "detalii": "Fainarea este o boala fungica comuna la liliac, care apare in conditii de umiditate si ventilatie slaba."
+                }
+            }
+        },
+        "iris": {
+            "keywords": ["iris"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "moderata",
+                    "metoda": "udare la baza plantei, evitand frunzele",
+                    "detalii": "Udati regulat in perioada de crestere, reduceti dupa inflorire."
+                },
+                "lumina": {
+                    "intensitate": "plina",
+                    "expunere": "sud sau vest",
+                    "detalii": "Infloreste cel mai bine in locuri insorite."
+                },
+                "pamant": {
+                    "tip": "usor, bine drenat",
+                    "detalii": "Sol usor acid sau neutru, evita excesul de apa."
+                }
+            },
+            "probleme_comune": {
+                "putrezirea_rizomului": {
+                    "cauze": ["udare excesiva", "drenaj slab"],
+                    "solutii": [
+                    "Reduceti udarea",
+                    "Replantati in sol drenat",
+                    "Aerati solul"
+                    ],
+                    "detalii": "Rizomii de iris pot putrezi usor in soluri grele sau umede."
+                }
+            }
+        },
+        "garoafa": {
+            "keywords": ["pink"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "regulata",
+                    "metoda": "udare la baza, fara a uda florile",
+                    "detalii": "Nu lasati solul sa se usuce complet intre udari."
+                },
+                "lumina": {
+                    "intensitate": "puternica",
+                    "expunere": "sud",
+                    "detalii": "Are nevoie de cel putin 4-6 ore de soare direct pe zi."
+                },
+                "pamant": {
+                    "tip": "usoare, bine drenate",
+                    "detalii": "Tolereaza soluri slab acide pana la neutre."
+                }
+            },
+            "probleme_comune": {
+                "ofilirea_florilor": {
+                    "cauze": ["udare neregulata", "lumina insuficienta"],
+                    "solutii": [
+                    "Udati constant",
+                    "Mutati planta intr-un loc mai luminos"
+                    ],
+                    "detalii": "Florile de garoafa sunt sensibile la stresul hidric si lipsa luminii."
+                }
+            }
+        },
+        "tuia": {
+            "keywords": ["tuia", "arbust ornamental", "gard viu", "conifer"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "regulata la plantare, apoi ocazionala",
+                    "metoda": "udare profunda la radacina",
+                    "detalii": "In primii 2 ani, udati regulat; ulterior doar in perioade secetoase."
+                },
+                "lumina": {
+                    "intensitate": "plina sau semiumbra",
+                    "expunere": "flexibila",
+                    "detalii": "Tolereaza atat soarele cat si semiumbra, dar prefera locurile luminoase."
+                },
+                "pamant": {
+                    "tip": "argilos-nisipos, drenat",
+                    "detalii": "Sol bine drenat, cu pH neutru."
+                }
+            },
+            "probleme_comune": {
+                "brunificare_varfuri": {
+                    "cauze": ["frig extrem", "uscare excesiva", "sol sarac"],
+                    "solutii": [
+                    "Udati inainte de inghet",
+                    "Aplicati ingrasamant in primavara",
+                    "Taiati partile afectate"
+                    ],
+                    "detalii": "Brunificarea poate aparea iarna sau in perioade de seceta."
+                }
+            }
+        },
+        "bonsai": {
+            "keywords": ["bonsai", "miniatura", "copac ornamental", "planta de interior"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "zilnica sau la 2 zile",
+                    "metoda": "udare usoara si uniforma",
+                    "detalii": "Verificati zilnic pamantul, nu lasati sa se usuce complet."
+                },
+                "lumina": {
+                    "intensitate": "puternica indirecta",
+                    "expunere": "geam luminos",
+                    "detalii": "Are nevoie de multa lumina, dar nu directa."
+                },
+                "pamant": {
+                    "tip": "special pentru bonsai",
+                    "detalii": "Amestec bine drenat, de obicei cu akadama, nisip si turba."
+                }
+            },
+            "probleme_comune": {
+                "frunze_cazatoare": {
+                    "cauze": ["udare neregulata", "curent de aer", "lipsa luminii"],
+                    "solutii": [
+                    "Stabiliti un program fix de udare",
+                    "Mutati departe de surse de curent",
+                    "Asigurati lumina suficienta"
+                    ],
+                    "detalii": "Caderile de frunze sunt semn de stres – cel mai adesea din cauza schimbarilor de mediu."
+                }
+            }
+        },
+        "crizantema": {
+            "keywords": ["crizantema", "floare de toamna", "perena", "gradina"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "regulata",
+                    "metoda": "udare la baza",
+                    "detalii": "Solul trebuie sa ramana usor umed, dar nu imbibat."
+                },
+                "lumina": {
+                    "intensitate": "moderata spre puternica",
+                    "expunere": "sud-est sau sud-vest",
+                    "detalii": "Preferă locuri luminoase, dar nu caniculare."
+                },
+                "pamant": {
+                    "tip": "fertil, usor acid",
+                    "detalii": "Ideal este un sol bine drenat, imbogatit cu compost."
+                }
+            },
+            "probleme_comune": {
+                "mucegai_pe_frunze": {
+                    "cauze": ["umiditate ridicata", "ventilatie slaba"],
+                    "solutii": [
+                    "Evitati udarea frunzelor",
+                    "Rariti plantele",
+                    "Aplicati fungicid"
+                    ],
+                    "detalii": "Crizantemele pot suferi de mucegai cenusiu daca stau in aer umed si stagnat."
+                }
+            }
+        },
+        "craciunita": {
+            "keywords": ["poinsettia", "craciunita", "planta de sarbatoare", "planta de interior"],
+            "cerinte_baza": {
+                "udare": {
+                    "frecventa": "la 3-4 zile",
+                    "metoda": "udare moderata, fara exces",
+                    "detalii": "Udati cand solul e uscat la suprafata, fara sa balteasca apa in farfurie."
+                },
+                "lumina": {
+                    "intensitate": "lumina indirecta puternica",
+                    "expunere": "langa fereastra luminata",
+                    "detalii": "Nu o expuneti la curenti de aer sau diferente mari de temperatura."
+                },
+                "pamant": {
+                    "tip": "universal bine drenat",
+                    "detalii": "Sol afanat, usor acid, cu drenaj bun."
+                }
+            },
+            "probleme_comune": {
+                "frunze_cazatoare": {
+                    "cauze": ["curenti de aer", "udare incorecta", "schimbari de temperatura"],
+                    "solutii": [
+                    "Mutati planta intr-un loc protejat",
+                    "Stabiliti o rutina de udare",
+                    "Mentineti temperatura constanta"
+                    ],
+                    "detalii": "Craciunita este sensibila la schimbarile de mediu si reactioneaza prin pierderea frunzelor."
+                }
+            }
+        }          
     }
 }

@@ -3,722 +3,1088 @@ TRAINING_DATA = [
     ("Cum ud orhidee?", {
         "entities": [(7, 14, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la orhidee?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 38, 'PLANT')]
+    ("Care este frecvența de udare potrivită pentru orhidee?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 53, 'PLANT')]
     }),
-    ("Care e frecventa udarii la orhidee?", {
+    ("Care e expunerea solară ideală pentru orhidee?", {
+        "entities": [(38, 45, 'PLANT')]
+    }),
+    ("Unde ar trebui să așez orhidee pentru lumină optimă?", {
+        "entities": [(23, 30, 'PLANT')]
+    }),
+    ("Ce fel de pământ este recomandat pentru orhidee?", {
+        "entities": [(40, 47, 'PLANT')]
+    }),
+    ("Care e mediul potrivit pentru plantarea lui orhidee?", {
+        "entities": [(44, 51, 'PLANT')]
+    }),
+    ("Informații generale despre orhidee, vă rog.", {
         "entities": [(27, 34, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera orhidee?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 32, 'PLANT')]
-    }),
-    ("Cata lumina are nevoie orhidee?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 30, 'PLANT')]
-    }),
-    ("Unde pun orhidee pentru o lumina buna?", {
-        "entities": [(26, 32, 'CARE_ASPECT'), (9, 16, 'PLANT')]
-    }),
-    ("In ce mediu palntez orhidee?", {
-        "entities": [(20, 27, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru orhidee?", {
+    ("Cum se îngrijește corect orhidee?", {
         "entities": [(25, 32, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui orhidee?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 39, 'PLANT')]
+    ("orhidee are o problemă: frunze galbene.", {
+        "entities": [(24, 38, 'PROBLEM'), (0, 7, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre orhidee?", {
-        "entities": [(26, 33, 'PLANT')]
+    ("Cum pot rezolva frunze galbene la orhidee?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 41, 'PLANT')]
     }),
-    ("Cum se ingrijeste orhidee?", {
-        "entities": [(18, 25, 'PLANT')]
-    }),
-    ("Informatii generale despre orhidee.", {
-        "entities": [(27, 34, 'PLANT')]
-    }),
-    ("Cum cresc orhidee?", {
-        "entities": [(10, 17, 'PLANT')]
-    }),
-    ("Ce recomandari aveti pentru orhidee?", {
-        "entities": [(28, 35, 'PLANT')]
-    }),
-    ("orhidee are problema: frunze galbene.", {
-        "entities": [(22, 36, 'PROBLEM'), (0, 7, 'PLANT')]
-    }),
-    ("Cum rezolv frunze galbene la orhidee?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 36, 'PLANT')]
-    }),
-    ("Am observat frunze galbene la orhidee. Ce fac?", {
+    ("Am observat frunze galbene la orhidee. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 37, 'PLANT')]
     }),
-    ("orhidee are problema: radacini putrede.", {
-        "entities": [(22, 38, 'PROBLEM'), (0, 7, 'PLANT')]
+    ("Ce se poate face dacă orhidee suferă de frunze galbene?", {
+        "entities": [(40, 54, 'PROBLEM'), (22, 29, 'PLANT')]
     }),
-    ("Cum rezolv radacini putrede la orhidee?", {
-        "entities": [(11, 27, 'PROBLEM'), (31, 38, 'PLANT')]
+    ("frunze galbene apare des la orhidee? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 35, 'PLANT')]
     }),
-    ("Am observat radacini putrede la orhidee. Ce fac?", {
+    ("Este frunze galbene periculoasă pentru orhidee?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 46, 'PLANT')]
+    }),
+    ("orhidee are o problemă: radacini putrede.", {
+        "entities": [(24, 40, 'PROBLEM'), (0, 7, 'PLANT')]
+    }),
+    ("Cum pot rezolva radacini putrede la orhidee?", {
+        "entities": [(16, 32, 'PROBLEM'), (36, 43, 'PLANT')]
+    }),
+    ("Am observat radacini putrede la orhidee. Ce mă sfătuiți?", {
         "entities": [(12, 28, 'PROBLEM'), (32, 39, 'PLANT')]
+    }),
+    ("Ce se poate face dacă orhidee suferă de radacini putrede?", {
+        "entities": [(40, 56, 'PROBLEM'), (22, 29, 'PLANT')]
+    }),
+    ("radacini putrede apare des la orhidee? Cum tratez?", {
+        "entities": [(0, 16, 'PROBLEM'), (30, 37, 'PLANT')]
+    }),
+    ("Este radacini putrede periculoasă pentru orhidee?", {
+        "entities": [(5, 21, 'PROBLEM'), (41, 48, 'PLANT')]
+    }),
+    ("Care este frecvența de udare potrivită pentru ficus?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 51, 'PLANT')]
     }),
     ("Cum ud ficus?", {
         "entities": [(7, 12, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la ficus?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 36, 'PLANT')]
+    ("ficus preferă lumină directă sau difuză?", {
+        "entities": [(0, 5, 'PLANT')]
     }),
-    ("Care e frecventa udarii la ficus?", {
-        "entities": [(27, 32, 'PLANT')]
+    ("Ce tip de lumină e ideal pentru ficus?", {
+        "entities": [(32, 37, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera ficus?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 30, 'PLANT')]
+    ("În ce tip de sol se plantează ficus?", {
+        "entities": [(30, 35, 'PLANT')]
     }),
-    ("Cata lumina are nevoie ficus?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 28, 'PLANT')]
+    ("Care e mediul potrivit pentru plantarea lui ficus?", {
+        "entities": [(44, 49, 'PLANT')]
     }),
-    ("Unde pun ficus pentru o lumina buna?", {
-        "entities": [(24, 30, 'CARE_ASPECT'), (9, 14, 'PLANT')]
-    }),
-    ("In ce mediu palntez ficus?", {
-        "entities": [(20, 25, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru ficus?", {
+    ("Cum se îngrijește corect ficus?", {
         "entities": [(25, 30, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui ficus?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 37, 'PLANT')]
+    ("Cum se cultivă ficus?", {
+        "entities": [(15, 20, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre ficus?", {
-        "entities": [(26, 31, 'PLANT')]
+    ("ficus are o problemă: cadere frunze.", {
+        "entities": [(22, 35, 'PROBLEM'), (0, 5, 'PLANT')]
     }),
-    ("Cum se ingrijeste ficus?", {
-        "entities": [(18, 23, 'PLANT')]
+    ("Cum pot rezolva cadere frunze la ficus?", {
+        "entities": [(16, 29, 'PROBLEM'), (33, 38, 'PLANT')]
     }),
-    ("Informatii generale despre ficus.", {
-        "entities": [(27, 32, 'PLANT')]
-    }),
-    ("Cum cresc ficus?", {
-        "entities": [(10, 15, 'PLANT')]
-    }),
-    ("Ce recomandari aveti pentru ficus?", {
-        "entities": [(28, 33, 'PLANT')]
-    }),
-    ("ficus are problema: cadere frunze.", {
-        "entities": [(20, 33, 'PROBLEM'), (0, 5, 'PLANT')]
-    }),
-    ("Cum rezolv cadere frunze la ficus?", {
-        "entities": [(11, 24, 'PROBLEM'), (28, 33, 'PLANT')]
-    }),
-    ("Am observat cadere frunze la ficus. Ce fac?", {
+    ("Am observat cadere frunze la ficus. Ce mă sfătuiți?", {
         "entities": [(12, 25, 'PROBLEM'), (29, 34, 'PLANT')]
     }),
-    ("ficus are problema: frunze galbene.", {
-        "entities": [(20, 34, 'PROBLEM'), (0, 5, 'PLANT')]
+    ("Ce se poate face dacă ficus suferă de cadere frunze?", {
+        "entities": [(38, 51, 'PROBLEM'), (22, 27, 'PLANT')]
     }),
-    ("Cum rezolv frunze galbene la ficus?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 34, 'PLANT')]
+    ("cadere frunze apare des la ficus? Cum tratez?", {
+        "entities": [(0, 13, 'PROBLEM'), (27, 32, 'PLANT')]
     }),
-    ("Am observat frunze galbene la ficus. Ce fac?", {
+    ("Este cadere frunze periculoasă pentru ficus?", {
+        "entities": [(5, 18, 'PROBLEM'), (38, 43, 'PLANT')]
+    }),
+    ("ficus are o problemă: frunze galbene.", {
+        "entities": [(22, 36, 'PROBLEM'), (0, 5, 'PLANT')]
+    }),
+    ("Cum pot rezolva frunze galbene la ficus?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 39, 'PLANT')]
+    }),
+    ("Am observat frunze galbene la ficus. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 35, 'PLANT')]
+    }),
+    ("Ce se poate face dacă ficus suferă de frunze galbene?", {
+        "entities": [(38, 52, 'PROBLEM'), (22, 27, 'PLANT')]
+    }),
+    ("frunze galbene apare des la ficus? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 33, 'PLANT')]
+    }),
+    ("Este frunze galbene periculoasă pentru ficus?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 44, 'PLANT')]
+    }),
+    ("Ce metodă de udare se folosește pentru trandafir?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 48, 'PLANT')]
     }),
     ("Cum ud trandafir?", {
         "entities": [(7, 16, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la trandafir?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 40, 'PLANT')]
+    ("trandafir preferă lumină directă sau difuză?", {
+        "entities": [(0, 9, 'PLANT')]
     }),
-    ("Care e frecventa udarii la trandafir?", {
-        "entities": [(27, 36, 'PLANT')]
+    ("Câtă lumină are nevoie trandafir pe zi?", {
+        "entities": [(23, 32, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera trandafir?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 34, 'PLANT')]
+    ("Care e mediul potrivit pentru plantarea lui trandafir?", {
+        "entities": [(44, 53, 'PLANT')]
     }),
-    ("Cata lumina are nevoie trandafir?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 32, 'PLANT')]
+    ("Cu ce fel de pământ merge cel mai bine trandafir?", {
+        "entities": [(39, 48, 'PLANT')]
     }),
-    ("Unde pun trandafir pentru o lumina buna?", {
-        "entities": [(28, 34, 'CARE_ASPECT'), (9, 18, 'PLANT')]
+    ("Cum se cultivă trandafir?", {
+        "entities": [(15, 24, 'PLANT')]
     }),
-    ("In ce mediu palntez trandafir?", {
-        "entities": [(20, 29, 'PLANT')]
+    ("Ce condiții sunt ideale pentru trandafir?", {
+        "entities": [(31, 40, 'PLANT')]
     }),
-    ("Ce sol e potrivit pentru trandafir?", {
-        "entities": [(25, 34, 'PLANT')]
+    ("trandafir are o problemă: frunze galbene.", {
+        "entities": [(26, 40, 'PROBLEM'), (0, 9, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui trandafir?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 41, 'PLANT')]
+    ("Cum pot rezolva frunze galbene la trandafir?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 43, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre trandafir?", {
-        "entities": [(26, 35, 'PLANT')]
-    }),
-    ("Cum se ingrijeste trandafir?", {
-        "entities": [(18, 27, 'PLANT')]
-    }),
-    ("Informatii generale despre trandafir.", {
-        "entities": [(27, 36, 'PLANT')]
-    }),
-    ("Cum cresc trandafir?", {
-        "entities": [(10, 19, 'PLANT')]
-    }),
-    ("Ce recomandari aveti pentru trandafir?", {
-        "entities": [(28, 37, 'PLANT')]
-    }),
-    ("trandafir are problema: frunze galbene.", {
-        "entities": [(24, 38, 'PROBLEM'), (0, 9, 'PLANT')]
-    }),
-    ("Cum rezolv frunze galbene la trandafir?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 38, 'PLANT')]
-    }),
-    ("Am observat frunze galbene la trandafir. Ce fac?", {
+    ("Am observat frunze galbene la trandafir. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 39, 'PLANT')]
     }),
-    ("trandafir are problema: pete negre.", {
-        "entities": [(24, 34, 'PROBLEM'), (0, 9, 'PLANT')]
+    ("Ce se poate face dacă trandafir suferă de frunze galbene?", {
+        "entities": [(42, 56, 'PROBLEM'), (22, 31, 'PLANT')]
     }),
-    ("Cum rezolv pete negre la trandafir?", {
-        "entities": [(11, 21, 'PROBLEM'), (25, 34, 'PLANT')]
+    ("frunze galbene apare des la trandafir? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 37, 'PLANT')]
     }),
-    ("Am observat pete negre la trandafir. Ce fac?", {
+    ("Este frunze galbene periculoasă pentru trandafir?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 48, 'PLANT')]
+    }),
+    ("trandafir are o problemă: pete negre.", {
+        "entities": [(26, 36, 'PROBLEM'), (0, 9, 'PLANT')]
+    }),
+    ("Cum pot rezolva pete negre la trandafir?", {
+        "entities": [(16, 26, 'PROBLEM'), (30, 39, 'PLANT')]
+    }),
+    ("Am observat pete negre la trandafir. Ce mă sfătuiți?", {
         "entities": [(12, 22, 'PROBLEM'), (26, 35, 'PLANT')]
     }),
-    ("Cum ud crin?", {
-        "entities": [(7, 11, 'PLANT')]
+    ("Ce se poate face dacă trandafir suferă de pete negre?", {
+        "entities": [(42, 52, 'PROBLEM'), (22, 31, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la crin?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 35, 'PLANT')]
+    ("pete negre apare des la trandafir? Cum tratez?", {
+        "entities": [(0, 10, 'PROBLEM'), (24, 33, 'PLANT')]
     }),
-    ("Care e frecventa udarii la crin?", {
-        "entities": [(27, 31, 'PLANT')]
+    ("Este pete negre periculoasă pentru trandafir?", {
+        "entities": [(5, 15, 'PROBLEM'), (35, 44, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera crin?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 29, 'PLANT')]
+    ("Care este frecvența de udare potrivită pentru crin?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 50, 'PLANT')]
     }),
-    ("Cata lumina are nevoie crin?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 27, 'PLANT')]
-    }),
-    ("Unde pun crin pentru o lumina buna?", {
-        "entities": [(23, 29, 'CARE_ASPECT'), (9, 13, 'PLANT')]
-    }),
-    ("In ce mediu palntez crin?", {
-        "entities": [(20, 24, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru crin?", {
+    ("Cât de des trebuie udată crin?", {
         "entities": [(25, 29, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui crin?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 36, 'PLANT')]
+    ("Ce fel de lumină preferă crin?", {
+        "entities": [(25, 29, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre crin?", {
-        "entities": [(26, 30, 'PLANT')]
+    ("Câtă lumină are nevoie crin pe zi?", {
+        "entities": [(23, 27, 'PLANT')]
     }),
-    ("Cum se ingrijeste crin?", {
-        "entities": [(18, 22, 'PLANT')]
+    ("Cu ce fel de pământ merge cel mai bine crin?", {
+        "entities": [(39, 43, 'PLANT')]
     }),
-    ("Informatii generale despre crin.", {
+    ("Ce compoziție de sol preferă crin?", {
+        "entities": [(29, 33, 'PLANT')]
+    }),
+    ("Aveți sfaturi pentru creșterea lui crin?", {
+        "entities": [(35, 39, 'PLANT')]
+    }),
+    ("Informații generale despre crin, vă rog.", {
         "entities": [(27, 31, 'PLANT')]
     }),
-    ("Cum cresc crin?", {
-        "entities": [(10, 14, 'PLANT')]
+    ("crin are o problemă: ingalbenirea frunzelor.", {
+        "entities": [(21, 43, 'PROBLEM'), (0, 4, 'PLANT')]
     }),
-    ("Ce recomandari aveti pentru crin?", {
-        "entities": [(28, 32, 'PLANT')]
+    ("Cum pot rezolva ingalbenirea frunzelor la crin?", {
+        "entities": [(16, 38, 'PROBLEM'), (42, 46, 'PLANT')]
     }),
-    ("crin are problema: ingalbenirea frunzelor.", {
-        "entities": [(19, 41, 'PROBLEM'), (0, 4, 'PLANT')]
-    }),
-    ("Cum rezolv ingalbenirea frunzelor la crin?", {
-        "entities": [(11, 33, 'PROBLEM'), (37, 41, 'PLANT')]
-    }),
-    ("Am observat ingalbenirea frunzelor la crin. Ce fac?", {
+    ("Am observat ingalbenirea frunzelor la crin. Ce mă sfătuiți?", {
         "entities": [(12, 34, 'PROBLEM'), (38, 42, 'PLANT')]
     }),
-    ("crin are problema: lipsa inflorire.", {
-        "entities": [(19, 34, 'PROBLEM'), (0, 4, 'PLANT')]
+    ("Ce se poate face dacă crin suferă de ingalbenirea frunzelor?", {
+        "entities": [(37, 59, 'PROBLEM'), (22, 26, 'PLANT')]
     }),
-    ("Cum rezolv lipsa inflorire la crin?", {
-        "entities": [(11, 26, 'PROBLEM'), (30, 34, 'PLANT')]
+    ("ingalbenirea frunzelor apare des la crin? Cum tratez?", {
+        "entities": [(0, 22, 'PROBLEM'), (36, 40, 'PLANT')]
     }),
-    ("Am observat lipsa inflorire la crin. Ce fac?", {
+    ("Este ingalbenirea frunzelor periculoasă pentru crin?", {
+        "entities": [(5, 27, 'PROBLEM'), (47, 51, 'PLANT')]
+    }),
+    ("crin are o problemă: lipsa inflorire.", {
+        "entities": [(21, 36, 'PROBLEM'), (0, 4, 'PLANT')]
+    }),
+    ("Cum pot rezolva lipsa inflorire la crin?", {
+        "entities": [(16, 31, 'PROBLEM'), (35, 39, 'PLANT')]
+    }),
+    ("Am observat lipsa inflorire la crin. Ce mă sfătuiți?", {
         "entities": [(12, 27, 'PROBLEM'), (31, 35, 'PLANT')]
     }),
-    ("Cum ud muscata?", {
-        "entities": [(7, 14, 'PLANT')]
+    ("Ce se poate face dacă crin suferă de lipsa inflorire?", {
+        "entities": [(37, 52, 'PROBLEM'), (22, 26, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la muscata?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 38, 'PLANT')]
+    ("lipsa inflorire apare des la crin? Cum tratez?", {
+        "entities": [(0, 15, 'PROBLEM'), (29, 33, 'PLANT')]
     }),
-    ("Care e frecventa udarii la muscata?", {
-        "entities": [(27, 34, 'PLANT')]
+    ("Este lipsa inflorire periculoasă pentru crin?", {
+        "entities": [(5, 20, 'PROBLEM'), (40, 44, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera muscata?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 32, 'PLANT')]
+    ("Ce metodă de udare se folosește pentru muscata?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
-    ("Cata lumina are nevoie muscata?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 30, 'PLANT')]
-    }),
-    ("Unde pun muscata pentru o lumina buna?", {
-        "entities": [(26, 32, 'CARE_ASPECT'), (9, 16, 'PLANT')]
-    }),
-    ("In ce mediu palntez muscata?", {
-        "entities": [(20, 27, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru muscata?", {
+    ("Cât de des trebuie udată muscata?", {
         "entities": [(25, 32, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui muscata?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 39, 'PLANT')]
+    ("Ce fel de lumină preferă muscata?", {
+        "entities": [(25, 32, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre muscata?", {
-        "entities": [(26, 33, 'PLANT')]
+    ("Care e expunerea solară ideală pentru muscata?", {
+        "entities": [(38, 45, 'PLANT')]
     }),
-    ("Cum se ingrijeste muscata?", {
-        "entities": [(18, 25, 'PLANT')]
+    ("Cu ce fel de pământ merge cel mai bine muscata?", {
+        "entities": [(39, 46, 'PLANT')]
     }),
-    ("Informatii generale despre muscata.", {
-        "entities": [(27, 34, 'PLANT')]
+    ("În ce tip de sol se plantează muscata?", {
+        "entities": [(30, 37, 'PLANT')]
     }),
-    ("Cum cresc muscata?", {
-        "entities": [(10, 17, 'PLANT')]
+    ("Care sunt cerințele de bază ale plantei muscata?", {
+        "entities": [(40, 47, 'PLANT')]
     }),
-    ("Ce recomandari aveti pentru muscata?", {
+    ("Cum mențin sănătoasă planta muscata?", {
         "entities": [(28, 35, 'PLANT')]
     }),
-    ("muscata are problema: frunze galbene.", {
-        "entities": [(22, 36, 'PROBLEM'), (0, 7, 'PLANT')]
+    ("muscata are o problemă: frunze galbene.", {
+        "entities": [(24, 38, 'PROBLEM'), (0, 7, 'PLANT')]
     }),
-    ("Cum rezolv frunze galbene la muscata?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 36, 'PLANT')]
+    ("Cum pot rezolva frunze galbene la muscata?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 41, 'PLANT')]
     }),
-    ("Am observat frunze galbene la muscata. Ce fac?", {
+    ("Am observat frunze galbene la muscata. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 37, 'PLANT')]
     }),
-    ("muscata are problema: putine flori.", {
-        "entities": [(22, 34, 'PROBLEM'), (0, 7, 'PLANT')]
+    ("Ce se poate face dacă muscata suferă de frunze galbene?", {
+        "entities": [(40, 54, 'PROBLEM'), (22, 29, 'PLANT')]
     }),
-    ("Cum rezolv putine flori la muscata?", {
-        "entities": [(11, 23, 'PROBLEM'), (27, 34, 'PLANT')]
+    ("frunze galbene apare des la muscata? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 35, 'PLANT')]
     }),
-    ("Am observat putine flori la muscata. Ce fac?", {
+    ("Este frunze galbene periculoasă pentru muscata?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 46, 'PLANT')]
+    }),
+    ("muscata are o problemă: putine flori.", {
+        "entities": [(24, 36, 'PROBLEM'), (0, 7, 'PLANT')]
+    }),
+    ("Cum pot rezolva putine flori la muscata?", {
+        "entities": [(16, 28, 'PROBLEM'), (32, 39, 'PLANT')]
+    }),
+    ("Am observat putine flori la muscata. Ce mă sfătuiți?", {
         "entities": [(12, 24, 'PROBLEM'), (28, 35, 'PLANT')]
     }),
-    ("Cum ud aloe vera?", {
-        "entities": [(7, 16, 'PLANT')]
+    ("Ce se poate face dacă muscata suferă de putine flori?", {
+        "entities": [(40, 52, 'PROBLEM'), (22, 29, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la aloe vera?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 40, 'PLANT')]
+    ("putine flori apare des la muscata? Cum tratez?", {
+        "entities": [(0, 12, 'PROBLEM'), (26, 33, 'PLANT')]
     }),
-    ("Care e frecventa udarii la aloe vera?", {
-        "entities": [(27, 36, 'PLANT')]
+    ("Este putine flori periculoasă pentru muscata?", {
+        "entities": [(5, 17, 'PROBLEM'), (37, 44, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera aloe vera?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 34, 'PLANT')]
+    ("Care este frecvența de udare potrivită pentru aloe vera?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 55, 'PLANT')]
     }),
-    ("Cata lumina are nevoie aloe vera?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 32, 'PLANT')]
-    }),
-    ("Unde pun aloe vera pentru o lumina buna?", {
-        "entities": [(28, 34, 'CARE_ASPECT'), (9, 18, 'PLANT')]
-    }),
-    ("In ce mediu palntez aloe vera?", {
-        "entities": [(20, 29, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru aloe vera?", {
+    ("Cât de des trebuie udată aloe vera?", {
         "entities": [(25, 34, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui aloe vera?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 41, 'PLANT')]
+    ("Ce fel de lumină preferă aloe vera?", {
+        "entities": [(25, 34, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre aloe vera?", {
-        "entities": [(26, 35, 'PLANT')]
+    ("Ce tip de lumină e ideal pentru aloe vera?", {
+        "entities": [(32, 41, 'PLANT')]
     }),
-    ("Cum se ingrijeste aloe vera?", {
-        "entities": [(18, 27, 'PLANT')]
+    ("Care e mediul potrivit pentru plantarea lui aloe vera?", {
+        "entities": [(44, 53, 'PLANT')]
     }),
-    ("Informatii generale despre aloe vera.", {
-        "entities": [(27, 36, 'PLANT')]
+    ("În ce tip de sol se plantează aloe vera?", {
+        "entities": [(30, 39, 'PLANT')]
     }),
-    ("Cum cresc aloe vera?", {
-        "entities": [(10, 19, 'PLANT')]
+    ("Cum pot avea grijă eficient de aloe vera?", {
+        "entities": [(31, 40, 'PLANT')]
     }),
-    ("Ce recomandari aveti pentru aloe vera?", {
-        "entities": [(28, 37, 'PLANT')]
+    ("Cum se îngrijește corect aloe vera?", {
+        "entities": [(25, 34, 'PLANT')]
     }),
-    ("aloe vera are problema: frunze maro.", {
-        "entities": [(24, 35, 'PROBLEM'), (0, 9, 'PLANT')]
+    ("aloe vera are o problemă: frunze maro.", {
+        "entities": [(26, 37, 'PROBLEM'), (0, 9, 'PLANT')]
     }),
-    ("Cum rezolv frunze maro la aloe vera?", {
-        "entities": [(11, 22, 'PROBLEM'), (26, 35, 'PLANT')]
+    ("Cum pot rezolva frunze maro la aloe vera?", {
+        "entities": [(16, 27, 'PROBLEM'), (31, 40, 'PLANT')]
     }),
-    ("Am observat frunze maro la aloe vera. Ce fac?", {
+    ("Am observat frunze maro la aloe vera. Ce mă sfătuiți?", {
         "entities": [(12, 23, 'PROBLEM'), (27, 36, 'PLANT')]
     }),
-    ("aloe vera are problema: frunze moi.", {
-        "entities": [(24, 34, 'PROBLEM'), (0, 9, 'PLANT')]
+    ("Ce se poate face dacă aloe vera suferă de frunze maro?", {
+        "entities": [(42, 53, 'PROBLEM'), (22, 31, 'PLANT')]
     }),
-    ("Cum rezolv frunze moi la aloe vera?", {
-        "entities": [(11, 21, 'PROBLEM'), (25, 34, 'PLANT')]
+    ("frunze maro apare des la aloe vera? Cum tratez?", {
+        "entities": [(0, 11, 'PROBLEM'), (25, 34, 'PLANT')]
     }),
-    ("Am observat frunze moi la aloe vera. Ce fac?", {
+    ("Este frunze maro periculoasă pentru aloe vera?", {
+        "entities": [(5, 16, 'PROBLEM'), (36, 45, 'PLANT')]
+    }),
+    ("aloe vera are o problemă: frunze moi.", {
+        "entities": [(26, 36, 'PROBLEM'), (0, 9, 'PLANT')]
+    }),
+    ("Cum pot rezolva frunze moi la aloe vera?", {
+        "entities": [(16, 26, 'PROBLEM'), (30, 39, 'PLANT')]
+    }),
+    ("Am observat frunze moi la aloe vera. Ce mă sfătuiți?", {
         "entities": [(12, 22, 'PROBLEM'), (26, 35, 'PLANT')]
     }),
-    ("aloe vera are problema: putrezirea bazei.", {
-        "entities": [(24, 40, 'PROBLEM'), (0, 9, 'PLANT')]
+    ("Ce se poate face dacă aloe vera suferă de frunze moi?", {
+        "entities": [(42, 52, 'PROBLEM'), (22, 31, 'PLANT')]
     }),
-    ("Cum rezolv putrezirea bazei la aloe vera?", {
-        "entities": [(11, 27, 'PROBLEM'), (31, 40, 'PLANT')]
+    ("frunze moi apare des la aloe vera? Cum tratez?", {
+        "entities": [(0, 10, 'PROBLEM'), (24, 33, 'PLANT')]
     }),
-    ("Am observat putrezirea bazei la aloe vera. Ce fac?", {
+    ("Este frunze moi periculoasă pentru aloe vera?", {
+        "entities": [(5, 15, 'PROBLEM'), (35, 44, 'PLANT')]
+    }),
+    ("aloe vera are o problemă: putrezirea bazei.", {
+        "entities": [(26, 42, 'PROBLEM'), (0, 9, 'PLANT')]
+    }),
+    ("Cum pot rezolva putrezirea bazei la aloe vera?", {
+        "entities": [(16, 32, 'PROBLEM'), (36, 45, 'PLANT')]
+    }),
+    ("Am observat putrezirea bazei la aloe vera. Ce mă sfătuiți?", {
         "entities": [(12, 28, 'PROBLEM'), (32, 41, 'PLANT')]
     }),
-    ("Cum ud cactus?", {
-        "entities": [(7, 13, 'PLANT')]
+    ("Ce se poate face dacă aloe vera suferă de putrezirea bazei?", {
+        "entities": [(42, 58, 'PROBLEM'), (22, 31, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la cactus?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 37, 'PLANT')]
+    ("putrezirea bazei apare des la aloe vera? Cum tratez?", {
+        "entities": [(0, 16, 'PROBLEM'), (30, 39, 'PLANT')]
     }),
-    ("Care e frecventa udarii la cactus?", {
-        "entities": [(27, 33, 'PLANT')]
+    ("Este putrezirea bazei periculoasă pentru aloe vera?", {
+        "entities": [(5, 21, 'PROBLEM'), (41, 50, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera cactus?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 31, 'PLANT')]
+    ("Care este frecvența de udare potrivită pentru cactus?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 52, 'PLANT')]
     }),
-    ("Cata lumina are nevoie cactus?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 29, 'PLANT')]
-    }),
-    ("Unde pun cactus pentru o lumina buna?", {
-        "entities": [(25, 31, 'CARE_ASPECT'), (9, 15, 'PLANT')]
-    }),
-    ("In ce mediu palntez cactus?", {
-        "entities": [(20, 26, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru cactus?", {
+    ("Cât de des trebuie udată cactus?", {
         "entities": [(25, 31, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui cactus?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 38, 'PLANT')]
+    ("Care e expunerea solară ideală pentru cactus?", {
+        "entities": [(38, 44, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre cactus?", {
+    ("cactus preferă lumină directă sau difuză?", {
+        "entities": [(0, 6, 'PLANT')]
+    }),
+    ("Ce compoziție de sol preferă cactus?", {
+        "entities": [(29, 35, 'PLANT')]
+    }),
+    ("Ce fel de pământ este recomandat pentru cactus?", {
+        "entities": [(40, 46, 'PLANT')]
+    }),
+    ("Cum se îngrijește corect cactus?", {
+        "entities": [(25, 31, 'PLANT')]
+    }),
+    ("Ce trebuie să știu despre cactus?", {
         "entities": [(26, 32, 'PLANT')]
     }),
-    ("Cum se ingrijeste cactus?", {
-        "entities": [(18, 24, 'PLANT')]
+    ("cactus are o problemă: putrezire baza.", {
+        "entities": [(23, 37, 'PROBLEM'), (0, 6, 'PLANT')]
     }),
-    ("Informatii generale despre cactus.", {
-        "entities": [(27, 33, 'PLANT')]
+    ("Cum pot rezolva putrezire baza la cactus?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 40, 'PLANT')]
     }),
-    ("Cum cresc cactus?", {
-        "entities": [(10, 16, 'PLANT')]
-    }),
-    ("Ce recomandari aveti pentru cactus?", {
-        "entities": [(28, 34, 'PLANT')]
-    }),
-    ("cactus are problema: putrezire baza.", {
-        "entities": [(21, 35, 'PROBLEM'), (0, 6, 'PLANT')]
-    }),
-    ("Cum rezolv putrezire baza la cactus?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 35, 'PLANT')]
-    }),
-    ("Am observat putrezire baza la cactus. Ce fac?", {
+    ("Am observat putrezire baza la cactus. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 36, 'PLANT')]
     }),
-    ("cactus are problema: crestere alungita.", {
-        "entities": [(21, 38, 'PROBLEM'), (0, 6, 'PLANT')]
+    ("Ce se poate face dacă cactus suferă de putrezire baza?", {
+        "entities": [(39, 53, 'PROBLEM'), (22, 28, 'PLANT')]
     }),
-    ("Cum rezolv crestere alungita la cactus?", {
-        "entities": [(11, 28, 'PROBLEM'), (32, 38, 'PLANT')]
+    ("putrezire baza apare des la cactus? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 34, 'PLANT')]
     }),
-    ("Am observat crestere alungita la cactus. Ce fac?", {
+    ("Este putrezire baza periculoasă pentru cactus?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 45, 'PLANT')]
+    }),
+    ("cactus are o problemă: crestere alungita.", {
+        "entities": [(23, 40, 'PROBLEM'), (0, 6, 'PLANT')]
+    }),
+    ("Cum pot rezolva crestere alungita la cactus?", {
+        "entities": [(16, 33, 'PROBLEM'), (37, 43, 'PLANT')]
+    }),
+    ("Am observat crestere alungita la cactus. Ce mă sfătuiți?", {
         "entities": [(12, 29, 'PROBLEM'), (33, 39, 'PLANT')]
     }),
-    ("cactus are problema: pete maronii.", {
-        "entities": [(21, 33, 'PROBLEM'), (0, 6, 'PLANT')]
+    ("Ce se poate face dacă cactus suferă de crestere alungita?", {
+        "entities": [(39, 56, 'PROBLEM'), (22, 28, 'PLANT')]
     }),
-    ("Cum rezolv pete maronii la cactus?", {
-        "entities": [(11, 23, 'PROBLEM'), (27, 33, 'PLANT')]
+    ("crestere alungita apare des la cactus? Cum tratez?", {
+        "entities": [(0, 17, 'PROBLEM'), (31, 37, 'PLANT')]
     }),
-    ("Am observat pete maronii la cactus. Ce fac?", {
+    ("Este crestere alungita periculoasă pentru cactus?", {
+        "entities": [(5, 22, 'PROBLEM'), (42, 48, 'PLANT')]
+    }),
+    ("cactus are o problemă: pete maronii.", {
+        "entities": [(23, 35, 'PROBLEM'), (0, 6, 'PLANT')]
+    }),
+    ("Cum pot rezolva pete maronii la cactus?", {
+        "entities": [(16, 28, 'PROBLEM'), (32, 38, 'PLANT')]
+    }),
+    ("Am observat pete maronii la cactus. Ce mă sfătuiți?", {
         "entities": [(12, 24, 'PROBLEM'), (28, 34, 'PLANT')]
     }),
-    ("Cum ud lavanda?", {
-        "entities": [(7, 14, 'PLANT')]
+    ("Ce se poate face dacă cactus suferă de pete maronii?", {
+        "entities": [(39, 51, 'PROBLEM'), (22, 28, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la lavanda?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 38, 'PLANT')]
+    ("pete maronii apare des la cactus? Cum tratez?", {
+        "entities": [(0, 12, 'PROBLEM'), (26, 32, 'PLANT')]
     }),
-    ("Care e frecventa udarii la lavanda?", {
-        "entities": [(27, 34, 'PLANT')]
+    ("Este pete maronii periculoasă pentru cactus?", {
+        "entities": [(5, 17, 'PROBLEM'), (37, 43, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera lavanda?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 32, 'PLANT')]
+    ("Ce metodă de udare se folosește pentru lavanda?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
-    ("Cata lumina are nevoie lavanda?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 30, 'PLANT')]
-    }),
-    ("Unde pun lavanda pentru o lumina buna?", {
-        "entities": [(26, 32, 'CARE_ASPECT'), (9, 16, 'PLANT')]
-    }),
-    ("In ce mediu palntez lavanda?", {
-        "entities": [(20, 27, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru lavanda?", {
+    ("Cât de des trebuie udată lavanda?", {
         "entities": [(25, 32, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui lavanda?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 39, 'PLANT')]
+    ("Ce fel de lumină preferă lavanda?", {
+        "entities": [(25, 32, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre lavanda?", {
-        "entities": [(26, 33, 'PLANT')]
+    ("Câtă lumină are nevoie lavanda pe zi?", {
+        "entities": [(23, 30, 'PLANT')]
     }),
-    ("Cum se ingrijeste lavanda?", {
-        "entities": [(18, 25, 'PLANT')]
+    ("În ce tip de sol se plantează lavanda?", {
+        "entities": [(30, 37, 'PLANT')]
     }),
-    ("Informatii generale despre lavanda.", {
-        "entities": [(27, 34, 'PLANT')]
+    ("Cu ce fel de pământ merge cel mai bine lavanda?", {
+        "entities": [(39, 46, 'PLANT')]
     }),
-    ("Cum cresc lavanda?", {
-        "entities": [(10, 17, 'PLANT')]
+    ("Aveți sfaturi pentru creșterea lui lavanda?", {
+        "entities": [(35, 42, 'PLANT')]
     }),
-    ("Ce recomandari aveti pentru lavanda?", {
-        "entities": [(28, 35, 'PLANT')]
+    ("Ce condiții sunt ideale pentru lavanda?", {
+        "entities": [(31, 38, 'PLANT')]
     }),
-    ("lavanda are problema: radacini putrede.", {
-        "entities": [(22, 38, 'PROBLEM'), (0, 7, 'PLANT')]
+    ("lavanda are o problemă: radacini putrede.", {
+        "entities": [(24, 40, 'PROBLEM'), (0, 7, 'PLANT')]
     }),
-    ("Cum rezolv radacini putrede la lavanda?", {
-        "entities": [(11, 27, 'PROBLEM'), (31, 38, 'PLANT')]
+    ("Cum pot rezolva radacini putrede la lavanda?", {
+        "entities": [(16, 32, 'PROBLEM'), (36, 43, 'PLANT')]
     }),
-    ("Am observat radacini putrede la lavanda. Ce fac?", {
+    ("Am observat radacini putrede la lavanda. Ce mă sfătuiți?", {
         "entities": [(12, 28, 'PROBLEM'), (32, 39, 'PLANT')]
     }),
-    ("lavanda are problema: crestere lemnoasa.", {
-        "entities": [(22, 39, 'PROBLEM'), (0, 7, 'PLANT')]
+    ("Ce se poate face dacă lavanda suferă de radacini putrede?", {
+        "entities": [(40, 56, 'PROBLEM'), (22, 29, 'PLANT')]
     }),
-    ("Cum rezolv crestere lemnoasa la lavanda?", {
-        "entities": [(11, 28, 'PROBLEM'), (32, 39, 'PLANT')]
+    ("radacini putrede apare des la lavanda? Cum tratez?", {
+        "entities": [(0, 16, 'PROBLEM'), (30, 37, 'PLANT')]
     }),
-    ("Am observat crestere lemnoasa la lavanda. Ce fac?", {
+    ("Este radacini putrede periculoasă pentru lavanda?", {
+        "entities": [(5, 21, 'PROBLEM'), (41, 48, 'PLANT')]
+    }),
+    ("lavanda are o problemă: crestere lemnoasa.", {
+        "entities": [(24, 41, 'PROBLEM'), (0, 7, 'PLANT')]
+    }),
+    ("Cum pot rezolva crestere lemnoasa la lavanda?", {
+        "entities": [(16, 33, 'PROBLEM'), (37, 44, 'PLANT')]
+    }),
+    ("Am observat crestere lemnoasa la lavanda. Ce mă sfătuiți?", {
         "entities": [(12, 29, 'PROBLEM'), (33, 40, 'PLANT')]
     }),
-    ("lavanda are problema: frunze galbene.", {
-        "entities": [(22, 36, 'PROBLEM'), (0, 7, 'PLANT')]
+    ("Ce se poate face dacă lavanda suferă de crestere lemnoasa?", {
+        "entities": [(40, 57, 'PROBLEM'), (22, 29, 'PLANT')]
     }),
-    ("Cum rezolv frunze galbene la lavanda?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 36, 'PLANT')]
+    ("crestere lemnoasa apare des la lavanda? Cum tratez?", {
+        "entities": [(0, 17, 'PROBLEM'), (31, 38, 'PLANT')]
     }),
-    ("Am observat frunze galbene la lavanda. Ce fac?", {
+    ("Este crestere lemnoasa periculoasă pentru lavanda?", {
+        "entities": [(5, 22, 'PROBLEM'), (42, 49, 'PLANT')]
+    }),
+    ("lavanda are o problemă: frunze galbene.", {
+        "entities": [(24, 38, 'PROBLEM'), (0, 7, 'PLANT')]
+    }),
+    ("Cum pot rezolva frunze galbene la lavanda?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 41, 'PLANT')]
+    }),
+    ("Am observat frunze galbene la lavanda. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 37, 'PLANT')]
     }),
-    ("Cum ud lalea?", {
-        "entities": [(7, 12, 'PLANT')]
+    ("Ce se poate face dacă lavanda suferă de frunze galbene?", {
+        "entities": [(40, 54, 'PROBLEM'), (22, 29, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la lalea?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 36, 'PLANT')]
+    ("frunze galbene apare des la lavanda? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 35, 'PLANT')]
     }),
-    ("Care e frecventa udarii la lalea?", {
-        "entities": [(27, 32, 'PLANT')]
+    ("Este frunze galbene periculoasă pentru lavanda?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 46, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera lalea?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 30, 'PLANT')]
-    }),
-    ("Cata lumina are nevoie lalea?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 28, 'PLANT')]
-    }),
-    ("Unde pun lalea pentru o lumina buna?", {
-        "entities": [(24, 30, 'CARE_ASPECT'), (9, 14, 'PLANT')]
-    }),
-    ("In ce mediu palntez lalea?", {
-        "entities": [(20, 25, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru lalea?", {
+    ("Cât de des trebuie udată lalea?", {
         "entities": [(25, 30, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui lalea?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 37, 'PLANT')]
+    ("Ce metodă de udare se folosește pentru lalea?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 44, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre lalea?", {
-        "entities": [(26, 31, 'PLANT')]
+    ("Unde ar trebui să așez lalea pentru lumină optimă?", {
+        "entities": [(23, 28, 'PLANT')]
     }),
-    ("Cum se ingrijeste lalea?", {
-        "entities": [(18, 23, 'PLANT')]
+    ("Care e expunerea solară ideală pentru lalea?", {
+        "entities": [(38, 43, 'PLANT')]
     }),
-    ("Informatii generale despre lalea.", {
+    ("Ce fel de pământ este recomandat pentru lalea?", {
+        "entities": [(40, 45, 'PLANT')]
+    }),
+    ("Ce compoziție de sol preferă lalea?", {
+        "entities": [(29, 34, 'PLANT')]
+    }),
+    ("Cum se îngrijește corect lalea?", {
+        "entities": [(25, 30, 'PLANT')]
+    }),
+    ("Informații generale despre lalea, vă rog.", {
         "entities": [(27, 32, 'PLANT')]
     }),
-    ("Cum cresc lalea?", {
-        "entities": [(10, 15, 'PLANT')]
+    ("lalea are o problemă: lipsa inflorire.", {
+        "entities": [(22, 37, 'PROBLEM'), (0, 5, 'PLANT')]
     }),
-    ("Ce recomandari aveti pentru lalea?", {
-        "entities": [(28, 33, 'PLANT')]
+    ("Cum pot rezolva lipsa inflorire la lalea?", {
+        "entities": [(16, 31, 'PROBLEM'), (35, 40, 'PLANT')]
     }),
-    ("lalea are problema: lipsa inflorire.", {
-        "entities": [(20, 35, 'PROBLEM'), (0, 5, 'PLANT')]
-    }),
-    ("Cum rezolv lipsa inflorire la lalea?", {
-        "entities": [(11, 26, 'PROBLEM'), (30, 35, 'PLANT')]
-    }),
-    ("Am observat lipsa inflorire la lalea. Ce fac?", {
+    ("Am observat lipsa inflorire la lalea. Ce mă sfătuiți?", {
         "entities": [(12, 27, 'PROBLEM'), (31, 36, 'PLANT')]
     }),
-    ("lalea are problema: tulpini scurte.", {
-        "entities": [(20, 34, 'PROBLEM'), (0, 5, 'PLANT')]
+    ("Ce se poate face dacă lalea suferă de lipsa inflorire?", {
+        "entities": [(38, 53, 'PROBLEM'), (22, 27, 'PLANT')]
     }),
-    ("Cum rezolv tulpini scurte la lalea?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 34, 'PLANT')]
+    ("lipsa inflorire apare des la lalea? Cum tratez?", {
+        "entities": [(0, 15, 'PROBLEM'), (29, 34, 'PLANT')]
     }),
-    ("Am observat tulpini scurte la lalea. Ce fac?", {
+    ("Este lipsa inflorire periculoasă pentru lalea?", {
+        "entities": [(5, 20, 'PROBLEM'), (40, 45, 'PLANT')]
+    }),
+    ("lalea are o problemă: tulpini scurte.", {
+        "entities": [(22, 36, 'PROBLEM'), (0, 5, 'PLANT')]
+    }),
+    ("Cum pot rezolva tulpini scurte la lalea?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 39, 'PLANT')]
+    }),
+    ("Am observat tulpini scurte la lalea. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 35, 'PLANT')]
     }),
-    ("lalea are problema: putrezirea bulbilor.", {
-        "entities": [(20, 39, 'PROBLEM'), (0, 5, 'PLANT')]
+    ("Ce se poate face dacă lalea suferă de tulpini scurte?", {
+        "entities": [(38, 52, 'PROBLEM'), (22, 27, 'PLANT')]
     }),
-    ("Cum rezolv putrezirea bulbilor la lalea?", {
-        "entities": [(11, 30, 'PROBLEM'), (34, 39, 'PLANT')]
+    ("tulpini scurte apare des la lalea? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 33, 'PLANT')]
     }),
-    ("Am observat putrezirea bulbilor la lalea. Ce fac?", {
+    ("Este tulpini scurte periculoasă pentru lalea?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 44, 'PLANT')]
+    }),
+    ("lalea are o problemă: putrezirea bulbilor.", {
+        "entities": [(22, 41, 'PROBLEM'), (0, 5, 'PLANT')]
+    }),
+    ("Cum pot rezolva putrezirea bulbilor la lalea?", {
+        "entities": [(16, 35, 'PROBLEM'), (39, 44, 'PLANT')]
+    }),
+    ("Am observat putrezirea bulbilor la lalea. Ce mă sfătuiți?", {
         "entities": [(12, 31, 'PROBLEM'), (35, 40, 'PLANT')]
     }),
-    ("Cum ud bujor?", {
-        "entities": [(7, 12, 'PLANT')]
+    ("Ce se poate face dacă lalea suferă de putrezirea bulbilor?", {
+        "entities": [(38, 57, 'PROBLEM'), (22, 27, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la bujor?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 36, 'PLANT')]
+    ("putrezirea bulbilor apare des la lalea? Cum tratez?", {
+        "entities": [(0, 19, 'PROBLEM'), (33, 38, 'PLANT')]
     }),
-    ("Care e frecventa udarii la bujor?", {
-        "entities": [(27, 32, 'PLANT')]
+    ("Este putrezirea bulbilor periculoasă pentru lalea?", {
+        "entities": [(5, 24, 'PROBLEM'), (44, 49, 'PLANT')]
     }),
-    ("Ce fel de lumina prefera bujor?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 30, 'PLANT')]
+    ("Care este frecvența de udare potrivită pentru bujor?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 51, 'PLANT')]
     }),
-    ("Cata lumina are nevoie bujor?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 28, 'PLANT')]
+    ("Ce metodă de udare se folosește pentru bujor?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 44, 'PLANT')]
     }),
-    ("Unde pun bujor pentru o lumina buna?", {
-        "entities": [(24, 30, 'CARE_ASPECT'), (9, 14, 'PLANT')]
+    ("Câtă lumină are nevoie bujor pe zi?", {
+        "entities": [(23, 28, 'PLANT')]
     }),
-    ("In ce mediu palntez bujor?", {
-        "entities": [(20, 25, 'PLANT')]
+    ("Ce tip de lumină e ideal pentru bujor?", {
+        "entities": [(32, 37, 'PLANT')]
     }),
-    ("Ce sol e potrivit pentru bujor?", {
-        "entities": [(25, 30, 'PLANT')]
+    ("Cu ce fel de pământ merge cel mai bine bujor?", {
+        "entities": [(39, 44, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui bujor?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 37, 'PLANT')]
+    ("Ce compoziție de sol preferă bujor?", {
+        "entities": [(29, 34, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre bujor?", {
-        "entities": [(26, 31, 'PLANT')]
-    }),
-    ("Cum se ingrijeste bujor?", {
-        "entities": [(18, 23, 'PLANT')]
-    }),
-    ("Informatii generale despre bujor.", {
-        "entities": [(27, 32, 'PLANT')]
-    }),
-    ("Cum cresc bujor?", {
-        "entities": [(10, 15, 'PLANT')]
-    }),
-    ("Ce recomandari aveti pentru bujor?", {
+    ("Cum mențin sănătoasă planta bujor?", {
         "entities": [(28, 33, 'PLANT')]
     }),
-    ("bujor are problema: lipsa inflorire.", {
-        "entities": [(20, 35, 'PROBLEM'), (0, 5, 'PLANT')]
+    ("Cum se cultivă bujor?", {
+        "entities": [(15, 20, 'PLANT')]
     }),
-    ("Cum rezolv lipsa inflorire la bujor?", {
-        "entities": [(11, 26, 'PROBLEM'), (30, 35, 'PLANT')]
+    ("bujor are o problemă: lipsa inflorire.", {
+        "entities": [(22, 37, 'PROBLEM'), (0, 5, 'PLANT')]
     }),
-    ("Am observat lipsa inflorire la bujor. Ce fac?", {
+    ("Cum pot rezolva lipsa inflorire la bujor?", {
+        "entities": [(16, 31, 'PROBLEM'), (35, 40, 'PLANT')]
+    }),
+    ("Am observat lipsa inflorire la bujor. Ce mă sfătuiți?", {
         "entities": [(12, 27, 'PROBLEM'), (31, 36, 'PLANT')]
     }),
-    ("bujor are problema: frunze patate.", {
-        "entities": [(20, 33, 'PROBLEM'), (0, 5, 'PLANT')]
+    ("Ce se poate face dacă bujor suferă de lipsa inflorire?", {
+        "entities": [(38, 53, 'PROBLEM'), (22, 27, 'PLANT')]
     }),
-    ("Cum rezolv frunze patate la bujor?", {
-        "entities": [(11, 24, 'PROBLEM'), (28, 33, 'PLANT')]
+    ("lipsa inflorire apare des la bujor? Cum tratez?", {
+        "entities": [(0, 15, 'PROBLEM'), (29, 34, 'PLANT')]
     }),
-    ("Am observat frunze patate la bujor. Ce fac?", {
+    ("Este lipsa inflorire periculoasă pentru bujor?", {
+        "entities": [(5, 20, 'PROBLEM'), (40, 45, 'PLANT')]
+    }),
+    ("bujor are o problemă: frunze patate.", {
+        "entities": [(22, 35, 'PROBLEM'), (0, 5, 'PLANT')]
+    }),
+    ("Cum pot rezolva frunze patate la bujor?", {
+        "entities": [(16, 29, 'PROBLEM'), (33, 38, 'PLANT')]
+    }),
+    ("Am observat frunze patate la bujor. Ce mă sfătuiți?", {
         "entities": [(12, 25, 'PROBLEM'), (29, 34, 'PLANT')]
     }),
-    ("bujor are problema: boboci care nu se deschid.", {
-        "entities": [(20, 45, 'PROBLEM'), (0, 5, 'PLANT')]
+    ("Ce se poate face dacă bujor suferă de frunze patate?", {
+        "entities": [(38, 51, 'PROBLEM'), (22, 27, 'PLANT')]
     }),
-    ("Cum rezolv boboci care nu se deschid la bujor?", {
-        "entities": [(11, 36, 'PROBLEM'), (40, 45, 'PLANT')]
+    ("frunze patate apare des la bujor? Cum tratez?", {
+        "entities": [(0, 13, 'PROBLEM'), (27, 32, 'PLANT')]
     }),
-    ("Am observat boboci care nu se deschid la bujor. Ce fac?", {
+    ("Este frunze patate periculoasă pentru bujor?", {
+        "entities": [(5, 18, 'PROBLEM'), (38, 43, 'PLANT')]
+    }),
+    ("bujor are o problemă: boboci care nu se deschid.", {
+        "entities": [(22, 47, 'PROBLEM'), (0, 5, 'PLANT')]
+    }),
+    ("Cum pot rezolva boboci care nu se deschid la bujor?", {
+        "entities": [(16, 41, 'PROBLEM'), (45, 50, 'PLANT')]
+    }),
+    ("Am observat boboci care nu se deschid la bujor. Ce mă sfătuiți?", {
         "entities": [(12, 37, 'PROBLEM'), (41, 46, 'PLANT')]
+    }),
+    ("Ce se poate face dacă bujor suferă de boboci care nu se deschid?", {
+        "entities": [(38, 63, 'PROBLEM'), (22, 27, 'PLANT')]
+    }),
+    ("boboci care nu se deschid apare des la bujor? Cum tratez?", {
+        "entities": [(0, 25, 'PROBLEM'), (39, 44, 'PLANT')]
+    }),
+    ("Este boboci care nu se deschid periculoasă pentru bujor?", {
+        "entities": [(5, 30, 'PROBLEM'), (50, 55, 'PLANT')]
+    }),
+    ("Cât de des trebuie udată magnolie?", {
+        "entities": [(25, 33, 'PLANT')]
     }),
     ("Cum ud magnolie?", {
         "entities": [(7, 15, 'PLANT')]
     }),
-    ("Ce metoda de udare folosesc la magnolie?", {
-        "entities": [(13, 18, 'CARE_ASPECT'), (31, 39, 'PLANT')]
+    ("Câtă lumină are nevoie magnolie pe zi?", {
+        "entities": [(23, 31, 'PLANT')]
     }),
-    ("Care e frecventa udarii la magnolie?", {
-        "entities": [(27, 35, 'PLANT')]
-    }),
-    ("Ce fel de lumina prefera magnolie?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (25, 33, 'PLANT')]
-    }),
-    ("Cata lumina are nevoie magnolie?", {
-        "entities": [(5, 11, 'CARE_ASPECT'), (23, 31, 'PLANT')]
-    }),
-    ("Unde pun magnolie pentru o lumina buna?", {
-        "entities": [(27, 33, 'CARE_ASPECT'), (9, 17, 'PLANT')]
-    }),
-    ("In ce mediu palntez magnolie?", {
-        "entities": [(20, 28, 'PLANT')]
-    }),
-    ("Ce sol e potrivit pentru magnolie?", {
+    ("Ce fel de lumină preferă magnolie?", {
         "entities": [(25, 33, 'PLANT')]
     }),
-    ("Ce fel de pamant ii trebuie lui magnolie?", {
-        "entities": [(10, 16, 'CARE_ASPECT'), (32, 40, 'PLANT')]
+    ("Ce compoziție de sol preferă magnolie?", {
+        "entities": [(29, 37, 'PLANT')]
     }),
-    ("Ce trebuie sa stiu despre magnolie?", {
-        "entities": [(26, 34, 'PLANT')]
+    ("Cu ce fel de pământ merge cel mai bine magnolie?", {
+        "entities": [(39, 47, 'PLANT')]
     }),
-    ("Cum se ingrijeste magnolie?", {
-        "entities": [(18, 26, 'PLANT')]
+    ("Aveți sfaturi pentru creșterea lui magnolie?", {
+        "entities": [(35, 43, 'PLANT')]
     }),
-    ("Informatii generale despre magnolie.", {
-        "entities": [(27, 35, 'PLANT')]
+    ("Cum se îngrijește corect magnolie?", {
+        "entities": [(25, 33, 'PLANT')]
     }),
-    ("Cum cresc magnolie?", {
-        "entities": [(10, 18, 'PLANT')]
+    ("magnolie are o problemă: inghet flori.", {
+        "entities": [(25, 37, 'PROBLEM'), (0, 8, 'PLANT')]
     }),
-    ("Ce recomandari aveti pentru magnolie?", {
-        "entities": [(28, 36, 'PLANT')]
+    ("Cum pot rezolva inghet flori la magnolie?", {
+        "entities": [(16, 28, 'PROBLEM'), (32, 40, 'PLANT')]
     }),
-    ("magnolie are problema: inghet flori.", {
-        "entities": [(23, 35, 'PROBLEM'), (0, 8, 'PLANT')]
-    }),
-    ("Cum rezolv inghet flori la magnolie?", {
-        "entities": [(11, 23, 'PROBLEM'), (27, 35, 'PLANT')]
-    }),
-    ("Am observat inghet flori la magnolie. Ce fac?", {
+    ("Am observat inghet flori la magnolie. Ce mă sfătuiți?", {
         "entities": [(12, 24, 'PROBLEM'), (28, 36, 'PLANT')]
     }),
-    ("magnolie are problema: frunze galbene.", {
-        "entities": [(23, 37, 'PROBLEM'), (0, 8, 'PLANT')]
+    ("Ce se poate face dacă magnolie suferă de inghet flori?", {
+        "entities": [(41, 53, 'PROBLEM'), (22, 30, 'PLANT')]
     }),
-    ("Cum rezolv frunze galbene la magnolie?", {
-        "entities": [(11, 25, 'PROBLEM'), (29, 37, 'PLANT')]
+    ("inghet flori apare des la magnolie? Cum tratez?", {
+        "entities": [(0, 12, 'PROBLEM'), (26, 34, 'PLANT')]
     }),
-    ("Am observat frunze galbene la magnolie. Ce fac?", {
+    ("Este inghet flori periculoasă pentru magnolie?", {
+        "entities": [(5, 17, 'PROBLEM'), (37, 45, 'PLANT')]
+    }),
+    ("magnolie are o problemă: frunze galbene.", {
+        "entities": [(25, 39, 'PROBLEM'), (0, 8, 'PLANT')]
+    }),
+    ("Cum pot rezolva frunze galbene la magnolie?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 42, 'PLANT')]
+    }),
+    ("Am observat frunze galbene la magnolie. Ce mă sfătuiți?", {
         "entities": [(12, 26, 'PROBLEM'), (30, 38, 'PLANT')]
     }),
-    ("magnolie are problema: scoarta deteriorata.", {
-        "entities": [(23, 42, 'PROBLEM'), (0, 8, 'PLANT')]
+    ("Ce se poate face dacă magnolie suferă de frunze galbene?", {
+        "entities": [(41, 55, 'PROBLEM'), (22, 30, 'PLANT')]
     }),
-    ("Cum rezolv scoarta deteriorata la magnolie?", {
-        "entities": [(11, 30, 'PROBLEM'), (34, 42, 'PLANT')]
+    ("frunze galbene apare des la magnolie? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 36, 'PLANT')]
     }),
-    ("Am observat scoarta deteriorata la magnolie. Ce fac?", {
+    ("Este frunze galbene periculoasă pentru magnolie?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 47, 'PLANT')]
+    }),
+    ("magnolie are o problemă: scoarta deteriorata.", {
+        "entities": [(25, 44, 'PROBLEM'), (0, 8, 'PLANT')]
+    }),
+    ("Cum pot rezolva scoarta deteriorata la magnolie?", {
+        "entities": [(16, 35, 'PROBLEM'), (39, 47, 'PLANT')]
+    }),
+    ("Am observat scoarta deteriorata la magnolie. Ce mă sfătuiți?", {
         "entities": [(12, 31, 'PROBLEM'), (35, 43, 'PLANT')]
+    }),
+    ("Ce se poate face dacă magnolie suferă de scoarta deteriorata?", {
+        "entities": [(41, 60, 'PROBLEM'), (22, 30, 'PLANT')]
+    }),
+    ("scoarta deteriorata apare des la magnolie? Cum tratez?", {
+        "entities": [(0, 19, 'PROBLEM'), (33, 41, 'PLANT')]
+    }),
+    ("Este scoarta deteriorata periculoasă pentru magnolie?", {
+        "entities": [(5, 24, 'PROBLEM'), (44, 52, 'PLANT')]
+    }),
+    ("Ce metodă de udare se folosește pentru liliac?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 45, 'PLANT')]
+    }),
+    ("Cât de des trebuie udată liliac?", {
+        "entities": [(25, 31, 'PLANT')]
+    }),
+    ("Câtă lumină are nevoie liliac pe zi?", {
+        "entities": [(23, 29, 'PLANT')]
+    }),
+    ("Ce tip de lumină e ideal pentru liliac?", {
+        "entities": [(32, 38, 'PLANT')]
+    }),
+    ("Cu ce fel de pământ merge cel mai bine liliac?", {
+        "entities": [(39, 45, 'PLANT')]
+    }),
+    ("Care e mediul potrivit pentru plantarea lui liliac?", {
+        "entities": [(44, 50, 'PLANT')]
+    }),
+    ("Informații generale despre liliac, vă rog.", {
+        "entities": [(27, 33, 'PLANT')]
+    }),
+    ("Aveți sfaturi pentru creșterea lui liliac?", {
+        "entities": [(35, 41, 'PLANT')]
+    }),
+    ("liliac are o problemă: lipsa florilor.", {
+        "entities": [(23, 37, 'PROBLEM'), (0, 6, 'PLANT')]
+    }),
+    ("Cum pot rezolva lipsa florilor la liliac?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 40, 'PLANT')]
+    }),
+    ("Am observat lipsa florilor la liliac. Ce mă sfătuiți?", {
+        "entities": [(12, 26, 'PROBLEM'), (30, 36, 'PLANT')]
+    }),
+    ("Ce se poate face dacă liliac suferă de lipsa florilor?", {
+        "entities": [(39, 53, 'PROBLEM'), (22, 28, 'PLANT')]
+    }),
+    ("lipsa florilor apare des la liliac? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 34, 'PLANT')]
+    }),
+    ("Este lipsa florilor periculoasă pentru liliac?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 45, 'PLANT')]
+    }),
+    ("liliac are o problemă: pete pe frunze.", {
+        "entities": [(23, 37, 'PROBLEM'), (0, 6, 'PLANT')]
+    }),
+    ("Cum pot rezolva pete pe frunze la liliac?", {
+        "entities": [(16, 30, 'PROBLEM'), (34, 40, 'PLANT')]
+    }),
+    ("Am observat pete pe frunze la liliac. Ce mă sfătuiți?", {
+        "entities": [(12, 26, 'PROBLEM'), (30, 36, 'PLANT')]
+    }),
+    ("Ce se poate face dacă liliac suferă de pete pe frunze?", {
+        "entities": [(39, 53, 'PROBLEM'), (22, 28, 'PLANT')]
+    }),
+    ("pete pe frunze apare des la liliac? Cum tratez?", {
+        "entities": [(0, 14, 'PROBLEM'), (28, 34, 'PLANT')]
+    }),
+    ("Este pete pe frunze periculoasă pentru liliac?", {
+        "entities": [(5, 19, 'PROBLEM'), (39, 45, 'PLANT')]
+    }),
+    ("Ce metodă de udare se folosește pentru iris?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 43, 'PLANT')]
+    }),
+    ("Care este frecvența de udare potrivită pentru iris?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 50, 'PLANT')]
+    }),
+    ("Care e expunerea solară ideală pentru iris?", {
+        "entities": [(38, 42, 'PLANT')]
+    }),
+    ("iris preferă lumină directă sau difuză?", {
+        "entities": [(0, 4, 'PLANT')]
+    }),
+    ("Care e mediul potrivit pentru plantarea lui iris?", {
+        "entities": [(44, 48, 'PLANT')]
+    }),
+    ("Ce compoziție de sol preferă iris?", {
+        "entities": [(29, 33, 'PLANT')]
+    }),
+    ("Cum pot avea grijă eficient de iris?", {
+        "entities": [(31, 35, 'PLANT')]
+    }),
+    ("Cum mențin sănătoasă planta iris?", {
+        "entities": [(28, 32, 'PLANT')]
+    }),
+    ("iris are o problemă: putrezirea rizomului.", {
+        "entities": [(21, 41, 'PROBLEM'), (0, 4, 'PLANT')]
+    }),
+    ("Cum pot rezolva putrezirea rizomului la iris?", {
+        "entities": [(16, 36, 'PROBLEM'), (40, 44, 'PLANT')]
+    }),
+    ("Am observat putrezirea rizomului la iris. Ce mă sfătuiți?", {
+        "entities": [(12, 32, 'PROBLEM'), (36, 40, 'PLANT')]
+    }),
+    ("Ce se poate face dacă iris suferă de putrezirea rizomului?", {
+        "entities": [(37, 57, 'PROBLEM'), (22, 26, 'PLANT')]
+    }),
+    ("putrezirea rizomului apare des la iris? Cum tratez?", {
+        "entities": [(0, 20, 'PROBLEM'), (34, 38, 'PLANT')]
+    }),
+    ("Este putrezirea rizomului periculoasă pentru iris?", {
+        "entities": [(5, 25, 'PROBLEM'), (45, 49, 'PLANT')]
+    }),
+    ("Cât de des trebuie udată garoafa?", {
+        "entities": [(25, 32, 'PLANT')]
+    }),
+    ("Ce metodă de udare se folosește pentru garoafa?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 46, 'PLANT')]
+    }),
+    ("Câtă lumină are nevoie garoafa pe zi?", {
+        "entities": [(23, 30, 'PLANT')]
+    }),
+    ("garoafa preferă lumină directă sau difuză?", {
+        "entities": [(0, 7, 'PLANT')]
+    }),
+    ("Cu ce fel de pământ merge cel mai bine garoafa?", {
+        "entities": [(39, 46, 'PLANT')]
+    }),
+    ("În ce tip de sol se plantează garoafa?", {
+        "entities": [(30, 37, 'PLANT')]
+    }),
+    ("Ce trebuie să știu despre garoafa?", {
+        "entities": [(26, 33, 'PLANT')]
+    }),
+    ("Cum se îngrijește corect garoafa?", {
+        "entities": [(25, 32, 'PLANT')]
+    }),
+    ("garoafa are o problemă: ofilirea florilor.", {
+        "entities": [(24, 41, 'PROBLEM'), (0, 7, 'PLANT')]
+    }),
+    ("Cum pot rezolva ofilirea florilor la garoafa?", {
+        "entities": [(16, 33, 'PROBLEM'), (37, 44, 'PLANT')]
+    }),
+    ("Am observat ofilirea florilor la garoafa. Ce mă sfătuiți?", {
+        "entities": [(12, 29, 'PROBLEM'), (33, 40, 'PLANT')]
+    }),
+    ("Ce se poate face dacă garoafa suferă de ofilirea florilor?", {
+        "entities": [(40, 57, 'PROBLEM'), (22, 29, 'PLANT')]
+    }),
+    ("ofilirea florilor apare des la garoafa? Cum tratez?", {
+        "entities": [(0, 17, 'PROBLEM'), (31, 38, 'PLANT')]
+    }),
+    ("Este ofilirea florilor periculoasă pentru garoafa?", {
+        "entities": [(5, 22, 'PROBLEM'), (42, 49, 'PLANT')]
+    }),
+    ("Ce metodă de udare se folosește pentru tuia?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 43, 'PLANT')]
+    }),
+    ("Care este frecvența de udare potrivită pentru tuia?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 50, 'PLANT')]
+    }),
+    ("Care e expunerea solară ideală pentru tuia?", {
+        "entities": [(38, 42, 'PLANT')]
+    }),
+    ("Ce tip de lumină e ideal pentru tuia?", {
+        "entities": [(32, 36, 'PLANT')]
+    }),
+    ("Care e mediul potrivit pentru plantarea lui tuia?", {
+        "entities": [(44, 48, 'PLANT')]
+    }),
+    ("În ce tip de sol se plantează tuia?", {
+        "entities": [(30, 34, 'PLANT')]
+    }),
+    ("Cum pot avea grijă eficient de tuia?", {
+        "entities": [(31, 35, 'PLANT')]
+    }),
+    ("Cum mențin sănătoasă planta tuia?", {
+        "entities": [(28, 32, 'PLANT')]
+    }),
+    ("tuia are o problemă: brunificare varfuri.", {
+        "entities": [(21, 40, 'PROBLEM'), (0, 4, 'PLANT')]
+    }),
+    ("Cum pot rezolva brunificare varfuri la tuia?", {
+        "entities": [(16, 35, 'PROBLEM'), (39, 43, 'PLANT')]
+    }),
+    ("Am observat brunificare varfuri la tuia. Ce mă sfătuiți?", {
+        "entities": [(12, 31, 'PROBLEM'), (35, 39, 'PLANT')]
+    }),
+    ("Ce se poate face dacă tuia suferă de brunificare varfuri?", {
+        "entities": [(37, 56, 'PROBLEM'), (22, 26, 'PLANT')]
+    }),
+    ("brunificare varfuri apare des la tuia? Cum tratez?", {
+        "entities": [(0, 19, 'PROBLEM'), (33, 37, 'PLANT')]
+    }),
+    ("Este brunificare varfuri periculoasă pentru tuia?", {
+        "entities": [(5, 24, 'PROBLEM'), (44, 48, 'PLANT')]
+    }),
+    ("Care este frecvența de udare potrivită pentru bonsai?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 52, 'PLANT')]
+    }),
+    ("La ce interval se udă bonsai?", {
+        "entities": [(22, 28, 'PLANT')]
+    }),
+    ("bonsai preferă lumină directă sau difuză?", {
+        "entities": [(0, 6, 'PLANT')]
+    }),
+    ("Unde ar trebui să așez bonsai pentru lumină optimă?", {
+        "entities": [(23, 29, 'PLANT')]
+    }),
+    ("Care e mediul potrivit pentru plantarea lui bonsai?", {
+        "entities": [(44, 50, 'PLANT')]
+    }),
+    ("În ce tip de sol se plantează bonsai?", {
+        "entities": [(30, 36, 'PLANT')]
+    }),
+    ("Cum se îngrijește corect bonsai?", {
+        "entities": [(25, 31, 'PLANT')]
+    }),
+    ("Aveți sfaturi pentru creșterea lui bonsai?", {
+        "entities": [(35, 41, 'PLANT')]
+    }),
+    ("bonsai are o problemă: frunze cazatoare.", {
+        "entities": [(23, 39, 'PROBLEM'), (0, 6, 'PLANT')]
+    }),
+    ("Cum pot rezolva frunze cazatoare la bonsai?", {
+        "entities": [(16, 32, 'PROBLEM'), (36, 42, 'PLANT')]
+    }),
+    ("Am observat frunze cazatoare la bonsai. Ce mă sfătuiți?", {
+        "entities": [(12, 28, 'PROBLEM'), (32, 38, 'PLANT')]
+    }),
+    ("Ce se poate face dacă bonsai suferă de frunze cazatoare?", {
+        "entities": [(39, 55, 'PROBLEM'), (22, 28, 'PLANT')]
+    }),
+    ("frunze cazatoare apare des la bonsai? Cum tratez?", {
+        "entities": [(0, 16, 'PROBLEM'), (30, 36, 'PLANT')]
+    }),
+    ("Este frunze cazatoare periculoasă pentru bonsai?", {
+        "entities": [(5, 21, 'PROBLEM'), (41, 47, 'PLANT')]
+    }),
+    ("Cât de des trebuie udată crizantema?", {
+        "entities": [(25, 35, 'PLANT')]
+    }),
+    ("Cum ud crizantema?", {
+        "entities": [(7, 17, 'PLANT')]
+    }),
+    ("Unde ar trebui să așez crizantema pentru lumină optimă?", {
+        "entities": [(23, 33, 'PLANT')]
+    }),
+    ("Ce tip de lumină e ideal pentru crizantema?", {
+        "entities": [(32, 42, 'PLANT')]
+    }),
+    ("Ce fel de pământ este recomandat pentru crizantema?", {
+        "entities": [(40, 50, 'PLANT')]
+    }),
+    ("Cu ce fel de pământ merge cel mai bine crizantema?", {
+        "entities": [(39, 49, 'PLANT')]
+    }),
+    ("Ce trebuie să știu despre crizantema?", {
+        "entities": [(26, 36, 'PLANT')]
+    }),
+    ("Aveți sfaturi pentru creșterea lui crizantema?", {
+        "entities": [(35, 45, 'PLANT')]
+    }),
+    ("crizantema are o problemă: mucegai pe frunze.", {
+        "entities": [(27, 44, 'PROBLEM'), (0, 10, 'PLANT')]
+    }),
+    ("Cum pot rezolva mucegai pe frunze la crizantema?", {
+        "entities": [(16, 33, 'PROBLEM'), (37, 47, 'PLANT')]
+    }),
+    ("Am observat mucegai pe frunze la crizantema. Ce mă sfătuiți?", {
+        "entities": [(12, 29, 'PROBLEM'), (33, 43, 'PLANT')]
+    }),
+    ("Ce se poate face dacă crizantema suferă de mucegai pe frunze?", {
+        "entities": [(43, 60, 'PROBLEM'), (22, 32, 'PLANT')]
+    }),
+    ("mucegai pe frunze apare des la crizantema? Cum tratez?", {
+        "entities": [(0, 17, 'PROBLEM'), (31, 41, 'PLANT')]
+    }),
+    ("Este mucegai pe frunze periculoasă pentru crizantema?", {
+        "entities": [(5, 22, 'PROBLEM'), (42, 52, 'PLANT')]
+    }),
+    ("Care este frecvența de udare potrivită pentru craciunita?", {
+        "entities": [(23, 28, 'CARE_ASPECT'), (46, 56, 'PLANT')]
+    }),
+    ("Ce metodă de udare se folosește pentru craciunita?", {
+        "entities": [(13, 18, 'CARE_ASPECT'), (39, 49, 'PLANT')]
+    }),
+    ("craciunita preferă lumină directă sau difuză?", {
+        "entities": [(0, 10, 'PLANT')]
+    }),
+    ("Ce fel de lumină preferă craciunita?", {
+        "entities": [(25, 35, 'PLANT')]
+    }),
+    ("Ce compoziție de sol preferă craciunita?", {
+        "entities": [(29, 39, 'PLANT')]
+    }),
+    ("Ce fel de pământ este recomandat pentru craciunita?", {
+        "entities": [(40, 50, 'PLANT')]
+    }),
+    ("Informații generale despre craciunita, vă rog.", {
+        "entities": [(27, 37, 'PLANT')]
+    }),
+    ("Care sunt cerințele de bază ale plantei craciunita?", {
+        "entities": [(40, 50, 'PLANT')]
+    }),
+    ("craciunita are o problemă: frunze cazatoare.", {
+        "entities": [(27, 43, 'PROBLEM'), (0, 10, 'PLANT')]
+    }),
+    ("Cum pot rezolva frunze cazatoare la craciunita?", {
+        "entities": [(16, 32, 'PROBLEM'), (36, 46, 'PLANT')]
+    }),
+    ("Am observat frunze cazatoare la craciunita. Ce mă sfătuiți?", {
+        "entities": [(12, 28, 'PROBLEM'), (32, 42, 'PLANT')]
+    }),
+    ("Ce se poate face dacă craciunita suferă de frunze cazatoare?", {
+        "entities": [(43, 59, 'PROBLEM'), (22, 32, 'PLANT')]
+    }),
+    ("frunze cazatoare apare des la craciunita? Cum tratez?", {
+        "entities": [(0, 16, 'PROBLEM'), (30, 40, 'PLANT')]
+    }),
+    ("Este frunze cazatoare periculoasă pentru craciunita?", {
+        "entities": [(5, 21, 'PROBLEM'), (41, 51, 'PLANT')]
     }),
 ]
 
 # Lista entitatilor cunoscute
 ENTITIES = {
-    "PLANT": ['aloe vera', 'bujor', 'cactus', 'crin', 'ficus', 'lalea', 'lavanda', 'magnolie', 'muscata', 'orhidee', 'trandafir'],
+    "PLANT": ['aloe vera', 'bonsai', 'bujor', 'cactus', 'craciunita', 'crin', 'crizantema', 'ficus', 'garoafa', 'iris', 'lalea', 'lavanda', 'liliac', 'magnolie', 'muscata', 'orhidee', 'trandafir', 'tuia'],
     "CARE_ASPECT": ['lumina', 'pamant', 'udare'],
-    "PROBLEM": ['boboci care nu se deschid', 'cadere frunze', 'crestere alungita', 'crestere lemnoasa', 'frunze galbene', 'frunze maro', 'frunze moi', 'frunze patate', 'ingalbenirea frunzelor', 'inghet flori', 'lipsa inflorire', 'pete maronii', 'pete negre', 'putine flori', 'putrezire baza', 'putrezirea bazei', 'putrezirea bulbilor', 'radacini putrede', 'scoarta deteriorata', 'tulpini scurte']
+    "PROBLEM": ['boboci care nu se deschid', 'brunificare varfuri', 'cadere frunze', 'crestere alungita', 'crestere lemnoasa', 'frunze cazatoare', 'frunze galbene', 'frunze maro', 'frunze moi', 'frunze patate', 'ingalbenirea frunzelor', 'inghet flori', 'lipsa florilor', 'lipsa inflorire', 'mucegai pe frunze', 'ofilirea florilor', 'pete maronii', 'pete negre', 'pete pe frunze', 'putine flori', 'putrezire baza', 'putrezirea bazei', 'putrezirea bulbilor', 'putrezirea rizomului', 'radacini putrede', 'scoarta deteriorata', 'tulpini scurte']
 }

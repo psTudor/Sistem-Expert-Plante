@@ -1,6 +1,11 @@
-import json
-import os
+
+import logging
 from typing import Dict, Any, Optional, List
+import json
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 
 try:
     import firebase_admin
@@ -8,6 +13,10 @@ try:
     firebase_available = True
 except ImportError:
     firebase_available = False
+
+    from constants import (
+        ALTERNATIVE_FILE, JSON_DECODE_ERROR, INVALID_JSON_STRUCTURE, FIREBASE_ERROR
+    )
 
 
 class KnowledgeBase:
@@ -30,11 +39,10 @@ class KnowledgeBase:
 
                 self.db = firestore.client()
                 self.using_firebase = True
-                print("Firebase initializat cu succes.")
                 self._load_data_from_firebase()
 
             except Exception as e:
-                print(f"Eroare la initializarea Firebase: {str(e)}")
+                logging.error("Firebase error: %s", e)
                 print("Se va folosi fișierul JSON local ca backup.")
                 self._load_data_from_file(data_file)
         else:
@@ -52,12 +60,13 @@ class KnowledgeBase:
                         self.data = json.load(f)
                 else:
                     raise FileNotFoundError(
-                        f"Nu s-a găsit fișierul de date: {data_file} sau {alternative_path}")
+                        ALTERNATIVE_FILE.format(data_file=data_file, alternative_path=alternative_path))
         except json.JSONDecodeError as e:
-            raise ValueError(f"Eroare la parsarea JSON: {str(e)}")
+            logging.error(JSON_DECODE_ERROR.format(error=str(e)))
+            raise ValueError(JSON_DECODE_ERROR.format(error=str(e)))
         if not self.data or not isinstance(self.data, dict) or "plants" not in self.data:
-            raise ValueError(
-                "Format incorect al fișierului de date: lipsește cheia 'plants'")
+            logging.error(INVALID_JSON_STRUCTURE)
+            raise ValueError(INVALID_JSON_STRUCTURE)
 
     def _load_data_from_firebase(self):
         try:
@@ -72,8 +81,8 @@ class KnowledgeBase:
                 f"Date încărcate din Firebase: {len(self.data['plants'])} plante găsite.")
 
         except Exception as e:
-            raise ValueError(
-                f"Eroare la încărcarea datelor din Firebase: {str(e)}")
+            logging.error(FIREBASE_ERROR)
+            raise ValueError(FIREBASE_ERROR)
 
     def get_all_plants(self) -> List[str]:
         return list(self.data["plants"].keys())

@@ -1,6 +1,14 @@
+from constants import (
+    FILE_NOT_FOUND_MSG, GENERIC_ERROR, NO_IDENTIFICATION_RESULTS,
+    API_ERROR_BODY, API_ERROR_STATUS, IMAGE_FILE_NOT_FOUND, PLANT_IDENTIFICATION_ERROR
+)
 import os
 import requests
 import json
+import logging
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 def identify_plant(image_path: str) -> str:
@@ -24,11 +32,8 @@ def identify_plant(image_path: str) -> str:
                 plants_data = json.load(f)['plants']
         except FileNotFoundError:
             plants_data = {}
-            print("Eroare: Fișierul 'data/plants.json' nu a fost găsit.")
-        except json.JSONDecodeError:
-            plants_data = {}
-            print(
-                "Eroare: Fișierul 'data/plants.json' conține o structură JSON invalidă.")
+            logging.error(FILE_NOT_FOUND_MSG.format(
+                path='data/plants.json'))
 
         with open(image_path, 'rb') as image_file:
             files = {'images': (os.path.basename(
@@ -70,17 +75,20 @@ def identify_plant(image_path: str) -> str:
                         "scientific_name": scientific_name_from_api
                     }
             else:
-                print("Nu s-au găsit rezultate de identificare.")
+                logging.warning(NO_IDENTIFICATION_RESULTS)
                 return {"plant_name": "Nu am putut identifica planta.", "scientific_name": None}
         else:
-            print(f"Eroare API: {response.status_code}")
-            print(response.text)
-            return {"plant_name": "Eroare la identificarea plantei.", "scientific_name": None}
+            logging.error(API_ERROR_STATUS.format(
+                status_code=response.status_code))
+            logging.error(API_ERROR_BODY.format(response_text=response.text))
+            return {"plant_name": PLANT_IDENTIFICATION_ERROR, "scientific_name": None}
 
     except FileNotFoundError:
-        return {"plant_name": "Fișierul imagine nu a fost găsit.", "scientific_name": None}
+        logging.error(IMAGE_FILE_NOT_FOUND)
+        return {"plant_name": IMAGE_FILE_NOT_FOUND, "scientific_name": None}
     except Exception as e:
-        return {"plant_name": f"Eroare neașteptată: {str(e)}", "scientific_name": None}
+        logging.exception("Unexpected error")
+        return GENERIC_ERROR.format(error=str(e))
 
 
 def plant_exists_in_database(plant_name: str) -> bool:
