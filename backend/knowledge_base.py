@@ -51,12 +51,12 @@ class KnowledgeBase:
     def _load_data_from_file(self, data_file: str):
         try:
             if os.path.exists(data_file):
-                with open(data_file, 'r', encoding='utf-8') as f:
+                with open(data_file, 'r', encoding="utf-8") as f:
                     self.data = json.load(f)
             else:
                 alternative_path = "plants.json"
                 if os.path.exists(alternative_path):
-                    with open(alternative_path, 'r', encoding='utf-8') as f:
+                    with open(alternative_path, 'r', encoding="utf-8") as f:
                         self.data = json.load(f)
                 else:
                     raise FileNotFoundError(
@@ -103,6 +103,12 @@ class KnowledgeBase:
         plant_info = self.get_plant_info(plant)
         if plant_info and "cerinte_baza" in plant_info:
             return plant_info["cerinte_baza"]
+        return None
+
+    def get_all_problems_for_plant(self, plant: str) -> Optional[List[str]]:
+        plant_info = self.get_plant_info(plant)
+        if plant_info and "probleme_comune" in plant_info:
+            return [prob_key.replace("_", " ") for prob_key in plant_info["probleme_comune"].keys()]
         return None
 
     def get_problem_details(self, plant: str, problem: str) -> Optional[Dict[str, Any]]:

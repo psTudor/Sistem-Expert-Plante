@@ -8,6 +8,7 @@ from knowledge_base import KnowledgeBase
 from expert_system import PlantExpertSystem
 from image_recognition import identify_plant
 from chatbot import PlantCareBot
+import uvicorn
 
 plant_care_bot = PlantCareBot()
 app = FastAPI(title="Plant Care Expert System API")
@@ -33,38 +34,6 @@ class QueryRequest(BaseModel):
 @app.get("/")
 async def root():
     return {"message": "Bine ai venit la Plant Care Expert System API"}
-
-
-@app.get("/plants")
-async def get_all_plants():
-    plants = kb.get_all_plants()
-    return {"plants": plants}
-
-
-@app.get("/plants/{plant_name}")
-async def get_plant_info(plant_name: str):
-    plant = kb.get_plant_info(plant_name)
-    if not plant:
-        raise HTTPException(status_code=404, detail="Planta nu a fost găsită")
-    return plant
-
-
-@app.get("/plants/{plant_name}/care")
-async def get_basic_care(plant_name: str):
-    care_info = kb.get_basic_care(plant_name)
-    if not care_info:
-        raise HTTPException(
-            status_code=404, detail="Informații de îngrijire negăsite")
-    return care_info
-
-
-@app.get("/plants/{plant_name}/problems")
-async def get_plant_problems(plant_name: str):
-    plant = kb.get_plant_info(plant_name)
-    if not plant or 'probleme_comune' not in plant:
-        raise HTTPException(
-            status_code=404, detail="Informații despre probleme negăsite")
-    return {"problems": plant['probleme_comune']}
 
 
 @app.post("/query")
@@ -105,5 +74,4 @@ async def upload_image(file: UploadFile = File(...)):
             status_code=500, detail=f"Eroare la procesarea imaginii: {str(e)}")
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

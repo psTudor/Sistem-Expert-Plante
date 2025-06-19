@@ -1,8 +1,7 @@
 import spacy
 from knowledge_base import KnowledgeBase
 from expert_system import PlantExpertSystem
-from image_recognition import identify_plant
-from typing import Dict, List, Optional
+from typing import Dict, List
 from training_data import ENTITIES
 import sys
 import os
@@ -21,9 +20,9 @@ class PlantCareBot:
         self.expert_system = PlantExpertSystem()
 
         self.intent_keywords = {
-            'problem': ['problema', 'probleme', 'cad', 'cazut', 'galben', 'putred', 'bolnav', 'pete', 'deteriorare'],
+            'problem': ['problema', 'cad', 'cazut', 'galben', 'putred', 'bolnav', 'pete', 'deteriorare'],
             'care': ['cum', 'cand', 'cat', 'trebuie', 'necesita', 'nevoie', 'ingrijire', 'ingrijesc'],
-            'info': ['ce', 'care', 'spune', 'explica', 'despre', 'detalii', 'spune-mi', 'cum ingrijesc', 'ce ingrijire']
+            'list_problems': ['ce probleme', 'lista probleme', 'toate problemele', 'probleme']
         }
 
         self.aspect_mappings = {
@@ -47,23 +46,6 @@ class PlantCareBot:
 
         # Initializare baza de date cu plante
         self.base_plants = self.kb.get_all_plants()
-        self.plant_variations = {}
-
-        # Creează variatiile pentru fiecare planta de baza
-        for plant in self.base_plants:
-            self.plant_variations[plant] = []
-
-            for form in ENTITIES["PLANT"]:
-                if form == plant or form.startswith(plant):
-                    self.plant_variations[plant].append(form)
-
-            plant_info = self.kb.get_plant_info(plant)
-            if plant_info and "keywords" in plant_info:
-                self.plant_variations[plant].extend(plant_info["keywords"])
-
-            # Eliminare duplicate
-            self.plant_variations[plant] = list(
-                set(self.plant_variations[plant]))
 
     def preprocess_text(self, text: str) -> str:
 
@@ -77,6 +59,10 @@ class PlantCareBot:
     def identify_intent(self, text: str, entities: Dict[str, List[str]]) -> str:
         text = self.preprocess_text(text)
 
+        list_problem_indicators = self.intent_keywords['list_problems']
+        if any(keyword in text for keyword in list_problem_indicators):
+            return 'list_problems'
+
         problem_indicators = self.intent_keywords['problem']
         if any(keyword in text for keyword in problem_indicators) or entities['PROBLEM']:
             return 'problem'
@@ -84,17 +70,6 @@ class PlantCareBot:
         care_indicators = self.intent_keywords['care']
         if any(keyword in text for keyword in care_indicators) or entities['CARE_ASPECT']:
             return 'care'
-
-        info_indicators = self.intent_keywords['info']
-        if any(keyword in text for keyword in info_indicators):
-            return 'info'
-
-        if text.startswith('cum'):
-            return 'care'
-        if text.startswith('ce') or text.startswith('care'):
-            if 'problema' in text or 'cauza' in text:
-                return 'problem'
-            return 'info'
 
         return 'general'
 
@@ -109,28 +84,28 @@ class PlantCareBot:
 
         text_lower = self.preprocess_text(text.lower())
 
-        # Cautam plante in text
-        for base_name, variations in self.plant_variations.items():
-            if base_name in text_lower or any(var in text_lower for var in variations):
-                entities["PLANT"].append(base_name)
+        # Cautare plante in text
+        for plant in self.base_plants:
+            if plant in text_lower:
+                entities["PLANT"].append(plant)
                 break
 
         for ent in doc.ents:
             if ent.label_ == "CARE_ASPECT":
-                # Normalizam aspectul de ingrijire folosind maparea
-                norm_text = self.aspect_mappings.get(
-                    ent.text.lower(), ent.text.lower())
+                # Normalizare aspect de ingrijire folosind maparea
+                ent_text = self.preprocess_text(ent.text.lower())
+                norm_text = self.aspect_mappings.get(ent_text, ent_text)
                 if norm_text not in entities["CARE_ASPECT"]:
                     entities["CARE_ASPECT"].append(norm_text)
             elif ent.label_ == "PROBLEM":
-                # Normalizam problema folosind maparea
-                norm_text = self.problem_mappings.get(
-                    ent.text.lower(), ent.text.lower())
+                # Normalizare problema folosind maparea
+                ent_text = self.preprocess_text(ent.text.lower())
+                norm_text = self.problem_mappings.get(ent_text, ent_text)
                 if norm_text not in entities["PROBLEM"]:
                     entities["PROBLEM"].append(norm_text)
 
         for problem_text, problem_id in self.problem_mappings.items():
-            if f" {problem_text} " in f" {text_lower} ":  # match complet
+            if f" {problem_text} " in f" {text_lower} ":
                 if problem_id not in entities["PROBLEM"]:
                     entities["PROBLEM"].append(problem_id)
 
@@ -153,9 +128,6 @@ class PlantCareBot:
         for key in entities:
             entities[key] = list(set(entities[key]))
 
-        if not entities["PLANT"] and "planta" in text_lower:
-            entities["PLANT"].append("generica")
-
         return entities
 
     def generate_response(self, text: str) -> str:
@@ -171,6 +143,16 @@ class PlantCareBot:
             plant_info = self.kb.get_plant_info(plant)
             if not plant_info:
                 return PLANT_NOT_FOUND.format(plant=plant)
+
+            if intent == 'list_problems':
+                problems_list = self.kb.get_all_problems_for_plant(plant)
+                if problems_list:
+                    return (
+                        f"Pentru {plant}, problemele comune identificate sunt: "
+                        f"{', '.join(problems_list)}."
+                    )
+                else:
+                    return f"Nu am găsit probleme comune înregistrate pentru {plant}."
 
             expert_response = self.expert_system.get_expert_response(
                 entities=entities,
@@ -217,13 +199,6 @@ class PlantCareBot:
                 if user_input.lower() == 'exit':
                     print("\nPlant Care Bot: La revedere! Sper că te-am putut ajuta!")
                     break
-
-                if user_input.lower().startswith('imagine:'):
-                    image_path = user_input.split('imagine:')[1].strip()
-                    plant_name = identify_plant(image_path)
-                    print(
-                        f"\nPlant Care Bot: Planta identificată: {plant_name}")
-                    continue
 
                 if not user_input:
                     print(

@@ -7,16 +7,16 @@ TRAINING_DATA = [
         "entities": [(23, 28, 'CARE_ASPECT'), (46, 53, 'PLANT')]
     }),
     ("Care e expunerea solară ideală pentru orhidee?", {
-        "entities": [(38, 45, 'PLANT')]
+        "entities": [(7, 15, 'CARE_ASPECT'), (38, 45, 'PLANT')]
     }),
     ("Unde ar trebui să așez orhidee pentru lumină optimă?", {
-        "entities": [(23, 30, 'PLANT')]
+        "entities": [(38, 44, 'CARE_ASPECT'), (23, 30, 'PLANT')]
     }),
     ("Ce fel de pământ este recomandat pentru orhidee?", {
-        "entities": [(40, 47, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (40, 47, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui orhidee?", {
-        "entities": [(44, 51, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 51, 'PLANT')]
     }),
     ("Informații generale despre orhidee, vă rog.", {
         "entities": [(27, 34, 'PLANT')]
@@ -67,16 +67,16 @@ TRAINING_DATA = [
         "entities": [(7, 12, 'PLANT')]
     }),
     ("ficus preferă lumină directă sau difuză?", {
-        "entities": [(0, 5, 'PLANT')]
+        "entities": [(14, 20, 'CARE_ASPECT'), (0, 5, 'PLANT')]
     }),
     ("Ce tip de lumină e ideal pentru ficus?", {
-        "entities": [(32, 37, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (32, 37, 'PLANT')]
     }),
     ("În ce tip de sol se plantează ficus?", {
-        "entities": [(30, 35, 'PLANT')]
+        "entities": [(13, 16, 'CARE_ASPECT'), (30, 35, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui ficus?", {
-        "entities": [(44, 49, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 49, 'PLANT')]
     }),
     ("Cum se îngrijește corect ficus?", {
         "entities": [(25, 30, 'PLANT')]
@@ -127,16 +127,16 @@ TRAINING_DATA = [
         "entities": [(7, 16, 'PLANT')]
     }),
     ("trandafir preferă lumină directă sau difuză?", {
-        "entities": [(0, 9, 'PLANT')]
+        "entities": [(18, 24, 'CARE_ASPECT'), (0, 9, 'PLANT')]
     }),
     ("Câtă lumină are nevoie trandafir pe zi?", {
-        "entities": [(23, 32, 'PLANT')]
+        "entities": [(5, 11, 'CARE_ASPECT'), (23, 32, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui trandafir?", {
-        "entities": [(44, 53, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 53, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine trandafir?", {
-        "entities": [(39, 48, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 48, 'PLANT')]
     }),
     ("Cum se cultivă trandafir?", {
         "entities": [(15, 24, 'PLANT')]
@@ -184,19 +184,19 @@ TRAINING_DATA = [
         "entities": [(23, 28, 'CARE_ASPECT'), (46, 50, 'PLANT')]
     }),
     ("Cât de des trebuie udată crin?", {
-        "entities": [(25, 29, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 29, 'PLANT')]
     }),
     ("Ce fel de lumină preferă crin?", {
-        "entities": [(25, 29, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (25, 29, 'PLANT')]
     }),
     ("Câtă lumină are nevoie crin pe zi?", {
-        "entities": [(23, 27, 'PLANT')]
+        "entities": [(5, 11, 'CARE_ASPECT'), (23, 27, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine crin?", {
-        "entities": [(39, 43, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 43, 'PLANT')]
     }),
     ("Ce compoziție de sol preferă crin?", {
-        "entities": [(29, 33, 'PLANT')]
+        "entities": [(17, 20, 'CARE_ASPECT'), (29, 33, 'PLANT')]
     }),
     ("Aveți sfaturi pentru creșterea lui crin?", {
         "entities": [(35, 39, 'PLANT')]
@@ -244,19 +244,19 @@ TRAINING_DATA = [
         "entities": [(13, 18, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
     ("Cât de des trebuie udată muscata?", {
-        "entities": [(25, 32, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 32, 'PLANT')]
     }),
     ("Ce fel de lumină preferă muscata?", {
-        "entities": [(25, 32, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (25, 32, 'PLANT')]
     }),
     ("Care e expunerea solară ideală pentru muscata?", {
-        "entities": [(38, 45, 'PLANT')]
+        "entities": [(7, 15, 'CARE_ASPECT'), (38, 45, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine muscata?", {
-        "entities": [(39, 46, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
     ("În ce tip de sol se plantează muscata?", {
-        "entities": [(30, 37, 'PLANT')]
+        "entities": [(13, 16, 'CARE_ASPECT'), (30, 37, 'PLANT')]
     }),
     ("Care sunt cerințele de bază ale plantei muscata?", {
         "entities": [(40, 47, 'PLANT')]
@@ -304,19 +304,19 @@ TRAINING_DATA = [
         "entities": [(23, 28, 'CARE_ASPECT'), (46, 55, 'PLANT')]
     }),
     ("Cât de des trebuie udată aloe vera?", {
-        "entities": [(25, 34, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 34, 'PLANT')]
     }),
     ("Ce fel de lumină preferă aloe vera?", {
-        "entities": [(25, 34, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (25, 34, 'PLANT')]
     }),
     ("Ce tip de lumină e ideal pentru aloe vera?", {
-        "entities": [(32, 41, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (32, 41, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui aloe vera?", {
-        "entities": [(44, 53, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 53, 'PLANT')]
     }),
     ("În ce tip de sol se plantează aloe vera?", {
-        "entities": [(30, 39, 'PLANT')]
+        "entities": [(13, 16, 'CARE_ASPECT'), (30, 39, 'PLANT')]
     }),
     ("Cum pot avea grijă eficient de aloe vera?", {
         "entities": [(31, 40, 'PLANT')]
@@ -382,19 +382,19 @@ TRAINING_DATA = [
         "entities": [(23, 28, 'CARE_ASPECT'), (46, 52, 'PLANT')]
     }),
     ("Cât de des trebuie udată cactus?", {
-        "entities": [(25, 31, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 31, 'PLANT')]
     }),
     ("Care e expunerea solară ideală pentru cactus?", {
-        "entities": [(38, 44, 'PLANT')]
+        "entities": [(7, 15, 'CARE_ASPECT'), (38, 44, 'PLANT')]
     }),
     ("cactus preferă lumină directă sau difuză?", {
-        "entities": [(0, 6, 'PLANT')]
+        "entities": [(15, 21, 'CARE_ASPECT'), (0, 6, 'PLANT')]
     }),
     ("Ce compoziție de sol preferă cactus?", {
-        "entities": [(29, 35, 'PLANT')]
+        "entities": [(17, 20, 'CARE_ASPECT'), (29, 35, 'PLANT')]
     }),
     ("Ce fel de pământ este recomandat pentru cactus?", {
-        "entities": [(40, 46, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (40, 46, 'PLANT')]
     }),
     ("Cum se îngrijește corect cactus?", {
         "entities": [(25, 31, 'PLANT')]
@@ -460,19 +460,19 @@ TRAINING_DATA = [
         "entities": [(13, 18, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
     ("Cât de des trebuie udată lavanda?", {
-        "entities": [(25, 32, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 32, 'PLANT')]
     }),
     ("Ce fel de lumină preferă lavanda?", {
-        "entities": [(25, 32, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (25, 32, 'PLANT')]
     }),
     ("Câtă lumină are nevoie lavanda pe zi?", {
-        "entities": [(23, 30, 'PLANT')]
+        "entities": [(5, 11, 'CARE_ASPECT'), (23, 30, 'PLANT')]
     }),
     ("În ce tip de sol se plantează lavanda?", {
-        "entities": [(30, 37, 'PLANT')]
+        "entities": [(13, 16, 'CARE_ASPECT'), (30, 37, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine lavanda?", {
-        "entities": [(39, 46, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
     ("Aveți sfaturi pentru creșterea lui lavanda?", {
         "entities": [(35, 42, 'PLANT')]
@@ -535,22 +535,22 @@ TRAINING_DATA = [
         "entities": [(5, 19, 'PROBLEM'), (39, 46, 'PLANT')]
     }),
     ("Cât de des trebuie udată lalea?", {
-        "entities": [(25, 30, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 30, 'PLANT')]
     }),
     ("Ce metodă de udare se folosește pentru lalea?", {
         "entities": [(13, 18, 'CARE_ASPECT'), (39, 44, 'PLANT')]
     }),
     ("Unde ar trebui să așez lalea pentru lumină optimă?", {
-        "entities": [(23, 28, 'PLANT')]
+        "entities": [(36, 42, 'CARE_ASPECT'), (23, 28, 'PLANT')]
     }),
     ("Care e expunerea solară ideală pentru lalea?", {
-        "entities": [(38, 43, 'PLANT')]
+        "entities": [(7, 15, 'CARE_ASPECT'), (38, 43, 'PLANT')]
     }),
     ("Ce fel de pământ este recomandat pentru lalea?", {
-        "entities": [(40, 45, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (40, 45, 'PLANT')]
     }),
     ("Ce compoziție de sol preferă lalea?", {
-        "entities": [(29, 34, 'PLANT')]
+        "entities": [(17, 20, 'CARE_ASPECT'), (29, 34, 'PLANT')]
     }),
     ("Cum se îngrijește corect lalea?", {
         "entities": [(25, 30, 'PLANT')]
@@ -619,16 +619,16 @@ TRAINING_DATA = [
         "entities": [(13, 18, 'CARE_ASPECT'), (39, 44, 'PLANT')]
     }),
     ("Câtă lumină are nevoie bujor pe zi?", {
-        "entities": [(23, 28, 'PLANT')]
+        "entities": [(5, 11, 'CARE_ASPECT'), (23, 28, 'PLANT')]
     }),
     ("Ce tip de lumină e ideal pentru bujor?", {
-        "entities": [(32, 37, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (32, 37, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine bujor?", {
-        "entities": [(39, 44, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 44, 'PLANT')]
     }),
     ("Ce compoziție de sol preferă bujor?", {
-        "entities": [(29, 34, 'PLANT')]
+        "entities": [(17, 20, 'CARE_ASPECT'), (29, 34, 'PLANT')]
     }),
     ("Cum mențin sănătoasă planta bujor?", {
         "entities": [(28, 33, 'PLANT')]
@@ -691,22 +691,22 @@ TRAINING_DATA = [
         "entities": [(5, 30, 'PROBLEM'), (50, 55, 'PLANT')]
     }),
     ("Cât de des trebuie udată magnolie?", {
-        "entities": [(25, 33, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 33, 'PLANT')]
     }),
     ("Cum ud magnolie?", {
         "entities": [(7, 15, 'PLANT')]
     }),
     ("Câtă lumină are nevoie magnolie pe zi?", {
-        "entities": [(23, 31, 'PLANT')]
+        "entities": [(5, 11, 'CARE_ASPECT'), (23, 31, 'PLANT')]
     }),
     ("Ce fel de lumină preferă magnolie?", {
-        "entities": [(25, 33, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (25, 33, 'PLANT')]
     }),
     ("Ce compoziție de sol preferă magnolie?", {
-        "entities": [(29, 37, 'PLANT')]
+        "entities": [(17, 20, 'CARE_ASPECT'), (29, 37, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine magnolie?", {
-        "entities": [(39, 47, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 47, 'PLANT')]
     }),
     ("Aveți sfaturi pentru creșterea lui magnolie?", {
         "entities": [(35, 43, 'PLANT')]
@@ -772,19 +772,19 @@ TRAINING_DATA = [
         "entities": [(13, 18, 'CARE_ASPECT'), (39, 45, 'PLANT')]
     }),
     ("Cât de des trebuie udată liliac?", {
-        "entities": [(25, 31, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 31, 'PLANT')]
     }),
     ("Câtă lumină are nevoie liliac pe zi?", {
-        "entities": [(23, 29, 'PLANT')]
+        "entities": [(5, 11, 'CARE_ASPECT'), (23, 29, 'PLANT')]
     }),
     ("Ce tip de lumină e ideal pentru liliac?", {
-        "entities": [(32, 38, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (32, 38, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine liliac?", {
-        "entities": [(39, 45, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 45, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui liliac?", {
-        "entities": [(44, 50, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 50, 'PLANT')]
     }),
     ("Informații generale despre liliac, vă rog.", {
         "entities": [(27, 33, 'PLANT')]
@@ -835,16 +835,16 @@ TRAINING_DATA = [
         "entities": [(23, 28, 'CARE_ASPECT'), (46, 50, 'PLANT')]
     }),
     ("Care e expunerea solară ideală pentru iris?", {
-        "entities": [(38, 42, 'PLANT')]
+        "entities": [(7, 15, 'CARE_ASPECT'), (38, 42, 'PLANT')]
     }),
     ("iris preferă lumină directă sau difuză?", {
-        "entities": [(0, 4, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (0, 4, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui iris?", {
-        "entities": [(44, 48, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 48, 'PLANT')]
     }),
     ("Ce compoziție de sol preferă iris?", {
-        "entities": [(29, 33, 'PLANT')]
+        "entities": [(17, 20, 'CARE_ASPECT'), (29, 33, 'PLANT')]
     }),
     ("Cum pot avea grijă eficient de iris?", {
         "entities": [(31, 35, 'PLANT')]
@@ -871,22 +871,22 @@ TRAINING_DATA = [
         "entities": [(5, 25, 'PROBLEM'), (45, 49, 'PLANT')]
     }),
     ("Cât de des trebuie udată garoafa?", {
-        "entities": [(25, 32, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 32, 'PLANT')]
     }),
     ("Ce metodă de udare se folosește pentru garoafa?", {
         "entities": [(13, 18, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
     ("Câtă lumină are nevoie garoafa pe zi?", {
-        "entities": [(23, 30, 'PLANT')]
+        "entities": [(5, 11, 'CARE_ASPECT'), (23, 30, 'PLANT')]
     }),
     ("garoafa preferă lumină directă sau difuză?", {
-        "entities": [(0, 7, 'PLANT')]
+        "entities": [(16, 22, 'CARE_ASPECT'), (0, 7, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine garoafa?", {
-        "entities": [(39, 46, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 46, 'PLANT')]
     }),
     ("În ce tip de sol se plantează garoafa?", {
-        "entities": [(30, 37, 'PLANT')]
+        "entities": [(13, 16, 'CARE_ASPECT'), (30, 37, 'PLANT')]
     }),
     ("Ce trebuie să știu despre garoafa?", {
         "entities": [(26, 33, 'PLANT')]
@@ -919,16 +919,16 @@ TRAINING_DATA = [
         "entities": [(23, 28, 'CARE_ASPECT'), (46, 50, 'PLANT')]
     }),
     ("Care e expunerea solară ideală pentru tuia?", {
-        "entities": [(38, 42, 'PLANT')]
+        "entities": [(7, 15, 'CARE_ASPECT'), (38, 42, 'PLANT')]
     }),
     ("Ce tip de lumină e ideal pentru tuia?", {
-        "entities": [(32, 36, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (32, 36, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui tuia?", {
-        "entities": [(44, 48, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 48, 'PLANT')]
     }),
     ("În ce tip de sol se plantează tuia?", {
-        "entities": [(30, 34, 'PLANT')]
+        "entities": [(13, 16, 'CARE_ASPECT'), (30, 34, 'PLANT')]
     }),
     ("Cum pot avea grijă eficient de tuia?", {
         "entities": [(31, 35, 'PLANT')]
@@ -961,16 +961,16 @@ TRAINING_DATA = [
         "entities": [(22, 28, 'PLANT')]
     }),
     ("bonsai preferă lumină directă sau difuză?", {
-        "entities": [(0, 6, 'PLANT')]
+        "entities": [(15, 21, 'CARE_ASPECT'), (0, 6, 'PLANT')]
     }),
     ("Unde ar trebui să așez bonsai pentru lumină optimă?", {
-        "entities": [(23, 29, 'PLANT')]
+        "entities": [(37, 43, 'CARE_ASPECT'), (23, 29, 'PLANT')]
     }),
     ("Care e mediul potrivit pentru plantarea lui bonsai?", {
-        "entities": [(44, 50, 'PLANT')]
+        "entities": [(7, 12, 'CARE_ASPECT'), (44, 50, 'PLANT')]
     }),
     ("În ce tip de sol se plantează bonsai?", {
-        "entities": [(30, 36, 'PLANT')]
+        "entities": [(13, 16, 'CARE_ASPECT'), (30, 36, 'PLANT')]
     }),
     ("Cum se îngrijește corect bonsai?", {
         "entities": [(25, 31, 'PLANT')]
@@ -997,22 +997,22 @@ TRAINING_DATA = [
         "entities": [(5, 21, 'PROBLEM'), (41, 47, 'PLANT')]
     }),
     ("Cât de des trebuie udată crizantema?", {
-        "entities": [(25, 35, 'PLANT')]
+        "entities": [(19, 23, 'CARE_ASPECT'), (25, 35, 'PLANT')]
     }),
     ("Cum ud crizantema?", {
         "entities": [(7, 17, 'PLANT')]
     }),
     ("Unde ar trebui să așez crizantema pentru lumină optimă?", {
-        "entities": [(23, 33, 'PLANT')]
+        "entities": [(41, 47, 'CARE_ASPECT'), (23, 33, 'PLANT')]
     }),
     ("Ce tip de lumină e ideal pentru crizantema?", {
-        "entities": [(32, 42, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (32, 42, 'PLANT')]
     }),
     ("Ce fel de pământ este recomandat pentru crizantema?", {
-        "entities": [(40, 50, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (40, 50, 'PLANT')]
     }),
     ("Cu ce fel de pământ merge cel mai bine crizantema?", {
-        "entities": [(39, 49, 'PLANT')]
+        "entities": [(13, 19, 'CARE_ASPECT'), (39, 49, 'PLANT')]
     }),
     ("Ce trebuie să știu despre crizantema?", {
         "entities": [(26, 36, 'PLANT')]
@@ -1045,16 +1045,16 @@ TRAINING_DATA = [
         "entities": [(13, 18, 'CARE_ASPECT'), (39, 49, 'PLANT')]
     }),
     ("craciunita preferă lumină directă sau difuză?", {
-        "entities": [(0, 10, 'PLANT')]
+        "entities": [(19, 25, 'CARE_ASPECT'), (0, 10, 'PLANT')]
     }),
     ("Ce fel de lumină preferă craciunita?", {
-        "entities": [(25, 35, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (25, 35, 'PLANT')]
     }),
     ("Ce compoziție de sol preferă craciunita?", {
-        "entities": [(29, 39, 'PLANT')]
+        "entities": [(17, 20, 'CARE_ASPECT'), (29, 39, 'PLANT')]
     }),
     ("Ce fel de pământ este recomandat pentru craciunita?", {
-        "entities": [(40, 50, 'PLANT')]
+        "entities": [(10, 16, 'CARE_ASPECT'), (40, 50, 'PLANT')]
     }),
     ("Informații generale despre craciunita, vă rog.", {
         "entities": [(27, 37, 'PLANT')]

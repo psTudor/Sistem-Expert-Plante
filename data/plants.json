@@ -279,15 +279,6 @@
                         "Rotiti periodic ghiveciul pentru o crestere uniforma"
                     ],
                     "detalii": "Creșterea alungită și subțire a cactusului (etiolație) indică faptul că planta nu primește suficientă lumină și încearcă să se întindă spre sursa de lumină. Odată apărută, forma alungită nu mai poate fi corectată."
-                },
-                "pete_maronii": {
-                    "cauze": ["arsuri solare", "aclimatizare nepotrivita", "daunatori"],
-                    "solutii": [
-                        "Aclimatizati treptat cactusul la lumina directa",
-                        "Verificati prezenta daunatorilor precum paduchii de plante",
-                        "Tratati cu insecticid daca este necesar"
-                    ],
-                    "detalii": "Petele maronii pot apărea când un cactus ținut multă vreme la umbră este expus brusc la soare puternic. Introduceți treptat planta la lumină mai intensă pe parcursul a câtorva săptămâni."
                 }
             }
         },
@@ -455,15 +446,6 @@
                 }
             },
             "probleme_comune": {
-                "inghet_flori": {
-                    "cauze": ["inghet tarziu de primavara", "plantare in locatie expusa"],
-                    "solutii": [
-                        "Plantati soiuri cu inflorire mai tarzie",
-                        "Alegeti o locatie protejata de vant si inghet",
-                        "Protejati copacii tineri cu materiale speciale in noptile geroase"
-                    ],
-                    "detalii": "Florile de magnolie sunt foarte sensibile la înghețurile târzii de primăvară. Odată afectate de îngheț, florile devin maro și nu își mai revin. Alegeți o locație ferită sau soiuri cu înflorire mai târzie pentru zonele predispuse la îngheț primăvara."
-                },
                 "frunze_galbene": {
                     "cauze": ["sol prea alcalin (cloroza)", "drenaj inadecvat", "stres hidric"],
                     "solutii": [
@@ -547,8 +529,7 @@
                     "cauze": ["udare excesiva", "drenaj slab"],
                     "solutii": [
                     "Reduceti udarea",
-                    "Replantati in sol drenat",
-                    "Aerati solul"
+                    "Replantati in sol drenat"
                     ],
                     "detalii": "Rizomii de iris pot putrezi usor in soluri grele sau umede."
                 }
@@ -584,7 +565,7 @@
             }
         },
         "tuia": {
-            "keywords": ["tuia", "arbust ornamental", "gard viu", "conifer"],
+            "keywords": ["tuia"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "regulata la plantare, apoi ocazionala",
@@ -614,7 +595,7 @@
             }
         },
         "bonsai": {
-            "keywords": ["bonsai", "miniatura", "copac ornamental", "planta de interior"],
+            "keywords": ["bonsai"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "zilnica sau la 2 zile",
@@ -636,15 +617,14 @@
                     "cauze": ["udare neregulata", "curent de aer", "lipsa luminii"],
                     "solutii": [
                     "Stabiliti un program fix de udare",
-                    "Mutati departe de surse de curent",
                     "Asigurati lumina suficienta"
                     ],
-                    "detalii": "Caderile de frunze sunt semn de stres – cel mai adesea din cauza schimbarilor de mediu."
+                    "detalii": "Caderile de frunze sunt semn de stres, cel mai adesea din cauza schimbarilor de mediu."
                 }
             }
         },
         "crizantema": {
-            "keywords": ["crizantema", "floare de toamna", "perena", "gradina"],
+            "keywords": ["crizantema"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "regulata",
@@ -666,7 +646,6 @@
                     "cauze": ["umiditate ridicata", "ventilatie slaba"],
                     "solutii": [
                     "Evitati udarea frunzelor",
-                    "Rariti plantele",
                     "Aplicati fungicid"
                     ],
                     "detalii": "Crizantemele pot suferi de mucegai cenusiu daca stau in aer umed si stagnat."
@@ -674,7 +653,7 @@
             }
         },
         "craciunita": {
-            "keywords": ["poinsettia", "craciunita", "planta de sarbatoare", "planta de interior"],
+            "keywords": ["poinsettia"],
             "cerinte_baza": {
                 "udare": {
                     "frecventa": "la 3-4 zile",

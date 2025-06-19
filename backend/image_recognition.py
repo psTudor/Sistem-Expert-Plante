@@ -8,16 +8,17 @@ import json
 import logging
 import sys
 import os
+from api_key import (IMAGE_KEY, IMAGE_URL)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 def identify_plant(image_path: str) -> str:
     try:
         # PlantNet API key
-        api_key = "2b108unrmJsXj9zC9avL87jaBe"
+        api_key = IMAGE_KEY
 
         # URL-ul API
-        api_url = "https://my-api.plantnet.org/v2/identify/all"
+        api_url = IMAGE_URL
 
         # Parametrii request
         params = {
@@ -28,14 +29,14 @@ def identify_plant(image_path: str) -> str:
         }
 
         try:
-            with open('data/plants.json', 'r', encoding='utf-8') as f:
+            with open('data/plants.json', 'r', encoding="utf-8") as f:
                 plants_data = json.load(f)['plants']
         except FileNotFoundError:
             plants_data = {}
             logging.error(FILE_NOT_FOUND_MSG.format(
                 path='data/plants.json'))
 
-        with open(image_path, 'rb') as image_file:
+        with open(image_path, 'rb', encoding="utf-8") as image_file:
             files = {'images': (os.path.basename(
                 image_path), image_file, 'image/jpeg')}
 

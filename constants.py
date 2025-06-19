@@ -10,6 +10,7 @@ NEEDS_REPHRASE = (
     "Poți să reformulezi întrebarea?"
 )
 GENERIC_ERROR = "A apărut o eroare neașteptată: {error}"
+JSON_PARSER_ERROR = "Eroare la parsarea fișierului {error}"
 FIREBASE_ERROR = "Eroare la incarcarea datelor din Firebase: {error}"
 EXPERT_ERROR = "A apărut o eroare la apelarea expert system: {error}"
 KNOWLEDGEBASE_ERROR = "Eroare la accesarea bazei de cunoștințe: {error}"
@@ -31,4 +32,8 @@ API_ERROR_PLANT_INFO = "Eroare la obținerea informațiilor despre plantă: {err
 API_ERROR_QUERY = "Eroare la trimiterea interogării: {error}"
 API_ERROR_UPLOAD = "Eroare la încărcarea imaginii: {error}"
 API_GENERIC_RESPONSE_FAIL = "Îmi pare rău, a apărut o eroare în procesarea cererii tale."
+FIREBASE_INIT_SUCCESS = "Initializare firebase"
+FIREBASE_INIT_ERROR = "Eroare initializare firebase"
 MIGRATION_SUMMARY = "Migrare completă: {success}/{total} plante au fost migrate cu succes."
+PLANT_MIGRATION_SUCCESS = "Migrare cu succes pentru planta {plant}"
+PLANT_MIGRATION_ERROR = "Eroare la migrare planta {plant}: {error}"

@@ -1,0 +1,69 @@
+INFO:__main__:S-au încărcat 18 plante din fișierul JSON.
+INFO:__main__:Initializare firebase
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+INFO:__main__:Migrare cu succes pentru planta orhidee
+INFO:__main__:Migrare cu succes pentru planta ficus
+INFO:__main__:Migrare cu succes pentru planta trandafir
+INFO:__main__:Migrare cu succes pentru planta crin
+INFO:__main__:Migrare cu succes pentru planta muscata
+INFO:__main__:Migrare cu succes pentru planta aloe vera
+INFO:__main__:Migrare cu succes pentru planta cactus
+INFO:__main__:Migrare cu succes pentru planta lavanda
+INFO:__main__:Migrare cu succes pentru planta lalea
+INFO:__main__:Migrare cu succes pentru planta bujor
+INFO:__main__:Migrare cu succes pentru planta magnolie
+INFO:__main__:Migrare cu succes pentru planta liliac
+INFO:__main__:Migrare cu succes pentru planta iris
+INFO:__main__:Migrare cu succes pentru planta garoafa
+INFO:__main__:Migrare cu succes pentru planta tuia
+INFO:__main__:Migrare cu succes pentru planta bonsai
+INFO:__main__:Migrare cu succes pentru planta crizantema
+INFO:__main__:Migrare cu succes pentru planta craciunita
+INFO:__main__:Migrare completă: 18/18 plante au fost migrate cu succes.
+INFO:__main__:S-au încărcat 18 plante din fișierul JSON.
+INFO:__main__:Initializare firebase
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+INFO:__main__:Migrare cu succes pentru planta orhidee
+INFO:__main__:Migrare cu succes pentru planta ficus
+INFO:__main__:Migrare cu succes pentru planta trandafir
+INFO:__main__:Migrare cu succes pentru planta crin
+INFO:__main__:Migrare cu succes pentru planta muscata
+INFO:__main__:Migrare cu succes pentru planta aloe vera
+INFO:__main__:Migrare cu succes pentru planta cactus
+INFO:__main__:Migrare cu succes pentru planta lavanda
+INFO:__main__:Migrare cu succes pentru planta lalea
+INFO:__main__:Migrare cu succes pentru planta bujor
+INFO:__main__:Migrare cu succes pentru planta magnolie
+INFO:__main__:Migrare cu succes pentru planta liliac
+INFO:__main__:Migrare cu succes pentru planta iris
+INFO:__main__:Migrare cu succes pentru planta garoafa
+INFO:__main__:Migrare cu succes pentru planta tuia
+INFO:__main__:Migrare cu succes pentru planta bonsai
+INFO:__main__:Migrare cu succes pentru planta crizantema
+INFO:__main__:Migrare cu succes pentru planta craciunita
+INFO:__main__:Migrare completă: 18/18 plante au fost migrate cu succes.
+INFO:__main__:S-au încărcat 18 plante din fișierul JSON.
+INFO:__main__:Initializare firebase
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+INFO:__main__:Migrare cu succes pentru planta orhidee
+INFO:__main__:Migrare cu succes pentru planta ficus
+INFO:__main__:Migrare cu succes pentru planta trandafir
+INFO:__main__:Migrare cu succes pentru planta crin
+INFO:__main__:Migrare cu succes pentru planta muscata
+INFO:__main__:Migrare cu succes pentru planta aloe vera
+INFO:__main__:Migrare cu succes pentru planta cactus
+INFO:__main__:Migrare cu succes pentru planta lavanda
+INFO:__main__:Migrare cu succes pentru planta lalea
+INFO:__main__:Migrare cu succes pentru planta bujor
+INFO:__main__:Migrare cu succes pentru planta magnolie
+INFO:__main__:Migrare cu succes pentru planta liliac
+INFO:__main__:Migrare cu succes pentru planta iris
+INFO:__main__:Migrare cu succes pentru planta garoafa
+INFO:__main__:Migrare cu succes pentru planta tuia
+INFO:__main__:Migrare cu succes pentru planta bonsai
+INFO:__main__:Migrare cu succes pentru planta crizantema
+INFO:__main__:Migrare cu succes pentru planta craciunita
+INFO:__main__:Migrare completă: 18/18 plante au fost migrate cu succes.

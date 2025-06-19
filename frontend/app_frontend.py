@@ -19,29 +19,6 @@ st.set_page_config(
 
 
 # Interactiune cu API
-def get_all_plants():
-    from constants import API_ERROR_PLANTS_LIST
-    try:
-        local_response = requests.get(f"{API_URL}/plants", timeout=10)
-        local_response.raise_for_status()
-        return local_response.json()["plants"]
-    except RequestException as e:
-        logging.error(API_ERROR_PLANTS_LIST.format(error=str(e)))
-        return []
-
-
-def get_plant_info(plant_name_param):
-    from constants import API_ERROR_PLANT_INFO
-    try:
-        local_response = requests.get(
-            f"{API_URL}/plants/{plant_name_param}", timeout=10)
-        local_response.raise_for_status()
-        return local_response.json()
-    except RequestException as e:
-        logging.error(API_ERROR_PLANT_INFO.format(error=str(e)))
-        return None
-
-
 def send_query(text):
     from constants import (API_ERROR_QUERY, API_GENERIC_RESPONSE_FAIL)
     try:

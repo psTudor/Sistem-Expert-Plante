@@ -57,24 +57,32 @@ def generate_training_data(plant_data):
 
     random.seed(42)
 
+    aspect_mapping = {
+        "udare": ["udare", "udat", "uda", "udata"],
+        "lumina": ["lumină", "luminozitate", "iluminare", "soare", "expunere"],
+        "pamant": ["pământ", "sol", "mediu"]
+    }
+
     for plant_name, info in plant_data["plants"].items():
         plants.append(plant_name)
 
-        # --- CERINTE BAZA ---
+        # CERINTE BAZA
         for aspect, templates in care_aspect_templates.items():
             for phrase in random.sample(templates, k=min(2, len(templates))):
                 text = phrase.format(plant=plant_name)
-                start = text.lower().find(plant_name.lower())
-                end = start + len(plant_name)
-                aspect_start = text.lower().find(aspect)
                 entities = []
-                if aspect_start != -1:
-                    entities.append(
-                        (aspect_start, aspect_start + len(aspect), "CARE_ASPECT"))
-                entities.append((start, end, "PLANT"))
+                for term in aspect_mapping.get(aspect, []):
+                    term_start = text.lower().find(term)
+                    if term_start != -1:
+                        entities.append(
+                            (term_start, term_start + len(term), "CARE_ASPECT"))
+                        break
+                plant_start = text.lower().find(plant_name.lower())
+                plant_end = plant_start + len(plant_name)
+                entities.append((plant_start, plant_end, "PLANT"))
                 training_data.append((text, {"entities": entities}))
 
-        # --- ÎNTREBĂRI GENERALE ---
+        # INTREBARI GENERALE
         for phrase in random.sample(general_templates, k=min(2, len(general_templates))):
             text = phrase.format(plant=plant_name)
             start = text.lower().find(plant_name.lower())
@@ -82,7 +90,7 @@ def generate_training_data(plant_data):
             entities = [(start, end, "PLANT")]
             training_data.append((text, {"entities": entities}))
 
-        # --- PROBLEME COMUNE ---
+        # PROBLEME COMUNE
         for problem_key in info.get("probleme_comune", {}):
             problem_text = problem_key.replace("_", " ")
             problems.append(problem_text)

@@ -1,5 +1,5 @@
 from knowledge_base import KnowledgeBase
-from experta import KnowledgeEngine, DefFacts, Rule, Fact, MATCH, AND, OR
+from experta import KnowledgeEngine, DefFacts, Rule, Fact, MATCH
 
 
 class PlantExpertSystem(KnowledgeEngine):
@@ -17,26 +17,42 @@ class PlantExpertSystem(KnowledgeEngine):
         Fact(action="start"),
         Fact(plant=MATCH.plant),
         Fact(problem=MATCH.problem),
-        Fact(intent="problem")
+        Fact(intent="problem"),
     )
     def specific_problem(self, plant, problem):
         problem_info = self.kb.get_problem_details(plant, problem)
-        if problem_info and 'detalii' in problem_info:
-            self.response = f"Pentru {plant} cu problema {problem}: {problem_info['detalii']}"
-        elif problem_info:
-            self.response = (
-                f"Pentru {plant}, problema {problem} poate fi cauzată de: "
-                f"{', '.join(problem_info['cauze'])}.\n"
-                f"Soluții recomandate: {', '.join(problem_info['solutii'])}"
-            )
+        problem_print = problem.replace("_", " ")
+        response_parts = []
+
+        if problem_info:
+            # Adauga detaliile, daca exista
+            if 'detalii' in problem_info and problem_info['detalii']:
+                response_parts.append(
+                    f"Detalii despre problemă: {problem_info['detalii']}")
+
+            # Adauga cauzele, daca exista
+            if 'cauze' in problem_info and problem_info['cauze']:
+                response_parts.append(
+                    f"Cauze posibile: {', '.join(problem_info['cauze'])}.")
+
+            # Adauga solutiile, daca exista
+            if 'solutii' in problem_info and problem_info['solutii']:
+                response_parts.append(
+                    f"Soluții recomandate: {', '.join(problem_info['solutii'])}")
+
+            if response_parts:
+                self.response = f"Pentru {plant} cu problema {problem_print}:\n" + "\n".join(
+                    response_parts)
+            else:
+                self.response = f"Am găsit problema '{problem_print}' la planta {plant}, dar nu am detalii, cauze sau soluții specifice."
         else:
-            self.response = f"Nu am informații specifice despre problema '{problem}' la planta {plant}."
+            self.response = f"Nu am informații specifice despre problema '{problem_print}' la planta {plant}."
 
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
         Fact(aspect=MATCH.aspect),
-        Fact(intent="care")
+        Fact(intent="care"),
     )
     def specific_care(self, plant, aspect):
         care_info = self.kb.get_care_aspect(plant, aspect)
@@ -44,20 +60,6 @@ class PlantExpertSystem(KnowledgeEngine):
             self.response = f"Pentru {plant}, referitor la {aspect}: {care_info['detalii']}"
         else:
             self.response = f"Nu am informații specifice despre aspectul '{aspect}' pentru planta {plant}."
-
-    @Rule(
-        Fact(action="start"),
-        Fact(plant=MATCH.plant),
-        Fact(soil_condition="dry"),
-        Fact(intent="care")
-    )
-    def watering_advice_dry_soil(self, plant):
-        care_info = self.kb.get_care_aspect(plant, "udare")
-        if care_info:
-            self.response = (
-                f"Observ că solul este uscat. "
-                f"Recomandarea pentru {plant}: {care_info['detalii']}"
-            )
 
     @Rule(
         Fact(action="start"),
@@ -79,24 +81,7 @@ class PlantExpertSystem(KnowledgeEngine):
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
-        Fact(problem=MATCH.problem),
-        Fact(condition="wet")
-    )
-    def overwatering_problem(self, plant, problem):
-        if problem == "frunze_galbene":
-            problem_info = self.kb.get_problem_details(plant, problem)
-            if problem_info and "udare excesiva" in problem_info.get("cauze", []):
-                self.response = (
-                    f"Am detectat că planta {plant} are frunze galbene și solul este umed. "
-                    f"Cel mai probabil cauza este udarea excesivă. "
-                    f"Recomandări: {', '.join(problem_info['solutii'])}"
-                )
-
-    @Rule(
-        Fact(action="start"),
-        Fact(plant=MATCH.plant),
-        Fact(aspect="lumina"),
-        Fact(intent="care")
+        Fact(aspect="lumina")
     )
     def light_conditions_check(self, plant):
         care_info = self.kb.get_care_aspect(plant, "lumina")
@@ -111,35 +96,31 @@ class PlantExpertSystem(KnowledgeEngine):
     @Rule(
         Fact(action="start"),
         Fact(plant=MATCH.plant),
-        AND(
-            OR(
-                Fact(problem="frunze_galbene"),
-                Fact(problem="cadere_frunze")
-            ),
-            Fact(condition="dry")
-        )
+        Fact(aspect="udare")
     )
-    def multiple_problems_diagnosis(self, plant):
-        response_parts = []
-
-        yellow_leaves = self.kb.get_problem_details(plant, "frunze_galbene")
-        falling_leaves = self.kb.get_problem_details(plant, "cadere_frunze")
-
-        if yellow_leaves and "lumina insuficienta" in yellow_leaves.get("cauze", []):
-            response_parts.append(
-                f"Frunzele galbene pot fi cauzate de lumină insuficientă. "
-                f"Soluții: {', '.join(yellow_leaves['solutii'])}"
+    def water_conditions_check(self, plant):
+        care_info = self.kb.get_care_aspect(plant, "udare")
+        if care_info:
+            self.response = (
+                f"Pentru {plant}, cerințele de udare sunt următoarele:\n"
+                f"- Frecvență: {care_info.get('frecventa', 'N/A')}\n"
+                f"- Metoda recomandată: {care_info.get('metoda', 'N/A')}\n"
+                f"- {care_info['detalii']}"
             )
 
-        if falling_leaves and "udare neregulata" in falling_leaves.get("cauze", []):
-            response_parts.append(
-                f"Căderea frunzelor poate fi cauzată de udare neregulată. "
-                f"Soluții: {', '.join(falling_leaves['solutii'])}"
+    @Rule(
+        Fact(action="start"),
+        Fact(plant=MATCH.plant),
+        Fact(aspect="pamant")
+    )
+    def soil_conditions_check(self, plant):
+        care_info = self.kb.get_care_aspect(plant, "pamant")
+        if care_info:
+            self.response = (
+                f"Pentru {plant}, cerințele de pămant sunt:\n"
+                f"- Tip: {care_info.get('tip', 'N/A')}\n"
+                f"- {care_info['detalii']}"
             )
-
-        if response_parts:
-            self.response = f"Pentru {plant} am detectat multiple probleme:\n" + \
-                "\n".join(response_parts)
 
     def get_expert_response(self, entities: dict, intent: str) -> str:
         self.reset()
@@ -155,11 +136,6 @@ class PlantExpertSystem(KnowledgeEngine):
 
         if entities.get("CARE_ASPECT"):
             self.declare(Fact(aspect=entities["CARE_ASPECT"][0]))
-
-        if "dry" in entities.get("CONDITION", []):
-            self.declare(Fact(soil_condition="dry"))
-        elif "wet" in entities.get("CONDITION", []):
-            self.declare(Fact(soil_condition="wet"))
 
         self.run()
 
