@@ -12,7 +12,6 @@ from constants import (
 )
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-
 class PlantCareBot:
     def __init__(self, model_path: str = "output/model-best"):
         self.nlp = spacy.load(model_path)
