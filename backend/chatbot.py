@@ -21,14 +21,14 @@ class PlantCareBot:
         self.intent_keywords = {
             'problem': ['problema', 'cad', 'cazut', 'galben', 'putred', 'bolnav', 'pete', 'deteriorare'],
             'care': ['cum', 'cand', 'cat', 'trebuie', 'necesita', 'nevoie', 'ingrijire', 'ingrijesc'],
-            'list_problems': ['ce probleme', 'lista probleme', 'toate problemele', 'probleme']
+            'list_problems': ['ce probleme', 'lista probleme', 'toate problemele', 'probleme', "ce probleme apar"]
         }
 
         self.aspect_mappings = {
-            'ud': 'udare', 'uda': 'udare', 'udat': 'udare', 'apa': 'udare', 'apă': 'udare',
-            'lumina': 'lumina', 'luminozitate': 'lumina', 'soare': 'lumina',
-            'sol': 'pamant', 'plantez': 'pamant', 'plantare': 'pamant', 'mediu': 'pamant',
-            'temperatura': 'temperatura', 'cald': 'temperatura', 'rece': 'temperatura'
+
+            'ud': 'udare', 'uda': 'udare', 'udat': 'udare', 'apa': 'udare',
+            'luminozitate': 'lumina', 'soare': 'lumina',
+            'sol': 'pamant', 'plantez': 'pamant', 'plantare': 'pamant', 'mediu': 'pamant', 'substrat' : 'pamant'
         }
 
         self.problem_mappings = {
