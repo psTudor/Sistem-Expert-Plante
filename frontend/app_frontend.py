@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 API_URL = "http://localhost:8000"
 
 st.set_page_config(
-    page_title="Plant Care Expert System",
+    page_title="Expert Ingrijire Plante",
     page_icon="🪴",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -92,12 +92,6 @@ st.markdown("""
     .stDeployButton {
         display: none !important;
     }
-    button[kind="headerNoPadding"] {
-        display: none !important;
-    }
-    header[data-testid="stHeader"] {
-        display: none !important;
-    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -110,7 +104,7 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
 if page == "Acasă":
-    st.markdown("<h1 class='main-header'>🪴 Sistem Expert pentru Îngrijirea Plantelor</h1>",
+    st.markdown("<h1 class='main-header'>🪴 Sistem Expert Îngrijire Plante</h1>",
                 unsafe_allow_html=True)
 
     st.markdown("""

@@ -150,12 +150,4 @@ class PlantExpertSystem(KnowledgeEngine):
                         f"- Lumină: {basic_care['lumina']['detalii']}\n"
                         f"- Pământ: {basic_care['pamant']['detalii']}"
                     )
-
-                    if entities.get("PROBLEM"):
-                        problem = entities["PROBLEM"][0]
-                        problem_info = self.kb.get_problem_details(
-                            self.current_plant, problem)
-                        if problem_info and 'detalii' in problem_info:
-                            self.response += f"\n\nPentru problema {problem}: {problem_info['detalii']}"
-
         return self.response
